@@ -1,0 +1,154 @@
+{{ define "main" }}
+
+<section class="bohater">
+  <div class="szeroko">
+    <div>
+      <h1>Tradycja i nowa energia w <em>Czemiernikach</em></h1>
+      <p class="zajawka">Jesteśmy Kołem Gospodyń Wiejskich Czemierniki. Od 2018 roku
+      pielęgnujemy lokalne tradycje, gotujemy, organizujemy warsztaty, konkursy
+      i wydarzenia, które łączą mieszkańców naszej gminy.</p>
+      <p>Działamy społecznie i zapraszamy do siebie każdego: kobiety i mężczyzn,
+      młodzież i seniorów, osoby z Czemiernik i okolicznych miejscowości.
+      <strong>U nas liczy się chęć wspólnego działania, nic więcej.</strong></p>
+      <p class="zacheta">💚 Poznaj nas bliżej, a potem po prostu przyjdź. Będzie nam miło!</p>
+      <div class="przyciski">
+        <a class="przycisk przycisk-duzy" href="#dolacz">Dołącz do nas</a>
+        <a class="przycisk przycisk-2 przycisk-duzy" href="https://pasjonaci.czemierniki.org/" target="_blank" rel="noopener">Klub Pasjonatów Ogrodnictwa</a>
+      </div>
+    </div>
+    <div class="bohater-foto">
+      {{/* 60vw na telefonie to celowe zaniżenie: zdjęcie zajmuje 92vw, ale przy tak
+           zadeklarowanym slocie nawet ekran 3x bierze wariant -m, a nie -d. */}}
+      <img class="powieksz" data-duze="/zdjecia/grupa-zlota-d.webp"
+        src="/zdjecia/grupa-zlota-m.webp" srcset="/zdjecia/grupa-zlota-m.webp 800w, /zdjecia/grupa-zlota-d.webp 1600w"
+        sizes="(max-width: 760px) 60vw, 42vw" width="1600" height="1202"
+        alt="Uczestnicy pleneru Klubu Pasjonatów Ogrodnictwa w złotym świetle na tle burzowego nieba" fetchpriority="high">
+      <p class="bohater-plakietka"><b>Od 2018</b> działamy dla mieszkańców</p>
+      <img class="bohater-znak" src="{{ "odznaka-240.webp" | relURL }}" alt="" width="128" height="128" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="sekcja" aria-label="Najważniejsze fakty">
+  <div class="szeroko fakty-kafle">
+    <div class="kafel kafel-f odslon"><b>22 sierpnia 2026</b><span>Dożynki Gminno-Parafialne: nasze stoisko i finały dwóch konkursów Koła</span></div>
+    <div class="kafel kafel-z odslon"><b>Dwa konkursy</b><span>kulinarne „Czemiernickie Smaki” i ogrodniczy „Najpiękniejszy Ogród Gminy Czemierniki”</span></div>
+    <div class="kafel kafel-k odslon"><b>Klub Pasjonatów</b><span>ogrodnictwa przy naszym Kole: otwarty dla wszystkich, udział bezpłatny</span></div>
+  </div>
+</section>
+
+<section class="sekcja sekcja-z">
+  <div class="szeroko">
+    <div class="sekcja-naglowek">
+      <h2>Czym żyje nasze Koło</h2>
+      <p>Koło Gospodyń Wiejskich to dziś znacznie więcej niż kuchnia. Łączymy pokolenia,
+      podtrzymujemy tradycje i robimy konkretne rzeczy dla mieszkańców: od warsztatów
+      dla dzieci po akcje charytatywne. Tak wygląda nasz rok.</p>
+    </div>
+    <div class="drogi drogi-3">
+      <div class="droga odslon"><h3>🌾 Tradycja i kultura</h3><p>Co roku wijemy wieniec dożynkowy i dziękujemy za plony. Współtworzymy Dni Czemiernik, festyny i lokalne święta.</p></div>
+      <div class="droga odslon"><h3>🥟 Kuchnia regionalna</h3><p>Gotujemy na wydarzenia gminne i parafialne, a lokalne przepisy zebraliśmy w konkursie „Czemiernickie Smaki” pod patronatem Burmistrza.</p></div>
+      <div class="droga odslon"><h3>✂️ Warsztaty i edukacja</h3><p>Rękodzieło, palmy i ozdoby świąteczne, warsztaty tkackie i ekologiczne. Dla dzieci, młodzieży i dorosłych.</p></div>
+      <div class="droga odslon"><h3>❤️ Pomagamy</h3><p>Kwesty, kiermasze ciast i pikniki charytatywne: dla chorych dzieci z naszej okolicy i na hospicjum w Lubartowie.</p></div>
+      <div class="droga odslon"><h3>🪴 Ogrodnictwo</h3><p>Nasz Klub Pasjonatów Ogrodnictwa spotyka się w ogrodach, wymienia sadzonkami i prowadzi konkurs na najpiękniejszy ogród gminy.</p></div>
+      <div class="droga odslon"><h3>🚲 Integracja</h3><p>Wyjazdy, rajdy rowerowe i turniej „KGW Challenge” kół z całej gminy. Poznajemy się, zamiast tylko mijać.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sekcja sekcja-pas">
+  <div class="pas">
+    <div>
+      <div>
+        <h2>Spotkajmy się na Dożynkach</h2>
+        <p>W sobotę <b>22 sierpnia</b> na Dożynkach Gminno-Parafialnych w Czemiernikach
+        stawiamy nasze dotychczas największe stoisko, wspólnie z Klubem Pasjonatów
+        Ogrodnictwa. Będą dania konkursowe „Czemiernickich Smaków” oraz ogłoszenie
+        wyników obu naszych konkursów.</p>
+      </div>
+      <a class="przycisk przycisk-duzy" href="{{ site.Params.facebook }}" target="_blank" rel="noopener">Śledź nas na Facebooku</a>
+    </div>
+  </div>
+</section>
+
+<section class="sekcja">
+  <div class="szeroko">
+    <div class="dwie-kolumny">
+      <div>
+        <h2>Klub Pasjonatów Ogrodnictwa</h2>
+        <p>Wiosną 2026 roku powołaliśmy przy Kole otwarty klub dla miłośników zieleni.
+        Klubowicze spotykają się w swoich ogrodach, wymieniają sadzonkami i nasionami,
+        organizują konkurs <strong>Najpiękniejszy Ogród Gminy Czemierniki</strong>,
+        a przy okazji porządkują zapomniane mogiły na czemiernickim cmentarzu.</p>
+        <p><strong>Udział jest całkowicie bezpłatny i nie wymaga członkostwa w Kole.</strong>
+        Klub ma własną stronę: znajdziesz tam terminy spotkań, zdjęcia z plenerów
+        i wszystkie szczegóły.</p>
+        <p><a class="przycisk" href="https://pasjonaci.czemierniki.org/" target="_blank" rel="noopener">Wejdź na stronę Klubu</a></p>
+      </div>
+      <figure>
+        <img class="powieksz" data-duze="/zdjecia/ogrod-zloty-d.webp"
+          src="/zdjecia/ogrod-zloty-m.webp" srcset="/zdjecia/ogrod-zloty-m.webp 800w, /zdjecia/ogrod-zloty-d.webp 1600w"
+          sizes="(max-width: 760px) 60vw, 42vw" width="1600" height="1202"
+          alt="Uczestnicy lipcowego pleneru Klubu w ogrodzie pełnym kwiatów, w złotym świetle wieczoru" loading="lazy">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="sekcja sekcja-f">
+  <div class="szeroko">
+    <div class="sekcja-naglowek">
+      <h2>Wspierają nas</h2>
+      <p>Nasze konkursy i wydarzenia są możliwe dzięki ludziom i firmom z naszej gminy.</p>
+    </div>
+    <div class="partnerzy">
+      <div class="partner odslon">
+        <span class="rola">Patronat i wsparcie nagród</span>
+        <h3>Burmistrz Miasta Czemierniki</h3>
+        <p>Arkadiusz Filipek objął Honorowym Patronatem oba konkursy Koła: kulinarny
+        i ogrodniczy, a do puli nagród konkursu ogrodniczego dołożył 1.000 zł.</p>
+      </div>
+      <div class="partner odslon">
+        <span class="rola">Fundator nagrody głównej</span>
+        <h3>Szkółka Roślin Ozdobnych Ania</h3>
+        <p>Voucher o wartości 1.000 zł dla zwycięzcy konkursu ogrodniczego.
+        Właścicielka zasiada w komisji konkursowej.</p>
+      </div>
+      <div class="partner odslon">
+        <span class="rola">Komisja konkursowa</span>
+        <h3>Kwiaciarnia Flowers</h3>
+        <p>Barbara Jul-Borkowska wspiera konkurs ogrodniczy swoim doświadczeniem
+        w komisji konkursowej.</p>
+      </div>
+    </div>
+    <p style="margin-top:1.6rem"><a class="przycisk przycisk-2" href="/wesprzyj/">Zobacz, jak możesz nas wesprzeć</a></p>
+  </div>
+</section>
+
+<section class="sekcja sekcja-z" id="dolacz">
+  <div class="szeroko">
+    <div class="sekcja-naglowek">
+      <h2>Dołącz do nas</h2>
+      <p>Nie musisz umieć gotować ani mieć „gospodyni” w życiorysie.
+      Wystarczy, że chcesz coś robić z ludźmi i dla ludzi.</p>
+    </div>
+    <div class="dwie-kolumny">
+      <div class="droga odslon">
+        <h3>Zostań członkinią albo członkiem Koła</h3>
+        <p>Członkowie Koła współtworzą wszystkie nasze działania: od wieńca dożynkowego
+        po konkursy i wyjazdy. Napisz albo zadzwoń, opowiemy, jak działamy,
+        i zaprosimy Cię na najbliższe spotkanie.</p>
+        <p style="margin-bottom:0"><a class="przycisk" href="/kontakt/">Napisz do nas</a></p>
+      </div>
+      <div class="droga odslon">
+        <h3>Wolisz zacząć od ogrodu?</h3>
+        <p>Klub Pasjonatów Ogrodnictwa jest otwarty dla wszystkich, bez zapisów do Koła
+        i bez żadnych opłat. Przyjdź na spotkanie, zobacz, jak wyglądają nasze plenery,
+        a resztę zobaczymy z czasem.</p>
+        <p style="margin-bottom:0"><a class="przycisk przycisk-2" href="https://pasjonaci.czemierniki.org/dolacz/" target="_blank" rel="noopener">Dołącz do Klubu</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}

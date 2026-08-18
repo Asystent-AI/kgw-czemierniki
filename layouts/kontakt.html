@@ -1,0 +1,85 @@
+{{ define "main" }}
+
+<section class="strona-glowa">
+  <div class="szeroko">
+    <div>
+      <div class="znaczki">
+        <span class="znaczek znaczek-z">Odpowiadamy tego samego dnia</span>
+        <span class="znaczek znaczek-kontur">Koło Gospodyń Wiejskich Czemierniki</span>
+      </div>
+      <h1>Kontakt</h1>
+      <p class="zajawka">Napisz do nas, zadzwoń albo zaczep nas na najbliższym wydarzeniu.</p>
+      <ul class="lista-ok">
+        <li><strong>Chcesz do nas dołączyć?</strong> Napisz albo zadzwoń, opowiemy, jak
+        działamy, i zaprosimy Cię na najbliższe spotkanie.</li>
+        <li><strong>Chcesz wesprzeć nasze działania?</strong> Zobacz,
+        <a href="/wesprzyj/">jak można nam pomóc</a> i co oferujemy partnerom.</li>
+        <li><strong>Interesuje Cię ogrodnictwo?</strong> Zajrzyj na stronę naszego
+        <a href="https://pasjonaci.czemierniki.org/" target="_blank" rel="noopener">Klubu Pasjonatów Ogrodnictwa</a>.</li>
+        <li><strong>Masz pomysł na wspólne działanie?</strong> Sołectwo, szkoła, firma,
+        stowarzyszenie: chętnie porozmawiamy o współpracy.</li>
+      </ul>
+    </div>
+    <figure class="figura-logo">
+      <img src="/odznaka.webp" width="640" height="640"
+        alt="Odznaka Koła Gospodyń Wiejskich Czemierniki: kwiat ciemiernika w fioletowym pierścieniu">
+    </figure>
+  </div>
+</section>
+
+<section class="sekcja">
+  <div class="szeroko">
+    <div class="dwie-kolumny">
+
+      <form class="formularz formularz-mini" method="post" action="/api/kontakt" data-sukces="Dziękujemy za wiadomość! Odezwiemy się najszybciej, jak się da, zwykle tego samego dnia." novalidate>
+        <h2>Napisz do nas</h2>
+        <input type="hidden" name="temat" value="kontakt-kgw">
+        <div class="pole">
+          <label for="k-imie">Imię i nazwisko</label>
+          <input type="text" id="k-imie" name="imie" autocomplete="name" required>
+          <p class="blad-pola">Podaj imię, żebyśmy wiedzieli, do kogo piszemy.</p>
+        </div>
+        <div class="pole">
+          <label for="k-kontakt">Telefon albo e-mail</label>
+          <input type="text" id="k-kontakt" name="kontakt" autocapitalize="none" spellcheck="false" required>
+          <p class="blad-pola">Zostaw numer telefonu albo adres e-mail, inaczej nie zdołamy odpowiedzieć.</p>
+        </div>
+        <div class="pole">
+          <label for="k-wiadomosc">Wiadomość</label>
+          <textarea id="k-wiadomosc" name="wiadomosc" required></textarea>
+          <p class="blad-pola">Napisz choć zdanie, o co chodzi.</p>
+        </div>
+        <p class="pulapka" aria-hidden="true">
+          <label for="k-www">Zostaw to pole puste</label>
+          <input type="text" id="k-www" name="strona_www" tabindex="-1" autocomplete="off">
+        </p>
+        <button type="submit" class="przycisk wyslij">Wyślij wiadomość</button>
+        <div class="wynik-wyslania" role="status"></div>
+        <p class="podpowiedz" style="font-size:.9rem;color:var(--tekst-2);margin:.9rem 0 0">Dane z formularza
+        wykorzystamy do odpowiedzi na Twoją wiadomość, a adres IP do ochrony przed robotami.
+        Szczegóły w <a href="/prywatnosc/">Polityce prywatności</a>.</p>
+      </form>
+
+      <div class="kontakt-dane">
+        <div class="kontakt-pozycja">
+          <span class="etykieta">Telefon</span>
+          <a class="wartosc" href="tel:+48795716644">795 716 644</a>
+          <p>Beata Michalska. Jeśli nie odbierze, oddzwoni.</p>
+        </div>
+        <div class="kontakt-pozycja">
+          <span class="etykieta">E-mail</span>
+          <a class="wartosc" href="mailto:kgw.czemierniki@gmail.com">kgw.czemierniki<wbr>@gmail.com</a>
+          <p>Skrzynka Koła: sprawy członkowskie, współpraca, dokumenty.</p>
+        </div>
+        <div class="kontakt-pozycja">
+          <span class="etykieta">Facebook</span>
+          <a class="wartosc" href="https://www.facebook.com/kgw.czemierniki" target="_blank" rel="noopener">Profil KGW Czemierniki</a>
+          <p>Tu ogłaszamy terminy spotkań i relacje z wydarzeń. Można pisać na Messengerze.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{{ end }}

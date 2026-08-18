@@ -1,0 +1,28 @@
+# Lista zdjęć do podglądu (skrypt czyta ją z <script id="zdjecia-klubu">).
+# Strona KGW nie ma własnej galerii-siatki: zdjęcia z wydarzeń Klubu Pasjonatów
+# ilustrują sekcje, a podgląd po kliknięciu przewija ten zestaw.
+# plik = nazwa bez sufiksu, na dysku warianty -s/-m/-d.webp.
+- plik: grupa-zlota
+  w: 800
+  h: 601
+  alt: Uczestnicy pleneru Klubu Pasjonatów Ogrodnictwa w złotym świetle na tle burzowego nieba
+- plik: ogrod-zloty
+  w: 800
+  h: 601
+  alt: Uczestnicy lipcowego pleneru Klubu w ogrodzie pełnym kwiatów, w złotym świetle wieczoru
+- plik: spacer-rabata
+  w: 800
+  h: 601
+  alt: Klubowicze oglądają rabatę traw i bylin
+- plik: rozmowy
+  w: 800
+  h: 601
+  alt: Rozmowy uczestników spotkania Klubu w ogrodzie
+- plik: tecza-parasolki
+  w: 800
+  h: 601
+  alt: Klubowicze pod kolorowymi parasolkami, nad ogrodem tęcza
+- plik: jezowki-ludzie
+  w: 800
+  h: 601
+  alt: Uczestnicy pleneru Klubu w ogrodzie, na pierwszym planie kwitnące jeżówki

@@ -1,0 +1,39 @@
+baseURL = 'https://kgw.czemierniki.org/'
+languageCode = 'pl-pl'
+defaultContentLanguage = 'pl'
+title = 'Koło Gospodyń Wiejskich Czemierniki'
+enableRobotsTXT = true
+
+[params]
+  opis = 'Koło Gospodyń Wiejskich Czemierniki: tradycja, kuchnia regionalna, warsztaty, wydarzenia dla mieszkańców i Klub Pasjonatów Ogrodnictwa. Działamy dla Czemiernik i okolic.'
+  telefon = '795 716 644'
+  email = 'kgw.czemierniki@gmail.com'
+  facebook = 'https://www.facebook.com/kgw.czemierniki'
+  pasjonaci = 'https://pasjonaci.czemierniki.org/'
+  # Statystyki: skrypt z własnej domeny (Traefik przepuszcza tylko /statystyki/script.js
+  # i /statystyki/api/send do kontenera umami). Panel: https://statystyki.czemierniki.org
+  umami = '/statystyki/script.js'
+  umamiId = '892dca11-d6be-49c5-b1fb-6dd49ca10671'
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[markup.tableOfContents]
+  startLevel = 2
+  endLevel = 2
+  ordered = false
+
+[menus]
+  # Klub Pasjonatów prowadzi na własną stronę Klubu: jedna rodzina, dwa adresy
+  [[menus.main]]
+    name = 'Klub Pasjonatów'
+    url = 'https://pasjonaci.czemierniki.org/'
+    weight = 10
+  [[menus.main]]
+    name = 'Wesprzyj nas'
+    pageRef = '/wesprzyj'
+    weight = 20
+  [[menus.main]]
+    name = 'Kontakt'
+    pageRef = '/kontakt'
+    weight = 30
