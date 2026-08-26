@@ -31,6 +31,20 @@ Assety logo (odznaka, favicon, og.jpg) generuje `narzedzia/assety_kgw.py`
 z `input/KGW_Czemierniki_-_Logo.png` (pieczęć z ciemiernikiem, fiolet + zieleń —
 ta sama rodzina co znak Klubu).
 
+### Maile pisane ręcznie z Gmaila
+
+Szablon firmowy Koła leży poza tym repo, w `output/2026-08-26-szablon-mail-kgw.html`
+(otwierasz w przeglądarce, `Ctrl+A`, `Ctrl+C`, wklejasz do okna wiadomości w Gmailu).
+Dwa obrazy ciągnie z tej domeny, bo w ręcznym mailu nie ma jak osadzić `cid`:
+
+- `static/odznaka-240.png` — pieczęć w nagłówku,
+- `static/logotyp-pion-mail.png` — logotyp pionowy w stopce przy podpisie, 183 × 246 px
+  (2 × wymiar wyświetlania), z `input/KGW_Czemierniki_-_Logo_pionowe_bez_tła.png`.
+  **PNG, nie webp** — Outlook webp nie renderuje.
+
+Jeśli któryś z tych plików zniknie ze `static/`, stopka maili rozsypie się u odbiorców,
+a nie u nas.
+
 ## Wdrożenie (Coolify/Traefik na Hetznerze)
 
 Serwer: root@204.168.196.86. Strona chodzi jako kontener `kgw-www` (nginx:alpine,
