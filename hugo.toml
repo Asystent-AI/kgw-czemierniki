@@ -1,5 +1,5 @@
 baseURL = 'https://kgw.czemierniki.org/'
-languageCode = 'pl-pl'
+locale = 'pl-PL'
 defaultContentLanguage = 'pl'
 title = 'Koło Gospodyń Wiejskich Czemierniki'
 enableRobotsTXT = true
