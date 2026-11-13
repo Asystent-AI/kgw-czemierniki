@@ -81,12 +81,12 @@ usunąć z panelu Coolify — pliki i kontener nie są już używane.
 
 ## Struktura
 
-- `/poradnik/`: czytelnia MMS, opublikowana 13.11.2026 na podstawie ostatecznego
+- `/poradnik/`: poradnik online MMS, opublikowany 13.11.2026 na podstawie ostatecznego
   wydania z 8.11.2026. `layouts/poradnik.html`, `assets/css/poradnik.css`,
   `assets/js/poradnik.js`, `data/poradnik.json`, pliki w `static/poradnik/`.
   Pełny tekst i ilustracje, 16 oryginalnych stron, wyszukiwanie rozdziałów,
   rozmiar tekstu, tryb nocny, odsłuch przy dostępnym polskim głosie urządzenia,
-  niezmienione pliki PDF/TXT. Skróty rozdziałów w adresach URL. Bez JavaScript
+  niezmienione archiwalne pliki PDF/TXT. Skróty rozdziałów w adresach URL. Bez JavaScript
   wszystkie rozdziały są widoczne; nie zapisujemy danych domowego planu.
   Ilustrowany wybór tematów, tryb skupienia, przyklejona nawigacja, orientacyjny
   czas czytania, kopiowanie linku i opcjonalna zakładka. Podgląd oryginalnej strony
@@ -96,6 +96,9 @@ usunąć z panelu Coolify — pliki i kontener nie są już używane.
   LocalStorage przechowuje rozmiar tekstu, motyw i zakładkę na żądanie. Metryka oraz sumy
   SHA-256 plików źródłowych: `data/poradnik-source.json`. Informacja o wydaniu
   nie oznacza aktualizacji danych miejscowych; źródłowy tekst zachowuje daty.
+  Nazewnictwo online: "poradnik" zamiast "książeczka" oraz "Poradnik online"
+  zamiast "Czytelnia" (także w tekście i odsłuchu); archiwalne odwzorowanie
+  wydania drukowanego i pliki do pobrania zachowują oryginalne brzmienie.
   Kontrola 13.11.2026: wszystkie 16 rozdziałów przy szerokości 320 px i największej
   czcionce, ciemny motyw, tryb skupienia, dialog 375 px z powiększeniem i Esc,
   powrót do zakładki po przeładowaniu, kopiowanie linku, nawigacja klawiaturą.
