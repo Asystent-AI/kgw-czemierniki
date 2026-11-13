@@ -1,0 +1,2 @@
+# Keep the downloadable original byte-for-byte identical on Windows checkouts.
+static/poradnik/poradnik-czemierniki.txt -text
