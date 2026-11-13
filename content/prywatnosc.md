@@ -2,7 +2,7 @@
 title: "Polityka prywatności"
 description: "Jak Koło Gospodyń Wiejskich Czemierniki przetwarza dane osobowe na swojej stronie: formularze kontaktowe, statystyki, zdjęcia, prawa osób i kontakt w sprawach RODO."
 zajawka: "Zbieramy tylko to, co potrzebne, żeby odpisać na wiadomość i wiedzieć, czy ktokolwiek tu zagląda. Poniżej dokładnie: co, po co, na jak długo i jak to zmienić."
-zaktualizowano: "19 sierpnia 2026"
+zaktualizowano: "13 listopada 2026"
 spis: true
 ---
 
@@ -102,6 +102,12 @@ Jeżeli wniesiesz sprzeciw wobec przetwarzania opartego na naszym prawnie uzasad
 **Ta strona nie zapisuje w Twojej przeglądarce żadnych plików cookies.** Nie robimy tego ani my, ani nasze statystyki, ani nikt inny, bo nie ma tu obcych skryptów.
 
 Żeby policzyć wizytę, skrypt statystyk odczytuje adres odwiedzanej strony, adres strony poprzedniej oraz kilka ustawień przeglądarki: język, rozdzielczość ekranu i rodzaj urządzenia. Sprawdza też jeden zapis w pamięci przeglądarki, opisany niżej, żeby wiedzieć, czy nie prosisz o wyłączenie liczenia.
+
+### Ustawienia i odsłuch poradnika
+
+Czytnik poradnika zapamiętuje wybrany rozmiar tekstu i tryb dzienny lub nocny w pamięci lokalnej Twojej przeglądarki (localStorage). Te ustawienia pozostają na urządzeniu, nie wymagają konta i nie są przesyłane do nas. Możesz je usunąć, czyszcząc dane tej strony w przeglądarce.
+
+Odsłuch uruchamia się wyłącznie po naciśnięciu przycisku i korzysta z polskiego głosu dostępnego w przeglądarce lub systemie. Czytnik preferuje głos lokalny; jeżeli urządzenie udostępnia tylko głos sieciowy, przetwarzanie tekstu może odbywać się u dostawcy tego głosu. Funkcja nie korzysta z mikrofonu.
 
 ### Wyłącz liczenie swoich wizyt
 

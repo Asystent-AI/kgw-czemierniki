@@ -1,4 +1,5 @@
 {{ define "main" }}
+{{ with resources.Get "css/poradnik.css" }}{{ $c := . | fingerprint }}<link rel="stylesheet" href="{{ $c.RelPermalink }}">{{ end }}
 
 <section class="bohater">
   <div class="szeroko">
@@ -27,6 +28,16 @@
       <img class="bohater-znak" src="{{ "odznaka-240.webp" | relURL }}" alt="" width="128" height="128" loading="lazy">
     </div>
   </div>
+</section>
+
+<section class="szeroko guide-home-banner" aria-labelledby="poradnik-home-title">
+  <div>
+    <p class="guide-eyebrow">Nowy poradnik dla mieszkańców</p>
+    <h2 id="poradnik-home-title">Czemierniki trzymają się razem!</h2>
+    <p>Co zrobić, gdy zabraknie prądu? Jak przygotować dom i zadbać o bliskich? Przeczytaj nasz ilustrowany poradnik, rozdział po rozdziale, albo pobierz książeczkę na później.</p>
+    <a class="przycisk" href="/poradnik/">Otwórz poradnik</a>
+  </div>
+  <img src="/poradnik/ilustracja-01.webp" width="1200" height="800" alt="Akwarelowy widok pałacu w Czemiernikach nad stawem" loading="lazy">
 </section>
 
 <section class="sekcja" aria-label="Najważniejsze fakty">

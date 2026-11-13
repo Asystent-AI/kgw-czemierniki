@@ -24,6 +24,10 @@ enableRobotsTXT = true
   ordered = false
 
 [menus]
+  [[menus.main]]
+    name = 'Poradnik'
+    pageRef = '/poradnik'
+    weight = 5
   # Klub Pasjonatów prowadzi na własną stronę Klubu: jedna rodzina, dwa adresy
   [[menus.main]]
     name = 'Klub Pasjonatów'

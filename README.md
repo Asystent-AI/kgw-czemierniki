@@ -81,6 +81,17 @@ usunąć z panelu Coolify — pliki i kontener nie są już używane.
 
 ## Struktura
 
+- `/poradnik/`: czytelnia MMS, opublikowana 13.11.2026 na podstawie ostatecznego
+  wydania z 8.11.2026. `layouts/poradnik.html`, `assets/css/poradnik.css`,
+  `assets/js/poradnik.js`, `data/poradnik.json`, pliki w `static/poradnik/`.
+  Pełny tekst i ilustracje, 16 oryginalnych stron, wyszukiwanie rozdziałów,
+  rozmiar tekstu, tryb nocny, odsłuch przy dostępnym polskim głosie urządzenia,
+  niezmienione pliki PDF/TXT. Skróty rozdziałów w adresach URL. Bez JavaScript
+  wszystkie rozdziały są widoczne; nie zapisujemy danych domowego planu.
+  LocalStorage przechowuje wyłącznie rozmiar tekstu i motyw. Metryka oraz sumy
+  SHA-256 plików źródłowych: `data/poradnik-source.json`. Informacja o wydaniu
+  nie oznacza aktualizacji danych miejscowych; źródłowy tekst zachowuje daty.
+
 - `layouts/home.html` — strona główna (hero, kafle, czym żyjemy, pas Dożynek,
   sekcja Klubu, partnerzy, dołącz)
 - `layouts/wesprzyj.html` — drogi wsparcia + konto + formularz (temat `sponsor-kgw`)

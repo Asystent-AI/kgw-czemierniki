@@ -1,0 +1,118 @@
+{{ define "main" }}
+{{ with resources.Get "css/poradnik.css" }}{{ $c := . | fingerprint }}<link rel="stylesheet" href="{{ $c.RelPermalink }}">{{ end }}
+<div class="poradnik" id="poradnik">
+  <a class="reader-skip" href="#czytelnia">Przejdź do treści poradnika</a>
+  <section class="guide-hero">
+    <div class="guide-hero-copy">
+      <p class="guide-eyebrow">Biblioteczka KGW Czemierniki</p>
+      <h1>Czemierniki<br>trzymają się <em>razem!</em></h1>
+      <p class="guide-subtitle">Twój dom gotowy na kryzys</p>
+      <p class="guide-intro">Spokojnie, krok po kroku. O tym, co mieć pod ręką, jak zadbać o bliskich i kiedy pomóc sąsiadowi.</p>
+      <div class="guide-actions">
+        <a class="guide-btn primary" href="#gdy-zgasnie-swiatlo" data-chapter="2">Zacznij czytać <span aria-hidden="true">↗</span></a>
+        <a class="guide-btn" href="/poradnik/poradnik-czemierniki.pdf" download>Pobierz PDF <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="guide-meta"><span>16 ilustrowanych stron</span><span>Bezpłatnie dla każdego</span><span>Wydanie: listopad 2026</span></div>
+    </div>
+    <figure class="guide-hero-image">
+      <img src="/poradnik/ilustracja-01.webp" width="1200" height="800" alt="Akwarelowy widok pałacu w Czemiernikach nad stawem, w ciepłym świetle popołudnia" fetchpriority="high">
+      <figcaption><span>Blisko domu. Blisko ludzi.</span><small>Poradnik naszych sąsiadów</small></figcaption>
+    </figure>
+  </section>
+
+  <div class="guide-shortcuts" aria-label="Szybki wybór tematu">
+    <span>Od czego zacząć?</span>
+    <a href="#gdy-zgasnie-swiatlo" data-chapter="2">Nie ma prądu</a>
+    <a href="#zapas-na-trzy-dni" data-chapter="3">Przygotuj zapasy</a>
+    <a href="#domowy-plan" data-chapter="14">Ułóż domowy plan</a>
+    <a href="#wazne-telefony" data-chapter="15">Ważne telefony</a>
+  </div>
+
+  <div class="reader-layout" id="czytelnia">
+    <aside class="reader-aside">
+      <details class="reader-toc" open>
+        <summary>Spis treści <span aria-hidden="true">+</span></summary>
+        <div class="reader-search js-control" hidden>
+          <label for="guide-search">Szukaj w poradniku</label>
+          <div><input id="guide-search" type="search" placeholder="np. woda, lodówka, gaz" autocomplete="off"><button id="clear-search" type="button" aria-label="Wyczyść wyszukiwanie" hidden>×</button></div>
+          <p id="search-status" role="status"></p>
+        </div>
+        <nav aria-label="Rozdziały poradnika">
+          {{ range $i, $p := hugo.Data.poradnik.pages }}
+          <a href="#{{ .slug }}" data-chapter="{{ $i }}" data-toc><span class="toc-number">{{ printf "%02d" (int .number) }}</span><span>{{ .title }}<small class="search-excerpt"></small></span></a>
+          {{ end }}
+        </nav>
+      </details>
+      <a class="reader-source-link" href="#pliki">Pliki do pobrania</a>
+      <a class="reader-source-link" href="#zrodla">Źródła i autorzy</a>
+    </aside>
+
+    <div class="reader-main">
+      <div class="reader-toolbar js-control" hidden>
+        <div class="reader-modes" role="group" aria-label="Sposób czytania">
+          <button type="button" id="mode-text" aria-pressed="true">Czytaj tekst</button>
+          <button type="button" id="mode-book" aria-pressed="false">Kartkuj książeczkę</button>
+        </div>
+        <div class="reader-options">
+          <button type="button" id="font-size" aria-label="Powiększ tekst" title="Wielkość tekstu">A<span aria-hidden="true">+</span></button>
+          <button type="button" id="reader-theme" aria-pressed="false">Tryb nocny</button>
+        </div>
+      </div>
+      <div class="reader-progress js-control" hidden><div id="read-progress"></div></div>
+      <div class="reader-context js-control" hidden>
+        <span id="chapter-status" role="status"></span>
+        <div class="reader-audio"><button type="button" id="read-aloud" hidden>Posłuchaj rozdziału</button><button type="button" id="stop-audio" hidden>Zatrzymaj</button></div>
+      </div>
+      <p id="audio-status" class="audio-status" role="status"></p>
+      <div id="text-view">
+      {{ range $i, $p := hugo.Data.poradnik.pages }}
+        <article class="guide-chapter" id="{{ .slug }}" data-index="{{ $i }}" aria-labelledby="tytul-{{ .slug }}">
+          {{ .html | safeHTML }}
+          {{ if eq .number 15 }}<p class="plan-download"><a href="/poradnik/poradnik-czemierniki.pdf#page=15">Otwórz stronę 15 w PDF, wydrukuj i uzupełnij z bliskimi</a></p>{{ end }}
+        </article>
+      {{ end }}
+      </div>
+      <div id="book-view" hidden>
+        <p>Oryginalny układ książeczki. Dotknij strony, aby otworzyć ją w pełnym rozmiarze.</p>
+        <a id="book-zoom" href="/poradnik/strona-01.webp" target="_blank" rel="noopener" aria-label="Otwórz stronę w pełnym rozmiarze, nowa karta"><img id="book-page" src="/poradnik/strona-01.webp" width="1444" height="2048" alt="Strona 1: okładka poradnika" loading="lazy"></a>
+        <p class="book-text-link"><button type="button" id="back-to-text">Czytaj tę stronę jako tekst</button></p>
+      </div>
+      <nav class="reader-paging js-control" hidden aria-label="Przejdź do innej strony">
+        <button type="button" id="prev-chapter"><span aria-hidden="true">←</span> Poprzednia</button>
+        <label class="page-select-label" for="page-select">Strona <select id="page-select">{{ range $i, $p := hugo.Data.poradnik.pages }}<option value="{{ $i }}">{{ .number }} / 16</option>{{ end }}</select></label>
+        <button type="button" id="next-chapter">Następna <span aria-hidden="true">→</span></button>
+      </nav>
+      <p class="reader-edition">Treść wydania z 8 listopada 2026 r. Wersja internetowa opublikowana 13 listopada 2026 r.</p>
+    </div>
+  </div>
+
+  <section class="guide-downloads" id="pliki" aria-labelledby="download-title">
+    <div><p class="guide-eyebrow">Zachowaj na później</p><h2 id="download-title">Dobrze mieć go pod ręką.</h2><p>Pobierz poradnik, zanim będzie potrzebny. Zapisane pliki przeczytasz także bez Internetu.</p></div>
+    <div class="download-cards">
+      <a href="/poradnik/poradnik-czemierniki.pdf" download><span class="file-type">PDF</span><strong>Cała książeczka</strong><span>16 stron A5, z ilustracjami. Do zapisania i wydruku.</span><small>Pobierz PDF (14 MB) ↓</small></a>
+      <a href="/poradnik/poradnik-czemierniki.txt" download><span class="file-type">TXT</span><strong>Prosty tekst</strong><span>Pełna treść, opisy ilustracji i wykaz źródeł.</span><small>Pobierz tekst (25 kB) ↓</small></a>
+    </div>
+  </section>
+
+  <section class="guide-sources" id="zrodla">
+    <p class="guide-eyebrow">Skąd czerpaliśmy wiedzę</p><h2>Źródła i autorzy</h2>
+    <p>Opracował i przygotował do wydania: <strong>Bartosz Michalski, koordynator projektu.</strong><br>Wydawca: Koło Gospodyń Wiejskich Czemierniki.</p>
+    <details><summary>Źródła wykorzystane w poradniku ({{ len hugo.Data.poradnik.sources }})</summary><ol>{{ range hugo.Data.poradnik.sources }}<li><a href="{{ .url }}" target="_blank" rel="noopener">{{ .title }}</a></li>{{ end }}</ol></details>
+    <details><summary>Ilustracje i licencje</summary><p>Akwarele wygenerowane na zamówienie KGW. Widoki zespołu zamkowego i strażnicy OSP powstały na podstawie zdjęć z Wikimedia Commons, z wprowadzonymi zmianami.</p><ul>
+      <li>H. Śmietanka, <a href="https://commons.wikimedia.org/wiki/File:POL_Czemierniki-Castle.jpg">POL Czemierniki-Castle.jpg</a>, CC BY-SA 2.5.</li>
+      <li>T. Zugaj, <a href="https://commons.wikimedia.org/wiki/File:Pa%C5%82ac_w_Czemiernikach.jpg">Pałac w Czemiernikach.jpg</a>, CC BY-SA 4.0.</li>
+      <li>J. Karczmarz, <a href="https://commons.wikimedia.org/wiki/File:Czemierniki_brama_palacowa.jpg">Czemierniki brama palacowa.jpg</a>, CC BY-SA 4.0.</li>
+      <li>J. Karczmarz, <a href="https://commons.wikimedia.org/wiki/File:Czemierniki_OSP.jpg">Czemierniki OSP.jpg</a>, CC BY-SA 3.0.</li>
+    </ul><p>Ilustracje oparte na tych zdjęciach: <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.pl">CC BY-SA 4.0</a>.</p></details>
+  </section>
+
+  <section class="guide-funding" aria-label="Dofinansowanie poradnika">
+    <div class="funding-logos"><img src="/poradnik/komitet.png" alt="Komitet do spraw Pożytku Publicznego" loading="lazy"><img src="/poradnik/niw.png" alt="Narodowy Instytut Wolności" loading="lazy"><img src="/poradnik/mms.png" alt="Moc Małych Społeczności" loading="lazy"></div>
+    <p>Sfinansowano ze środków Narodowego Instytutu Wolności - Centrum Rozwoju Społeczeństwa Obywatelskiego w ramach Rządowego Programu Wsparcia Organizacji Pozarządowych Moc Małych Społeczności.</p>
+    <p>Projekt "Gdy gaśnie światło, zostają ludzie. Czemierniki gotowe na kryzys".</p>
+    <div class="funding-logos partners"><img src="/poradnik/lgd.png" alt="Lokalna Grupa Działania Zielony Pierścień" loading="lazy"><img src="/poradnik/zhp.png" alt="Chorągiew Lubelska ZHP" loading="lazy"><img src="/poradnik/frdl.png" alt="Fundacja Rozwoju Demokracji Lokalnej im. Jerzego Regulskiego" loading="lazy"><img src="/poradnik/mmslub.png" alt="Moc Małych Społeczności - Lubelskie" loading="lazy"></div>
+    <p class="funding-note">Treść odzwierciedla wyłącznie opinię autora, a NIW-CRSO nie odpowiada za sposób wykorzystania zawartych w niej informacji.</p>
+  </section>
+</div>
+{{ with resources.Get "js/poradnik.js" }}{{ $j := . | fingerprint }}<script src="{{ $j.RelPermalink }}" defer></script>{{ end }}
+{{ end }}

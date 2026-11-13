@@ -1,0 +1,303 @@
+{
+  "pages": [
+    {
+      "number": 1,
+      "slug": "okladka",
+      "title": "Czemierniki trzymają się razem!",
+      "html": "<div class=\"sheet\">\n  <div class=\"cov-top\">\n    <p class=\"cov-pill\">KGW Czemierniki | poradnik dla mieszkańców</p>\n    <h2 id=\"tytul-okladka\" tabindex=\"-1\">Czemierniki trzymają się razem!</h2>\n    <p class=\"cov-sub\">Twój dom gotowy na kryzys</p>\n  </div>\n  <img class=\"cov-ilu\" src=\"/poradnik/ilustracja-01.webp\" alt=\"Akwarela: pałac Firlejów w Czemiernikach w złotym świetle popołudnia, obok oficyna i brama z czerwonym dachem. Zespół odbija się w stawie, w kilku oknach pali się ciepłe światło.\" width=\"1100\" height=\"824\" loading=\"lazy\">\n  </div>\n",
+      "text": "KGW Czemierniki | poradnik dla mieszkańców Czemierniki trzymają się razem! Twój dom gotowy na kryzys"
+    },
+    {
+      "number": 2,
+      "slug": "drodzy-sasiedzi",
+      "title": "Drodzy Sąsiedzi!",
+      "html": "<div class=\"sheet\">\n  <div class=\"content\">\n    <div class=\"intro\">\n      <img class=\"intro-img\" src=\"/poradnik/ilustracja-02.webp\" alt=\"Akwarela: świecąca latarka turystyczna na parapecie, za oknem staw zamkowy i pałac.\" width=\"1100\" height=\"1100\" loading=\"lazy\">\n      <p class=\"kicker\">Na początek</p>\n      <h2 id=\"tytul-drodzy-sasiedzi\" tabindex=\"-1\">Drodzy Sąsiedzi!</h2>\n      <p>Awaria prądu, wichura czy powódź przychodzą bez uprzedzenia. Wtedy liczy się to, co przygotujemy wcześniej, i czy wiemy, kto obok potrzebuje pomocy.</p>\n    </div>\n    <p>Zebraliśmy tu zalecenia rządowego Poradnika bezpieczeństwa, straży pożarnej i sanepidu oraz telefony z okolicy. Przeczytajcie książeczkę z domownikami, uzupełnijcie plan na stronie <a href=\"#domowy-plan\" data-chapter=\"14\">15</a> i trzymajcie ją tam, gdzie znajdziecie ją po ciemku.</p>\n    <div class=\"podpis\">\n      <p class=\"reka\">Z sąsiedzkim pozdrowieniem</p>\n      <p><b>Członkinie i członkowie KGW Czemierniki</b></p>\n      <p><b>Bartosz Michalski</b>, koordynator ds. rozwoju i współpracy KGW</p>\n    </div>\n    <div class=\"box noc right\">\n      <h3>W książeczce</h3>\n      <ul class=\"spis\">\n        <li><span class=\"s\">3</span>Gdy zgaśnie światło</li>\n        <li><span class=\"s\">10</span>Wichura i burza</li>\n        <li><span class=\"s\">4</span>Zapas na co najmniej 3 dni</li>\n        <li><span class=\"s\">11</span>Powódź</li>\n        <li><span class=\"s\">5</span>Spiżarnia</li>\n        <li><span class=\"s\">12</span>Syrena i schronienie</li>\n        <li><span class=\"s\">6</span>Co z lodówką?</li>\n        <li><span class=\"s\">13</span>Pierwsza pomoc</li>\n        <li><span class=\"s\">7</span>Woda bez ryzyka</li>\n        <li><span class=\"s\">14</span>Sąsiad obok</li>\n        <li><span class=\"s\">8</span>Światło, radio i agregat</li>\n        <li><span class=\"s\">15</span>Nasz domowy plan</li>\n        <li><span class=\"s\">9</span>Ciepło, telefon i gotówka</li>\n        <li><span class=\"s\">16</span>Ważne telefony</li>\n      </ul>\n    </div>\n  </div>\n  </div>\n",
+      "text": "Na początek Drodzy Sąsiedzi! Awaria prądu, wichura czy powódź przychodzą bez uprzedzenia. Wtedy liczy się to, co przygotujemy wcześniej, i czy wiemy, kto obok potrzebuje pomocy. Zebraliśmy tu zalecenia rządowego Poradnika bezpieczeństwa, straży pożarnej i sanepidu oraz telefony z okolicy. Przeczytajcie książeczkę z domownikami, uzupełnijcie plan na stronie 15 i trzymajcie ją tam, gdzie znajdziecie ją po ciemku. Z sąsiedzkim pozdrowieniem Członkinie i członkowie KGW Czemierniki Bartosz Michalski, koordynator ds. rozwoju i współpracy KGW W książeczce 3Gdy zgaśnie światło 10Wichura i burza 4Zapas na co najmniej 3 dni 11Powódź 5Spiżarnia 12Syrena i schronienie 6Co z lodówką? 13Pierwsza pomoc 7Woda bez ryzyka 14Sąsiad obok 8Światło, radio i agregat 15Nasz domowy plan 9Ciepło, telefon i gotówka 16Ważne telefony"
+    },
+    {
+      "number": 3,
+      "slug": "gdy-zgasnie-swiatlo",
+      "title": "Gdy zgaśnie światło",
+      "html": "<div class=\"sheet\">\n  <div class=\"content\">\n    <p class=\"kicker\">Pierwsze minuty</p>\n    <h2 id=\"tytul-gdy-zgasnie-swiatlo\" tabindex=\"-1\">Gdy zgaśnie światło</h2>\n    <div class=\"box alarm\">\n      <h3><svg viewbox=\"0 0 24 24\" aria-hidden=\"true\"><path fill=\"#B3261E\" d=\"M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z\"></path></svg>Zagrożenie życia lub zdrowia? Dzwoń 112</h3>\n      <p>Podaj dokładny adres i co się stało. Rozłącz się dopiero, gdy operator pozwoli.</p>\n    </div>\n    <ol class=\"kroki\">\n      <li>Sprawdź, czy domownicy są bezpieczni. Włącz latarkę i pomóż osobom, które potrzebują wsparcia.</li>\n      <li>Sprawdź bezpieczniki. U sąsiadów też ciemno? Zgłoś awarię: 991. Wyłącz z gniazdek telewizor i komputer, by nie uszkodziły się, gdy prąd wróci.</li>\n      <li>Słuchaj komunikatów w radiu na baterie albo w samochodzie (silnika nie uruchamiaj w garażu). Oszczędzaj baterię telefonu.</li>\n      <li>Nie otwieraj bez potrzeby lodówki. Sprawdź zapas wody, jedzenia i leków. Zostań w domu, chyba że służby każą się ewakuować.</li>\n    </ol>\n  </div>\n  <figure class=\"hero\"><img src=\"/poradnik/ilustracja-03.webp\" alt=\"Akwarela: kuchenny stół po zmroku bez prądu, świecąca latarka turystyczna, małe radio, latarka i kubek herbaty; za oknem wiejskie domy.\" width=\"1100\" height=\"619\" loading=\"lazy\"></figure>\n  </div>\n",
+      "text": "Pierwsze minuty Gdy zgaśnie światło Zagrożenie życia lub zdrowia? Dzwoń 112 Podaj dokładny adres i co się stało. Rozłącz się dopiero, gdy operator pozwoli. Sprawdź, czy domownicy są bezpieczni. Włącz latarkę i pomóż osobom, które potrzebują wsparcia. Sprawdź bezpieczniki. U sąsiadów też ciemno? Zgłoś awarię: 991. Wyłącz z gniazdek telewizor i komputer, by nie uszkodziły się, gdy prąd wróci. Słuchaj komunikatów w radiu na baterie albo w samochodzie (silnika nie uruchamiaj w garażu). Oszczędzaj baterię telefonu. Nie otwieraj bez potrzeby lodówki. Sprawdź zapas wody, jedzenia i leków. Zostań w domu, chyba że służby każą się ewakuować."
+    },
+    {
+      "number": 4,
+      "slug": "zapas-na-trzy-dni",
+      "title": "Zapas na co najmniej 3 dni",
+      "html": "<div class=\"sheet\">\n  <div class=\"content\">\n    <p class=\"kicker\">Zacznij od tego, co masz</p>\n    <h2 id=\"tytul-zapas-na-trzy-dni\" tabindex=\"-1\">Zapas na co najmniej 3 dni</h2>\n    <div class=\"box noc\">\n      <h3>Woda: co najmniej 3 l na osobę na dobę</h3>\n      <div class=\"litry\">\n        <div><span class=\"ile\">9 l</span>1 osoba</div>\n        <div><span class=\"ile\">18 l</span>2 osoby</div>\n        <div><span class=\"ile\">36 l</span>4 osoby</div>\n      </div>\n    </div>\n    <ul class=\"check\">\n      <li>Woda, jedzenie bez gotowania, otwieracz do puszek</li>\n      <li>Stałe leki według zaleceń lekarza, apteczka</li>\n      <li>Okulary, aparat słuchowy i baterie do nich</li>\n      <li>Latarka, radio, baterie, powerbank, kable</li>\n      <li>Gotówka, kopie dokumentów, spis telefonów</li>\n      <li>Ciepłe ubrania, koce, mydło, worki na śmieci</li>\n      <li>Zapas dla dzieci i zwierząt</li>\n      <li>Sprawne czujki dymu i czadu</li>\n    </ul>\n    <p class=\"note right\">To woda do picia i jedzenia. Dolicz wodę do mycia i dla zwierząt. Zwierzętom gospodarskim przygotuj paszę i wodę na 14 dni. Gdy lekarz zalecił inną ilość płynów, trzymaj się jego zaleceń. Zapas buduj stopniowo.</p>\n  </div>\n  <figure class=\"hero\"><img src=\"/poradnik/ilustracja-04.webp\" alt=\"Akwarela: domowe zapasy na stole: woda w butelkach i baniakach, konserwy, apteczka, latarka, radio, powerbank, dokumenty w woreczku, koc.\" width=\"1100\" height=\"619\" loading=\"lazy\"></figure>\n  </div>\n",
+      "text": "Zacznij od tego, co masz Zapas na co najmniej 3 dni Woda: co najmniej 3 l na osobę na dobę 9 l1 osoba 18 l2 osoby 36 l4 osoby Woda, jedzenie bez gotowania, otwieracz do puszek Stałe leki według zaleceń lekarza, apteczka Okulary, aparat słuchowy i baterie do nich Latarka, radio, baterie, powerbank, kable Gotówka, kopie dokumentów, spis telefonów Ciepłe ubrania, koce, mydło, worki na śmieci Zapas dla dzieci i zwierząt Sprawne czujki dymu i czadu To woda do picia i jedzenia. Dolicz wodę do mycia i dla zwierząt. Zwierzętom gospodarskim przygotuj paszę i wodę na 14 dni. Gdy lekarz zalecił inną ilość płynów, trzymaj się jego zaleceń. Zapas buduj stopniowo."
+    },
+    {
+      "number": 5,
+      "slug": "spizarnia",
+      "title": "Spiżarnia, z której korzystasz",
+      "html": "<div class=\"sheet\">\n  <div class=\"content\">\n    <p class=\"kicker\">Najpierw to, co ma najkrótszy termin</p>\n    <h2 id=\"tytul-spizarnia\" tabindex=\"-1\">Spiżarnia, z której korzystasz</h2>\n    <p>Kupuj to, co domownicy znają i lubią. Co kilka miesięcy przejrzyj zapasy, także wodę. Z przodu stawiaj produkty z najkrótszym terminem, zużyte uzupełniaj.</p>\n    <div class=\"daty\">\n      <div class=\"box ostr\"><h3>Należy spożyć do</h3><p>Termin bezpieczeństwa. Po tej dacie nie jedz produktu, nawet gdy wygląda i pachnie zwyczajnie.</p></div>\n      <div class=\"box ziel\"><h3>Najlepiej spożyć przed</h3><p>Informacja o jakości. Po tej dacie sprawdź opakowanie, przechowywanie i stan produktu.</p></div>\n    </div>\n    <p>Wybieraj małe porcje, które zjesz bez gotowania, wody i lodówki: gotową fasolę z puszki, suchary, mus owocowy. Uwzględnij dietę i alergie domowników.</p>\n    <p class=\"uwaga right\">Wybrzuszone lub nieszczelne puszki i podejrzane przetwory wyrzuć bez próbowania.</p>\n  </div>\n  <figure class=\"hero\"><img src=\"/poradnik/ilustracja-05.webp\" alt=\"Akwarela: półki spiżarni z domowymi przetworami w słoikach, miodem, suszonymi ziołami i workami z mąką; na półce świeci latarka turystyczna.\" width=\"1100\" height=\"619\" loading=\"lazy\"></figure>\n  </div>\n",
+      "text": "Najpierw to, co ma najkrótszy termin Spiżarnia, z której korzystasz Kupuj to, co domownicy znają i lubią. Co kilka miesięcy przejrzyj zapasy, także wodę. Z przodu stawiaj produkty z najkrótszym terminem, zużyte uzupełniaj. Należy spożyć doTermin bezpieczeństwa. Po tej dacie nie jedz produktu, nawet gdy wygląda i pachnie zwyczajnie. Najlepiej spożyć przedInformacja o jakości. Po tej dacie sprawdź opakowanie, przechowywanie i stan produktu. Wybieraj małe porcje, które zjesz bez gotowania, wody i lodówki: gotową fasolę z puszki, suchary, mus owocowy. Uwzględnij dietę i alergie domowników. Wybrzuszone lub nieszczelne puszki i podejrzane przetwory wyrzuć bez próbowania."
+    },
+    {
+      "number": 6,
+      "slug": "lodowka",
+      "title": "Co z lodówką?",
+      "html": "<div class=\"sheet\">\n  <div class=\"content\">\n    <p class=\"kicker\">Zapisz godzinę, o której zgasło światło</p>\n    <h2 id=\"tytul-lodowka\" tabindex=\"-1\">Co z lodówką?</h2>\n    <div class=\"duza\">\n      <div><p class=\"liczba\">4<small>godziny</small></p><p>Tyle zwykle utrzyma chłód sprawna lodówka, jeśli jej nie otwierasz.</p></div>\n      <img src=\"/poradnik/ilustracja-06.webp\" alt=\"Akwarela: zamknięta lodówka z karteczką na drzwiach i zamknięta zamrażarka skrzyniowa z termometrem, nad nimi zegar.\" width=\"1100\" height=\"1100\" loading=\"lazy\">\n    </div>\n    <div class=\"box alarm\">\n      <h3>Co wyrzucić?</h3>\n      <p>Mięso, wędliny, nabiał i gotowe potrawy, które ponad 2 godziny były cieplejsze niż 5°C. Nie wiesz, jak długo były ciepłe? Wyrzuć je bez próbowania.</p>\n    </div>\n    <ul class=\"kropki\">\n      <li>Cztery godziny to czas orientacyjny. W ciepłej kuchni chłód ucieka szybciej; pewność da termometr w lodówce.</li>\n      <li>Zamknięta zamrażarka: pełna utrzyma bezpieczną temperaturę najwyżej 48 godzin, w połowie pełna około 24 godzin. Rozmrożonych, ale zimnych mrożonek nie zamrażaj ponownie: ugotuj i zjedz szybko.</li>\n      <li>Trzymaj w zamrażarce butelki z wodą lub wkłady chłodzące. W czasie awarii przełóż część do lodówki: dłużej utrzyma chłód.</li>\n      <li>Bez lodówki gotuj porcje do zjedzenia od razu. Myj ręce i przybory, oddzielaj surowe od gotowego.</li>\n    </ul>\n  </div>\n  </div>\n",
+      "text": "Zapisz godzinę, o której zgasło światło Co z lodówką? 4godzinyTyle zwykle utrzyma chłód sprawna lodówka, jeśli jej nie otwierasz. Co wyrzucić? Mięso, wędliny, nabiał i gotowe potrawy, które ponad 2 godziny były cieplejsze niż 5°C. Nie wiesz, jak długo były ciepłe? Wyrzuć je bez próbowania. Cztery godziny to czas orientacyjny. W ciepłej kuchni chłód ucieka szybciej; pewność da termometr w lodówce. Zamknięta zamrażarka: pełna utrzyma bezpieczną temperaturę najwyżej 48 godzin, w połowie pełna około 24 godzin. Rozmrożonych, ale zimnych mrożonek nie zamrażaj ponownie: ugotuj i zjedz szybko. Trzymaj w zamrażarce butelki z wodą lub wkłady chłodzące. W czasie awarii przełóż część do lodówki: dłużej utrzyma chłód. Bez lodówki gotuj porcje do zjedzenia od razu. Myj ręce i przybory, oddzielaj surowe od gotowego."
+    },
+    {
+      "number": 7,
+      "slug": "woda",
+      "title": "Woda bez ryzyka",
+      "html": "<div class=\"sheet\">\n  <div class=\"content\">\n    <p class=\"kicker\">Klarowna nie znaczy bezpieczna</p>\n    <h2 id=\"tytul-woda\" tabindex=\"-1\">Woda bez ryzyka</h2>\n    <p class=\"lead\">Bez prądu nie działa pompa elektryczna w studni ani hydrofor, a wodociąg też może stanąć. Do picia używaj wody butelkowanej albo z pewnego źródła. Zapas trzymaj zamknięty, z dala od słońca i chemikaliów.</p>\n    <ol class=\"kroki\">\n      <li>Słuchaj komunikatów gminy i sanepidu. Gdy każą przegotować wodę, gotuj ją przed piciem. Gdy zakazują jej używania, nie pij jej nawet po przegotowaniu.</li>\n      <li>Gotowanie, tabletki ani zwykły filtr nie usuną z wody chemikaliów. Wtedy pij wodę butelkowaną albo z beczkowozu.</li>\n      <li>Tabletki do uzdatniania i filtr to ostateczność. Stosuj je dokładnie według instrukcji.</li>\n      <li>Niepewnej wody nie używaj do mycia zębów, surowych warzyw, napojów ani posiłków.</li>\n      <li>Wody ze studni po zalaniu, awarii szamba albo gdy zmieniła zapach, kolor lub zmętniała, nie używaj do picia i jedzenia, dopóki badanie nie potwierdzi, że jest bezpieczna.</li>\n    </ol>\n  </div>\n  <figure class=\"hero\"><img src=\"/poradnik/ilustracja-07.webp\" alt=\"Akwarela: na ławce butelki wody pitnej i zamknięty kanister, dalej osobno studnia z pokrywą i ręczną pompą, w tle staw i pałac.\" width=\"1100\" height=\"472\" loading=\"lazy\"></figure>\n  </div>\n",
+      "text": "Klarowna nie znaczy bezpieczna Woda bez ryzyka Bez prądu nie działa pompa elektryczna w studni ani hydrofor, a wodociąg też może stanąć. Do picia używaj wody butelkowanej albo z pewnego źródła. Zapas trzymaj zamknięty, z dala od słońca i chemikaliów. Słuchaj komunikatów gminy i sanepidu. Gdy każą przegotować wodę, gotuj ją przed piciem. Gdy zakazują jej używania, nie pij jej nawet po przegotowaniu. Gotowanie, tabletki ani zwykły filtr nie usuną z wody chemikaliów. Wtedy pij wodę butelkowaną albo z beczkowozu. Tabletki do uzdatniania i filtr to ostateczność. Stosuj je dokładnie według instrukcji. Niepewnej wody nie używaj do mycia zębów, surowych warzyw, napojów ani posiłków. Wody ze studni po zalaniu, awarii szamba albo gdy zmieniła zapach, kolor lub zmętniała, nie używaj do picia i jedzenia, dopóki badanie nie potwierdzi, że jest bezpieczna."
+    },
+    {
+      "number": 8,
+      "slug": "swiatlo-radio-agregat",
+      "title": "Światło, radio i agregat",
+      "html": "<div class=\"sheet\">\n  <div class=\"content\">\n    <p class=\"kicker\">Sprawdź sprzęt, zanim będzie potrzebny</p>\n    <h2 id=\"tytul-swiatlo-radio-agregat\" tabindex=\"-1\">Światło, radio i agregat</h2>\n    <ol class=\"kroki\">\n      <li>Co kilka miesięcy sprawdź latarkę i radio: czy działają i czy baterie nie wyciekły. Trzymaj zapasowe baterie.</li>\n      <li>Znajdź w radiu stację z komunikatami, także na dworze, z wysuniętą anteną. Zapisz ją na stronie <a href=\"#domowy-plan\" data-chapter=\"14\">15</a>.</li>\n      <li>Ktoś w domu korzysta z koncentratora tlenu lub innego sprzętu medycznego? Już teraz ustal z lekarzem lub dostawcą, co robić bez prądu.</li>\n    </ol>\n    <div class=\"box alarm right\">\n      <h3><svg viewbox=\"0 0 24 24\" aria-hidden=\"true\"><path fill=\"#B3261E\" d=\"M12 2 1 21h22z\"></path><rect x=\"11\" y=\"9\" width=\"2\" height=\"6.5\" rx=\"1\" fill=\"#fff\"></rect><circle cx=\"12\" cy=\"18\" r=\"1.25\" fill=\"#fff\"></circle></svg>Uwaga na czad</h3>\n      <p>Agregat tylko na zewnątrz, ponad 6 m od okien, drzwi i wentylacji. Nigdy w garażu, nawet otwartym. W domu nie używaj grilla, lampy na paliwo ani kuchenki turystycznej. Kuchenka gazowa nie służy do ogrzewania.</p>\n    </div>\n    <p><b>Agregatu nie podłączaj do gniazdka w ścianie:</b> możesz porazić prądem siebie lub innych. Cały dom zasilisz tylko przez przełącznik sieć-agregat od elektryka; bez niego podłączaj sprzęt przedłużaczem wprost do agregatu.</p>\n  </div>\n  <figure class=\"hero\"><img src=\"/poradnik/ilustracja-08.webp\" alt=\"Akwarela: na stole świecąca latarka turystyczna, radio z wysuniętą anteną, zapasowe baterie, latarka czołowa i powerbank ładujący telefon.\" width=\"1100\" height=\"472\" loading=\"lazy\"></figure>\n  </div>\n",
+      "text": "Sprawdź sprzęt, zanim będzie potrzebny Światło, radio i agregat Co kilka miesięcy sprawdź latarkę i radio: czy działają i czy baterie nie wyciekły. Trzymaj zapasowe baterie. Znajdź w radiu stację z komunikatami, także na dworze, z wysuniętą anteną. Zapisz ją na stronie 15. Ktoś w domu korzysta z koncentratora tlenu lub innego sprzętu medycznego? Już teraz ustal z lekarzem lub dostawcą, co robić bez prądu. Uwaga na czad Agregat tylko na zewnątrz, ponad 6 m od okien, drzwi i wentylacji. Nigdy w garażu, nawet otwartym. W domu nie używaj grilla, lampy na paliwo ani kuchenki turystycznej. Kuchenka gazowa nie służy do ogrzewania. Agregatu nie podłączaj do gniazdka w ścianie: możesz porazić prądem siebie lub innych. Cały dom zasilisz tylko przez przełącznik sieć-agregat od elektryka; bez niego podłączaj sprzęt przedłużaczem wprost do agregatu."
+    },
+    {
+      "number": 9,
+      "slug": "cieplo-telefon-gotowka",
+      "title": "Ciepło, telefon i gotówka",
+      "html": "<div class=\"sheet\">\n  <div class=\"content\">\n    <p class=\"kicker\">Gdy awaria się przedłuża</p>\n    <h2 id=\"tytul-cieplo-telefon-gotowka\" tabindex=\"-1\">Ciepło, telefon i gotówka</h2>\n    <div class=\"box ciepla\">\n      <h3>Ciepło</h3>\n      <ul class=\"kropki\">\n        <li>Zbierzcie się w jednym pokoju, ubierzcie się ciepło, przygotujcie koce.</li>\n        <li>Ogrzewaj tylko sprzętem przeznaczonym do domu, przy sprawnej wentylacji. Miej czujkę czadu; gdy alarmuje, wyjdźcie na dwór i dzwońcie 112.</li>\n        <li>Kocioł na węgiel lub drewno z pompą? Bez prądu może się przegrzać: nie dokładaj opału.</li>\n      </ul>\n    </div>\n    <div class=\"box ciepla\">\n      <h3>Telefon i gotówka</h3>\n      <ul class=\"kropki\">\n        <li>Włącz w telefonie oszczędzanie energii. Doładujesz go z powerbanka albo w aucie, z silnikiem pracującym na dworze.</li>\n        <li>Ważne numery zapisz na papierze; najważniejsze są na stronie <a href=\"#wazne-telefony\" data-chapter=\"15\">16</a>.</li>\n        <li>Miej gotówkę w różnych nominałach: bez prądu karta może nie działać.</li>\n      </ul>\n    </div>\n  </div>\n  <figure class=\"hero\"><img src=\"/poradnik/ilustracja-09.webp\" alt=\"Akwarela: zimowy pokój bez prądu: fotel z kocami, termos i latarka na stoliku, ciepłe ubrania na krześle, zamknięty piec kaflowy, czujka na ścianie, szron na oknie.\" width=\"1100\" height=\"472\" loading=\"lazy\"></figure>\n  </div>\n",
+      "text": "Gdy awaria się przedłuża Ciepło, telefon i gotówka Ciepło Zbierzcie się w jednym pokoju, ubierzcie się ciepło, przygotujcie koce. Ogrzewaj tylko sprzętem przeznaczonym do domu, przy sprawnej wentylacji. Miej czujkę czadu; gdy alarmuje, wyjdźcie na dwór i dzwońcie 112. Kocioł na węgiel lub drewno z pompą? Bez prądu może się przegrzać: nie dokładaj opału. Telefon i gotówka Włącz w telefonie oszczędzanie energii. Doładujesz go z powerbanka albo w aucie, z silnikiem pracującym na dworze. Ważne numery zapisz na papierze; najważniejsze są na stronie 16. Miej gotówkę w różnych nominałach: bez prądu karta może nie działać."
+    },
+    {
+      "number": 10,
+      "slug": "wichura-burza",
+      "title": "Wichura i burza",
+      "html": "<div class=\"sheet\">\n  <div class=\"content\">\n    <p class=\"kicker\">Gdy przychodzi ostrzeżenie</p>\n    <h2 id=\"tytul-wichura-burza\" tabindex=\"-1\">Wichura i burza</h2>\n    <div class=\"box noc\">\n      <h3>Zanim zawieje</h3>\n      <ul class=\"kropki\">\n        <li>Schowaj lub przywiąż to, co wiatr może porwać.</li>\n        <li>Zamknij okna, zwierzęta trzymaj w budynku. Auto postaw z dala od drzew.</li>\n        <li>Naładuj telefon, przygotuj latarkę.</li>\n      </ul>\n    </div>\n    <ul class=\"kropki\">\n      <li>Przeczekaj w domu, z dala od okien.</li>\n      <li>Na dworze nie stój pod drzewami ani słupami. W burzy kucnij w zagłębieniu terenu, z dala od metalu.</li>\n      <li>W aucie zwolnij, najlepiej zatrzymaj się na parkingu, nie pod drzewem.</li>\n    </ul>\n    <div class=\"box alarm\">\n      <h3><svg viewbox=\"0 0 24 24\" aria-hidden=\"true\"><path fill=\"#B3261E\" d=\"M12 2 1 21h22z\"></path><rect x=\"11\" y=\"9\" width=\"2\" height=\"6.5\" rx=\"1\" fill=\"#fff\"></rect><circle cx=\"12\" cy=\"18\" r=\"1.25\" fill=\"#fff\"></circle></svg>Zerwany przewód</h3>\n      <p>Nie podchodź, nie dotykaj. Zgłoś: 991, przy zagrożeniu 112. Spadł tuż obok? Nie biegnij: odchodź drobnymi krokami, nie odrywając stóp od ziemi.</p>\n    </div>\n    <p class=\"right\">Po wichurze zajrzyj do sąsiadów i zrób zdjęcia zniszczeń do odszkodowania.</p>\n  </div>\n  <figure class=\"hero\"><img src=\"/poradnik/ilustracja-10.webp\" alt=\"Akwarela: wiejskie podwórko przed wichurą, drzewa pochylone na wietrze, meble ogrodowe i donice zestawione pod ścianą domu, taczka odwrócona przy szopie.\" width=\"1100\" height=\"472\" loading=\"lazy\"></figure>\n  </div>\n",
+      "text": "Gdy przychodzi ostrzeżenie Wichura i burza Zanim zawieje Schowaj lub przywiąż to, co wiatr może porwać. Zamknij okna, zwierzęta trzymaj w budynku. Auto postaw z dala od drzew. Naładuj telefon, przygotuj latarkę. Przeczekaj w domu, z dala od okien. Na dworze nie stój pod drzewami ani słupami. W burzy kucnij w zagłębieniu terenu, z dala od metalu. W aucie zwolnij, najlepiej zatrzymaj się na parkingu, nie pod drzewem. Zerwany przewód Nie podchodź, nie dotykaj. Zgłoś: 991, przy zagrożeniu 112. Spadł tuż obok? Nie biegnij: odchodź drobnymi krokami, nie odrywając stóp od ziemi. Po wichurze zajrzyj do sąsiadów i zrób zdjęcia zniszczeń do odszkodowania."
+    },
+    {
+      "number": 11,
+      "slug": "powodz",
+      "title": "Powódź",
+      "html": "<div class=\"sheet\">\n  <div class=\"content\">\n    <p class=\"kicker\">Stan rzek: hydro.imgw.pl</p>\n    <h2 id=\"tytul-powodz\" tabindex=\"-1\">Powódź</h2>\n    <div class=\"box noc\">\n      <h3>Gdy woda nadchodzi</h3>\n      <ul class=\"kropki\">\n        <li>Dokumenty, leki i cenne rzeczy przenieś wyżej. Spakuj plecak.</li>\n        <li>Wyłącz prąd i gaz. Auto i zwierzęta wyprowadź w bezpieczne miejsce.</li>\n      </ul>\n    </div>\n    <ul class=\"kropki\">\n      <li>Ogłoszono ewakuację? Wyjdź, nie zostawaj dla dobytku.</li>\n      <li>Nie wchodź do płynącej wody: nawet 15 cm może przewrócić. Nie wjeżdżaj autem na zalaną drogę.</li>\n      <li>Nie możesz wyjść? Wywieś w oknie materiał: biały, gdy musisz się ewakuować, czerwony, gdy potrzebny lekarz, niebieski, gdy brak wody i jedzenia.</li>\n    </ul>\n    <div class=\"box alarm right\">\n      <h3><svg viewbox=\"0 0 24 24\" aria-hidden=\"true\"><path fill=\"#B3261E\" d=\"M12 2 1 21h22z\"></path><rect x=\"11\" y=\"9\" width=\"2\" height=\"6.5\" rx=\"1\" fill=\"#fff\"></rect><circle cx=\"12\" cy=\"18\" r=\"1.25\" fill=\"#fff\"></circle></svg>Po powodzi</h3>\n      <ul class=\"kropki\">\n        <li>Prąd i gaz włącz po sprawdzeniu przez fachowca.</li>\n        <li>Wyrzuć jedzenie, które miało kontakt z wodą powodziową, także zamknięte.</li>\n        <li>Wody z zalanej studni nie pij przed badaniem.</li>\n      </ul>\n    </div>\n  </div>\n  <figure class=\"hero\"><img src=\"/poradnik/ilustracja-11.webp\" alt=\"Akwarela: wiejski dom przy wysokiej wodzie, przed drzwiami worki z piaskiem, w oknie biały kawałek materiału, w oddali wezbrana rzeka i wierzby.\" width=\"1100\" height=\"472\" loading=\"lazy\"></figure>\n  </div>\n",
+      "text": "Stan rzek: hydro.imgw.pl Powódź Gdy woda nadchodzi Dokumenty, leki i cenne rzeczy przenieś wyżej. Spakuj plecak. Wyłącz prąd i gaz. Auto i zwierzęta wyprowadź w bezpieczne miejsce. Ogłoszono ewakuację? Wyjdź, nie zostawaj dla dobytku. Nie wchodź do płynącej wody: nawet 15 cm może przewrócić. Nie wjeżdżaj autem na zalaną drogę. Nie możesz wyjść? Wywieś w oknie materiał: biały, gdy musisz się ewakuować, czerwony, gdy potrzebny lekarz, niebieski, gdy brak wody i jedzenia. Po powodzi Prąd i gaz włącz po sprawdzeniu przez fachowca. Wyrzuć jedzenie, które miało kontakt z wodą powodziową, także zamknięte. Wody z zalanej studni nie pij przed badaniem."
+    },
+    {
+      "number": 12,
+      "slug": "syrena-schronienie",
+      "title": "Syrena i schronienie",
+      "html": "<div class=\"sheet\">\n  <div class=\"content\">\n    <p class=\"kicker\">Rodzaj zagrożenia zmienia sposób działania</p>\n    <div class=\"naglowek\">\n      <h2 id=\"tytul-syrena-schronienie\" tabindex=\"-1\">Syrena i schronienie</h2>\n      <img src=\"/poradnik/ilustracja-12.webp\" alt=\"Akwarela: strażnica OSP w Czemiernikach od strony ulicy, o zmierzchu.\" width=\"1100\" height=\"619\" loading=\"lazy\">\n    </div>\n    <div class=\"sygnaly\">\n      <div class=\"sygnal\"><svg viewbox=\"0 0 104 36\" aria-hidden=\"true\"><path d=\"M2 18 C 9 2, 15 2, 22 18 S 35 34, 42 18 S 55 2, 62 18 S 75 34, 82 18 S 95 2, 102 18\" fill=\"none\" stroke=\"#B3261E\" stroke-width=\"4\" stroke-linecap=\"round\"></path></svg><p><b>Alarm:</b> dźwięk falujący, 3 minuty.</p></div>\n      <div class=\"sygnal\"><svg viewbox=\"0 0 104 36\" aria-hidden=\"true\"><path d=\"M2 18 H 102\" fill=\"none\" stroke=\"#2D6A4A\" stroke-width=\"4\" stroke-linecap=\"round\"></path></svg><p><b>Odwołanie:</b> dźwięk ciągły, 3 minuty.</p></div>\n    </div>\n    <p>Słuchaj Alertów RCB, radia i poleceń służb.</p>\n    <div class=\"box ciepla\">\n      <h3>Zagrożenie z powietrza</h3>\n      <p>Zdążysz bezpiecznie dojść do sprawdzonego schronienia? Idź. Nie zdążysz? Zostań w domu, w pomieszczeniu:</p>\n      <ul class=\"kropki\">\n        <li>bez okien, na najniższym piętrze,</li>\n        <li>za co najmniej dwiema ścianami od dworu,</li>\n        <li>z dala od kotła i butli z gazem.</li>\n      </ul>\n    </div>\n    <p><b>Skażenie i polecenie, by zostać w domu?</b> Zamknij i uszczelnij okna i drzwi, wyłącz gaz i klimatyzację, wygaś piec. Szyber zamknij, gdy zgaśnie żar.</p>\n    <div class=\"box noc right\">\n      <h3>Miejsca schronienia z mapy straży</h3>\n      <p>Stan na 18.10.2026. Czemierniki: Zamkowa 9, 14, 21, Kocka 45 i 49 (w określonych godzinach). Stoczek 133 (całą dobę), Bełcząc 207 (na żądanie). Mapa nie podaje klasy ochrony. Wejście sprawdź w urzędzie: 83 306 82 51.</p>\n    </div>\n  </div>\n  </div>\n",
+      "text": "Rodzaj zagrożenia zmienia sposób działania Syrena i schronienie Alarm: dźwięk falujący, 3 minuty. Odwołanie: dźwięk ciągły, 3 minuty. Słuchaj Alertów RCB, radia i poleceń służb. Zagrożenie z powietrza Zdążysz bezpiecznie dojść do sprawdzonego schronienia? Idź. Nie zdążysz? Zostań w domu, w pomieszczeniu: bez okien, na najniższym piętrze, za co najmniej dwiema ścianami od dworu, z dala od kotła i butli z gazem. Skażenie i polecenie, by zostać w domu? Zamknij i uszczelnij okna i drzwi, wyłącz gaz i klimatyzację, wygaś piec. Szyber zamknij, gdy zgaśnie żar. Miejsca schronienia z mapy straży Stan na 18.10.2026. Czemierniki: Zamkowa 9, 14, 21, Kocka 45 i 49 (w określonych godzinach). Stoczek 133 (całą dobę), Bełcząc 207 (na żądanie). Mapa nie podaje klasy ochrony. Wejście sprawdź w urzędzie: 83 306 82 51."
+    },
+    {
+      "number": 13,
+      "slug": "pierwsza-pomoc",
+      "title": "Pierwsza pomoc dorosłemu",
+      "html": "<div class=\"sheet\">\n  <div class=\"content\">\n    <p class=\"kicker\">Zadbaj o własne bezpieczeństwo</p>\n    <h2 id=\"tytul-pierwsza-pomoc\" tabindex=\"-1\">Pierwsza pomoc dorosłemu</h2>\n    <p><img class=\"aed\" src=\"/poradnik/ilustracja-13.webp\" alt=\"Akwarela: zielona szafka z defibrylatorem AED na ścianie budynku.\" width=\"1000\" height=\"1000\" loading=\"lazy\">Delikatnie potrząśnij za ramiona i głośno zapytaj. <b>Nie reaguje?</b> Dzwoń 112 lub 999, włącz głośnik, słuchaj poleceń.</p>\n    <p><b class=\"uwaga\">Silne krwawienie:</b> mocno uciśnij ranę ręką przez opatrunek, wezwij pomoc, okryj poszkodowanego.</p>\n    <ol class=\"kroki\">\n      <li>Odchyl głowę i unieś brodę. Przez najwyżej 10 sekund sprawdzaj oddech; westchnięcia i sapanie nie są prawidłowe. Oddycha prawidłowo i nie było wypadku? Ułóż go na boku, w pozycji bezpiecznej. Sprawdzaj oddech.</li>\n      <li>Nie oddycha prawidłowo albo masz wątpliwość? Połóż na plecach (z łóżka nie przenoś). Dłonie jedna na drugiej na środku klatki, ręce proste. Uciskaj 100-120 razy na minutę, na 5-6 cm, pozwalając klatce całkowicie wracać.</li>\n      <li>Wykonuj 30 uciśnięć i 2 oddechy, jeśli potrafisz. Jeśli nie, uciskaj bez przerwy.</li>\n      <li>Gdy masz dostęp do AED (defibrylatora), włącz go i słuchaj poleceń. Elektrody naklej na odsłoniętą klatkę. Przy analizie i wyładowaniu nikt nie dotyka poszkodowanego. Potem od razu uciskaj.</li>\n    </ol>\n    <p class=\"right\">Uciskaj, aż ratownicy przejmą pomoc, wróci prawidłowy oddech albo zrobi się niebezpiecznie. Gdy opadasz z sił, poproś o zmianę.</p>\n  </div>\n  </div>\n",
+      "text": "Zadbaj o własne bezpieczeństwo Pierwsza pomoc dorosłemu Delikatnie potrząśnij za ramiona i głośno zapytaj. Nie reaguje? Dzwoń 112 lub 999, włącz głośnik, słuchaj poleceń. Silne krwawienie: mocno uciśnij ranę ręką przez opatrunek, wezwij pomoc, okryj poszkodowanego. Odchyl głowę i unieś brodę. Przez najwyżej 10 sekund sprawdzaj oddech; westchnięcia i sapanie nie są prawidłowe. Oddycha prawidłowo i nie było wypadku? Ułóż go na boku, w pozycji bezpiecznej. Sprawdzaj oddech. Nie oddycha prawidłowo albo masz wątpliwość? Połóż na plecach (z łóżka nie przenoś). Dłonie jedna na drugiej na środku klatki, ręce proste. Uciskaj 100-120 razy na minutę, na 5-6 cm, pozwalając klatce całkowicie wracać. Wykonuj 30 uciśnięć i 2 oddechy, jeśli potrafisz. Jeśli nie, uciskaj bez przerwy. Gdy masz dostęp do AED (defibrylatora), włącz go i słuchaj poleceń. Elektrody naklej na odsłoniętą klatkę. Przy analizie i wyładowaniu nikt nie dotyka poszkodowanego. Potem od razu uciskaj. Uciskaj, aż ratownicy przejmą pomoc, wróci prawidłowy oddech albo zrobi się niebezpiecznie. Gdy opadasz z sił, poproś o zmianę."
+    },
+    {
+      "number": 14,
+      "slug": "sasiad-obok",
+      "title": "Sąsiad obok",
+      "html": "<div class=\"sheet\">\n  <div class=\"content\">\n    <p class=\"kicker\">Umówcie się, zanim przyjdzie kryzys</p>\n    <h2 id=\"tytul-sasiad-obok\" tabindex=\"-1\">Sąsiad obok</h2>\n    <p>Gdy zabraknie prądu, zasięgu albo przyjdzie wichura, najbliżej jest sąsiad. Ustalcie z sąsiadami już teraz:</p>\n    <ul class=\"check\">\n      <li>Jak dacie sobie znać, gdy telefony nie działają?</li>\n      <li>Kto zajrzy do seniora, osoby samotnej albo chorej?</li>\n      <li>Kto pomoże zabrać leki, sprzęt i zwierzęta?</li>\n      <li>Kto nie wyjdzie sam z domu? Przy ewakuacji od razu powiedzcie o nim służbom.</li>\n    </ul>\n    <div class=\"box ciepla\">\n      <h3>Plecak dla każdego domownika</h3>\n      <p>Woda, jedzenie bez gotowania, leki i apteczka, dokumenty i gotówka, latarka, radio na baterie, telefon z powerbankiem, ciepłe ubranie i środki higieny. Dopasuj go do swoich potrzeb.</p>\n    </div>\n    <div class=\"right\">\n      <p><b>Pożar?</b> Wyprowadź wszystkich na dwór i dzwoń 112.</p>\n      <p><b>Czujesz gaz?</b> Nie używaj ognia, nie zapalaj ani nie gaś światła. Otwórz okna, zakręć gaz, wyjdź i z dworu dzwoń 992 lub 112.</p>\n      <p><b>Ogłoszono ewakuację?</b> Zanim wyjdziesz, zamknij okna, zakręć wodę, wyłącz urządzenia elektryczne i gazowe, wygaś piec. Weź plecak. Rodzinie spoza domu daj znać, gdzie będziesz.</p>\n    </div>\n  </div>\n  <figure class=\"hero\"><img src=\"/poradnik/ilustracja-14.webp\" alt=\"Akwarela: nad otwartą furtką ręce sąsiadów przekazują latarkę i butelkę wody; po obu stronach wiejskie domy.\" width=\"1100\" height=\"472\" loading=\"lazy\"></figure>\n  </div>\n",
+      "text": "Umówcie się, zanim przyjdzie kryzys Sąsiad obok Gdy zabraknie prądu, zasięgu albo przyjdzie wichura, najbliżej jest sąsiad. Ustalcie z sąsiadami już teraz: Jak dacie sobie znać, gdy telefony nie działają? Kto zajrzy do seniora, osoby samotnej albo chorej? Kto pomoże zabrać leki, sprzęt i zwierzęta? Kto nie wyjdzie sam z domu? Przy ewakuacji od razu powiedzcie o nim służbom. Plecak dla każdego domownika Woda, jedzenie bez gotowania, leki i apteczka, dokumenty i gotówka, latarka, radio na baterie, telefon z powerbankiem, ciepłe ubranie i środki higieny. Dopasuj go do swoich potrzeb. Pożar? Wyprowadź wszystkich na dwór i dzwoń 112. Czujesz gaz? Nie używaj ognia, nie zapalaj ani nie gaś światła. Otwórz okna, zakręć gaz, wyjdź i z dworu dzwoń 992 lub 112. Ogłoszono ewakuację? Zanim wyjdziesz, zamknij okna, zakręć wodę, wyłącz urządzenia elektryczne i gazowe, wygaś piec. Weź plecak. Rodzinie spoza domu daj znać, gdzie będziesz."
+    },
+    {
+      "number": 15,
+      "slug": "domowy-plan",
+      "title": "Nasz domowy plan",
+      "html": "<div class=\"sheet\">\n  <div class=\"content\">\n    <div class=\"plan-head\">\n      <div>\n        <p class=\"kicker\">Uzupełnij z bliskimi</p>\n        <h2 id=\"tytul-domowy-plan\" tabindex=\"-1\">Nasz domowy plan</h2>\n      </div>\n      <img src=\"/poradnik/ilustracja-15.webp\" alt=\"Akwarela: na stole domowy plan do uzupełnienia, ołówek, mapa okolicy, telefon i świecąca latarka.\" width=\"1100\" height=\"1100\" loading=\"lazy\">\n    </div>\n    <p>Gdyby rodzina się rozdzieliła, a telefony nie działały, spotkajcie się w umówionym miejscu. Nie idźcie tam, gdy jest niebezpiecznie albo służby każą zostać w domu lub w schronieniu.</p>\n    <div class=\"pola\">\n      <div class=\"pole\"><p class=\"et\">Bliska osoba lub sąsiad: imię i telefon</p><div class=\"linia\"></div></div>\n      <div class=\"pole\"><p class=\"et\">Spotkanie blisko domu: miejsce i godzina</p><div class=\"linia\"></div></div>\n      <div class=\"pole\"><p class=\"et\">Spotkanie poza miejscowością: miejsce i godzina</p><div class=\"linia\"></div></div>\n      <div class=\"pole\"><p class=\"et\">Nasze miejsce schronienia i wejście</p><div class=\"linia\"></div></div>\n      <div class=\"pole\"><p class=\"et\">Stacja radiowa i częstotliwość</p><div class=\"linia\"></div></div>\n      <div class=\"pole\"><p class=\"et\">Leki, potrzebna pomoc, opieka nad zwierzętami</p><div class=\"linia\"></div></div>\n    </div>\n    <div class=\"box ciepla right\">\n      <p><b>Nasza woda na 3 dni:</b> <span class=\"nw\"><span class=\"wpisz\"> </span> osób</span> × 9 l = <span class=\"nw\"><span class=\"wpisz\"> </span> l,</span> plus woda do mycia i dla zwierząt.</p>\n    </div>\n    <p class=\"note\">Ćwiczcie plan i aktualizujcie go. Wpisane dane są tylko dla Was: trzymajcie tę stronę w domu.</p>\n  </div>\n  </div>\n",
+      "text": "Uzupełnij z bliskimi Nasz domowy plan Gdyby rodzina się rozdzieliła, a telefony nie działały, spotkajcie się w umówionym miejscu. Nie idźcie tam, gdy jest niebezpiecznie albo służby każą zostać w domu lub w schronieniu. Bliska osoba lub sąsiad: imię i telefon Spotkanie blisko domu: miejsce i godzina Spotkanie poza miejscowością: miejsce i godzina Nasze miejsce schronienia i wejście Stacja radiowa i częstotliwość Leki, potrzebna pomoc, opieka nad zwierzętami Nasza woda na 3 dni: osób × 9 l = l, plus woda do mycia i dla zwierząt. Ćwiczcie plan i aktualizujcie go. Wpisane dane są tylko dla Was: trzymajcie tę stronę w domu."
+    },
+    {
+      "number": 16,
+      "slug": "wazne-telefony",
+      "title": "Ważne telefony",
+      "html": "<div class=\"sheet\">\n  <div class=\"content\">\n    <h2 id=\"tytul-wazne-telefony\" tabindex=\"-1\">Ważne telefony</h2>\n    <div class=\"telefony\">\n      <a class=\"num r\" href=\"tel:112\">112</a><p>Nagłe zagrożenie, ratownicy</p>\n      <a class=\"num r\" href=\"tel:999\">999</a><p>Pogotowie ratunkowe</p>\n      <a class=\"num\" href=\"tel:991\">991</a><p>Pogotowie energetyczne</p>\n      <a class=\"num\" href=\"tel:+48833068251\">83 306 82 51</a><p>Gmina: zarządzanie kryzysowe*</p>\n      <a class=\"num\" href=\"tel:+48833068250\">83 306 82 50</a><p>Awarie wodociągu gminnego*</p>\n      <a class=\"num\" href=\"tel:+48833527412\">83 352 74 12</a><p>Powiat: zarządzanie kryzysowe**</p>\n    </div>\n    <p class=\"note\">* pn-pt 8-16, ** pn-pt 7.30-15.30</p>\n    <div class=\"qr\">\n      <img src=\"/poradnik/ilustracja-16.svg\" alt=\"Kod QR do mapy miejsc schronienia PSP\" loading=\"lazy\">\n      <p><span class=\"skan\">Zeskanuj telefonem: mapa miejsc schronienia</span><a href=\"https://gdziesieukryc.pl\" target=\"_blank\" rel=\"noopener\">gdziesieukryc.pl</a><br>Gmina: <a href=\"https://czemierniki.eu\" target=\"_blank\" rel=\"noopener\">czemierniki.eu</a><br>Sanepid: <a href=\"https://gov.pl/web/psse-radzyn-podlaski\" target=\"_blank\" rel=\"noopener\">gov.pl/web/psse-radzyn-podlaski</a></p>\n    </div>\n    <div class=\"box sprzet\">\n      <h3>Sprzęt KGW dla mieszkańców</h3>\n      <p>Stacja zasilania, kociołek i lampy: zapytaj osobiście lub na facebook.com/kgw.czemierniki. Dostęp po uzgodnieniu z KGW, pod nadzorem przeszkolonej osoby, bez stałego dyżuru.</p>\n    </div>\n    <div class=\"autor right\"><p class=\"autor-et\">Opracował i przygotował do wydania</p><p class=\"autor-im\">Bartosz Michalski, koordynator projektu</p></div>\n    <p class=\"drobny\">Wydawca: Koło Gospodyń Wiejskich Czemierniki, listopad 2026. Egzemplarz bezpłatny. Ilustracje AI dla KGW, częściowo według zdjęć z Wikimedia Commons (zmienione): H. Śmietanka, T. Zugaj, J. Karczmarz; licencje CC BY-SA 2.5, 3.0 i 4.0. Źródła: rządowy Poradnik bezpieczeństwa, GIS, sanepid, Wytyczne resuscytacji 2025; wykaz w wersji elektronicznej na facebook.com/kgw.czemierniki. Treść odzwierciedla wyłącznie opinię autora, a NIW-CRSO nie odpowiada za sposób wykorzystania zawartych w niej informacji.</p>\n  </div>\n</div>\n",
+      "text": "Ważne telefony 112Nagłe zagrożenie, ratownicy 999Pogotowie ratunkowe 991Pogotowie energetyczne 83 306 82 51Gmina: zarządzanie kryzysowe* 83 306 82 50Awarie wodociągu gminnego* 83 352 74 12Powiat: zarządzanie kryzysowe** * pn-pt 8-16, ** pn-pt 7.30-15.30 Zeskanuj telefonem: mapa miejsc schronieniagdziesieukryc.plGmina: czemierniki.euSanepid: gov.pl/web/psse-radzyn-podlaski Sprzęt KGW dla mieszkańców Stacja zasilania, kociołek i lampy: zapytaj osobiście lub na facebook.com/kgw.czemierniki. Dostęp po uzgodnieniu z KGW, pod nadzorem przeszkolonej osoby, bez stałego dyżuru. Opracował i przygotował do wydaniaBartosz Michalski, koordynator projektu Wydawca: Koło Gospodyń Wiejskich Czemierniki, listopad 2026. Egzemplarz bezpłatny. Ilustracje AI dla KGW, częściowo według zdjęć z Wikimedia Commons (zmienione): H. Śmietanka, T. Zugaj, J. Karczmarz; licencje CC BY-SA 2.5, 3.0 i 4.0. Źródła: rządowy Poradnik bezpieczeństwa, GIS, sanepid, Wytyczne resuscytacji 2025; wykaz w wersji elektronicznej na facebook.com/kgw.czemierniki. Treść odzwierciedla wyłącznie opinię autora, a NIW-CRSO nie odpowiada za sposób wykorzystania zawartych w niej informacji."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Rządowy Poradnik bezpieczeństwa: tematy i pełna publikacja",
+      "url": "https://www.gov.pl/web/poradnikbezpieczenstwa"
+    },
+    {
+      "title": "Poradnik bezpieczeństwa: dom, zapasy na minimum trzy dni",
+      "url": "https://www.gov.pl/web/poradnikbezpieczenstwa/przygotuj-swoje-otoczenie"
+    },
+    {
+      "title": "Poradnik bezpieczeństwa: długotrwały brak prądu",
+      "url": "https://www.gov.pl/web/poradnikbezpieczenstwa/dlugotrwaly-brak-pradu-blackout"
+    },
+    {
+      "title": "Poradnik bezpieczeństwa: sygnały alarmowe i komunikaty",
+      "url": "https://www.gov.pl/web/poradnikbezpieczenstwa/sygnaly-alarmowe-i-komunikaty-ostrzegawcze"
+    },
+    {
+      "title": "Poradnik bezpieczeństwa: schronienia i atak z powietrza",
+      "url": "https://www.gov.pl/web/poradnikbezpieczenstwa/schronienia"
+    },
+    {
+      "title": "Poradnik bezpieczeństwa: ewakuacja i plecak",
+      "url": "https://www.gov.pl/web/poradnikbezpieczenstwa/ewakuacja"
+    },
+    {
+      "title": "KP PSP w Turku: co robić, gdy ulatnia się gaz (nie włączać ani nie wyłączać światła, nie używać ognia, otworzyć okna, zakręcić gaz, wyjść, pogotowie gazowe 992)",
+      "url": "https://www.gov.pl/web/kppsp-turek/co-robic-gdy-ulatnia-sie-gaz"
+    },
+    {
+      "title": "Poradnik bezpieczeństwa: zadbaj o zwierzęta (zapas paszy i wody dla zwierząt gospodarskich na 14 dni), odczyt 18.10.2026",
+      "url": "https://www.gov.pl/web/poradnikbezpieczenstwa/zadbaj-o-zwierzeta"
+    },
+    {
+      "title": "Poradnik bezpieczeństwa: osoby potrzebujące szczególnej pomocy",
+      "url": "https://www.gov.pl/web/poradnikbezpieczenstwa/osoby-potrzebujace-szczegolnej-pomocy"
+    },
+    {
+      "title": "Poradnik bezpieczeństwa: plan rodzinny",
+      "url": "https://www.gov.pl/web/poradnikbezpieczenstwa/plan-na-kryzys"
+    },
+    {
+      "title": "GIS: bezpieczeństwo żywności podczas awarii chłodzenia",
+      "url": "https://www.gov.pl/web/gis/przerwa-w-dostawie-pradu-pamietaj-o-bezpieczenstwie-zywnosci"
+    },
+    {
+      "title": "GIS i EFSA: infografika o bezpieczeństwie żywności podczas przerwy w dostawie prądu (pojemniki z lodem lub butelki z wodą w zamrażarce, zasada 4 godzin, 2 godziny powyżej 5°C)",
+      "url": "https://www.gov.pl/attachment/39db4a4b-e8fd-4875-939c-d5a6b6bf0afe"
+    },
+    {
+      "title": "Europejski Urząd ds. Bezpieczeństwa Żywności: daty na opakowaniu",
+      "url": "https://www.efsa.europa.eu/pl/safe2eat/food-date-labelling"
+    },
+    {
+      "title": "Inspekcja sanitarna: bezpieczna woda ze studni",
+      "url": "https://www.gov.pl/web/psse-sanok/informacja-dla-mieszkancow---woda-z-prywatnej-studni---podstawowe-zasady-bezpieczenstwa"
+    },
+    {
+      "title": "Polska Rada Resuscytacji: Wytyczne 2025",
+      "url": "https://www.prc.krakow.pl/wytyczne-2025/"
+    },
+    {
+      "title": "Polska Rada Resuscytacji: Wytyczne ERC 2025, rozdział BLS (elektrody AED na odsłoniętą klatkę, natychmiastowe wznowienie uciskania)",
+      "url": "https://www.prc.krakow.pl/wp-content/uploads/2026/07/wytyczne-ERC-2025_BLS_final.pdf"
+    },
+    {
+      "title": "PSP: mapa miejsc schronienia, odczyt 18.10.2026 (7 obiektów w gminie Czemierniki)",
+      "url": "https://gdziesieukryc.pl/?lat=51.67479&lng=22.63760"
+    },
+    {
+      "title": "Urząd Miejski w Czemiernikach: pracownicy i numery stanowisk",
+      "url": "https://czemierniki.eu/pracownicy/"
+    },
+    {
+      "title": "Gmina Czemierniki: stacja i sieć wodociągowa",
+      "url": "https://czemierniki.eu/woda/"
+    },
+    {
+      "title": "Zarządzenie Nr 3/2021 Starosty Radzyńskiego w sprawie Powiatowego Centrum Zarządzania Kryzysowego (tel. 83 352 74 12, dyżury w godzinach pracy urzędu 7.30-15.30)",
+      "url": "https://powiatradzynski.pl/images/pdf/pczk/zarzadzenie-dot-PCZK-2021.pdf"
+    },
+    {
+      "title": "PGE Dystrybucja: zgłaszanie awarii, pogotowie energetyczne 991",
+      "url": "https://pgedystrybucja.pl/wylaczenia/zglaszanie-awarii"
+    },
+    {
+      "title": "Rządowy Poradnik bezpieczeństwa: pierwsza pomoc",
+      "url": "https://www.gov.pl/web/poradnikbezpieczenstwa/pierwsza-pomoc"
+    },
+    {
+      "title": "Urząd Wojewódzki: zapobieganie zatruciu tlenkiem węgla",
+      "url": "https://www.gov.pl/web/uw-opolski/tlenek-wegla---cichy-zabojca"
+    },
+    {
+      "title": "Rządowy Poradnik bezpieczeństwa: zagrożenia chemiczne i inne skażenia",
+      "url": "https://www.gov.pl/web/poradnikbezpieczenstwa/zagrozenia-chemiczne-biologiczne-radiologiczne-i-nuklearne"
+    },
+    {
+      "title": "CDC: agregat na zewnątrz, ponad 20 stóp (ok. 6 m) od okien, drzwi i wentylacji",
+      "url": "https://www.cdc.gov/carbon-monoxide/about/index.html"
+    },
+    {
+      "title": "Polska Rada Resuscytacji: Wytyczne ERC 2025, rozdział Pierwsza pomoc (pozycja bezpieczna)",
+      "url": "https://www.prc.krakow.pl/wp-content/uploads/2026/10/wytyczne-ERC-2025_pierwsza-pomoc_i_C.pdf"
+    },
+    {
+      "title": "Europejska Rada Resuscytacji: podstawowe zabiegi resuscytacyjne dorosłych 2025",
+      "url": "https://www.erc.edu/media/wrhj5sye/gl2025-04-bls-e.pdf"
+    },
+    {
+      "title": "PSSE Radzyń Podlaski: kontakt i komunikaty",
+      "url": "https://www.gov.pl/web/psse-radzyn-podlaski/kontakt2"
+    },
+    {
+      "title": "Numer alarmowy 112: jak zgłaszać (dokładny adres, rozłączenie dopiero na polecenie operatora)",
+      "url": "https://www.gov.pl/web/numer-alarmowy-112/jak-zglaszac"
+    },
+    {
+      "title": "Numer alarmowy 112: inne numery alarmowe (999)",
+      "url": "https://www.gov.pl/web/numer-alarmowy-112/inne-numery-alarmowe"
+    },
+    {
+      "title": "MSWiA: instrukcja reagowania na zagrożenie atakiem z powietrza (wybór miejsca schronienia, zasada dwóch ścian, Alert RCB)",
+      "url": "https://www.gov.pl/attachment/c597bfcf-23fc-4219-ba6c-514e72a976ba"
+    },
+    {
+      "title": "Rozporządzenie MSWiA z 14 maja 2025 r. w sprawie alarmów i komunikatów ostrzegawczych (Dz. U. poz. 645)",
+      "url": "https://eli.gov.pl/eli/DU/2025/645/ogl"
+    },
+    {
+      "title": "Wielkopolski Urząd Wojewódzki: skażenie chemiczne (najpierw wygasić paleniska, potem zamknąć przewody kominowe)",
+      "url": "https://www.poznan.uw.gov.pl/node/21194"
+    },
+    {
+      "title": "KP PSP w Będzinie: czad, cichy zabójca (przedwczesne zamknięcie paleniska)",
+      "url": "https://www.gov.pl/web/kppsp-bedzin/czad-cichy-zabojca"
+    },
+    {
+      "title": "Instytut Żywności i Żywienia: Zasady prawidłowego żywienia chorych w szpitalach, 2011, s. 99 (rotacja zapasów FIFO i FEFO)",
+      "url": "https://www.gov.pl/attachment/17c17834-673f-420d-b37b-899a79723614"
+    },
+    {
+      "title": "Albrecht DR 114: instrukcja producenta 04.2026, s. 24 (próba odbioru na zewnątrz, z wysuniętą anteną)",
+      "url": "https://www.alan-electronics.de/alan/CustomUpload/374O357O340O370O356O369O350O320O363O352O365O/Anleitung_DR114_DE_EN_FR_04_2026.pdf"
+    },
+    {
+      "title": "Tadmar, Warsztat Instalatora: pompa obiegowa w instalacji c.o. (zatrzymanie pompy może doprowadzić do przegrzania kotła na paliwo stałe)",
+      "url": "https://www.tadmar.pl/warsztat-instalatora/pompa-obiegowa-w-instalacji-centralnego-ogrzewania-co-trzeba-a-co-warto-wiedziec"
+    },
+    {
+      "title": "TAURON Dystrybucja: Agregat prądotwórczy w domu jednorodzinnym (nie do gniazdka w ścianie, przełącznik sieć-agregat montuje osoba z uprawnieniami, inaczej pojedyncze urządzenia wprost z agregatu)",
+      "url": "https://www.tauron-dystrybucja.pl/-/media/offer-documents/dystrybucja/inne-dokumenty/td-agregaty-pradotworcze-dom-jednorodzinny.ashx"
+    },
+    {
+      "title": "MSWiA: wichury",
+      "url": "https://www.gov.pl/web/mswia/wichury"
+    },
+    {
+      "title": "KG PSP: burze i silny wiatr",
+      "url": "https://www.gov.pl/web/kgpsp/burze-i-silny-wiatr"
+    },
+    {
+      "title": "Sieć Badawcza Łukasiewicz, Warszawski Instytut Technologiczny: zadania egzaminacyjne, pyt. 25 (oddalanie się od zerwanego przewodu drobnymi krokami, bez odrywania stóp)",
+      "url": "https://wit.lukasiewicz.gov.pl/wp-content/uploads/sites/17/2026/04/Remontery-nawierzchni-drog-Klasa-III_PYTANIA-I-ZADANIA.pdf"
+    },
+    {
+      "title": "Poradnik bezpieczeństwa: powódź (flagi: biała, czerwona, niebieska; wyłączenie prądu i gazu)",
+      "url": "https://www.gov.pl/web/poradnikbezpieczenstwa/powodz"
+    },
+    {
+      "title": "MSWiA: powódź",
+      "url": "https://www.gov.pl/web/mswia/powodz"
+    },
+    {
+      "title": "KP PSP w Lipsku: powódź",
+      "url": "https://www.gov.pl/web/kppsp-lipsko/powodz"
+    },
+    {
+      "title": "GIS: bezpieczeństwo żywności podczas powodzi",
+      "url": "https://www.gov.pl/web/gis/bezpieczenstwo-zywnosci-podczas-powodzi"
+    },
+    {
+      "title": "Mazowiecki Państwowy Wojewódzki Inspektor Sanitarny: woda w studniach po powodzi",
+      "url": "https://www.gov.pl/attachment/6203f9ed-f94c-4de4-80b0-7e75c115d728"
+    }
+  ],
+  "credits": "Ilustracje: akwarele wygenerowane na zamówienie KGW (GPT Image 2.6, listopad 2026). Widoki zespołu zamkowego i strażnicy OSP oparto na zdjęciach z Wikimedia Commons:\nH. Śmietanka, POL Czemierniki-Castle.jpg, CC BY-SA 2.5: https://commons.wikimedia.org/wiki/File:POL_Czemierniki-Castle.jpg\nT. Zugaj, Pałac w Czemiernikach.jpg, CC BY-SA 4.0: https://commons.wikimedia.org/wiki/File:Pa%C5%82ac_w_Czemiernikach.jpg\nJ. Karczmarz, Czemierniki brama palacowa.jpg, CC BY-SA 4.0: https://commons.wikimedia.org/wiki/File:Czemierniki_brama_palacowa.jpg\nJ. Karczmarz, Czemierniki OSP.jpg, CC BY-SA 3.0: https://commons.wikimedia.org/wiki/File:Czemierniki_OSP.jpg\nIlustracje oparte na tych zdjęciach udostępniamy na tej samej licencji (CC BY-SA 4.0): https://creativecommons.org/licenses/by-sa/4.0/deed.pl\n"
+}
