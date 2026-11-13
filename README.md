@@ -77,7 +77,7 @@ usunąć z panelu Coolify — pliki i kontener nie są już używane.
 - Fakty (daty, nazwiska, kwoty, partnerzy) wyłącznie potwierdzone: z bazy wiedzy
   Koła albo od Zarządu. Skład Zarządu celowo niepublikowany do czasu potwierdzenia
   odpisem z KRKGW.
-- Cudzysłowy polskie „tak”, separator tysięcy kropką (5.000 zł), bez myślnika em.
+- Proste cudzysłowy "tak", separator tysięcy kropką (5.000 zł), bez myślnika em.
 
 ## Struktura
 
@@ -88,9 +88,17 @@ usunąć z panelu Coolify — pliki i kontener nie są już używane.
   rozmiar tekstu, tryb nocny, odsłuch przy dostępnym polskim głosie urządzenia,
   niezmienione pliki PDF/TXT. Skróty rozdziałów w adresach URL. Bez JavaScript
   wszystkie rozdziały są widoczne; nie zapisujemy danych domowego planu.
-  LocalStorage przechowuje wyłącznie rozmiar tekstu i motyw. Metryka oraz sumy
+  Ilustrowany wybór tematów, tryb skupienia, przyklejona nawigacja, orientacyjny
+  czas czytania, kopiowanie linku i opcjonalna zakładka. Podgląd oryginalnej strony
+  otwiera natywny dialog z powiększeniem i przewijaniem; Esc zamyka dialog,
+  a poza nim kończy tryb skupienia. Strzałki zmieniają strony tylko przy fokusie
+  w czytniku, poza polami formularza. Animacje respektują reduced-motion.
+  LocalStorage przechowuje rozmiar tekstu, motyw i zakładkę na żądanie. Metryka oraz sumy
   SHA-256 plików źródłowych: `data/poradnik-source.json`. Informacja o wydaniu
   nie oznacza aktualizacji danych miejscowych; źródłowy tekst zachowuje daty.
+  Kontrola 13.11.2026: wszystkie 16 rozdziałów przy szerokości 320 px i największej
+  czcionce, ciemny motyw, tryb skupienia, dialog 375 px z powiększeniem i Esc,
+  powrót do zakładki po przeładowaniu, kopiowanie linku, nawigacja klawiaturą.
 
 - `layouts/home.html` — strona główna (hero, kafle, czym żyjemy, pas Dożynek,
   sekcja Klubu, partnerzy, dołącz)

@@ -13,6 +13,7 @@
         <a class="guide-btn" href="/poradnik/poradnik-czemierniki.pdf" download>Pobierz PDF <span aria-hidden="true">↓</span></a>
       </div>
       <div class="guide-meta"><span>16 ilustrowanych stron</span><span>Bezpłatnie dla każdego</span><span>Wydanie: listopad 2026</span></div>
+      <a class="resume-reading" id="resume-reading" href="#czytelnia" hidden>Wróć do zapisanej strony</a>
     </div>
     <figure class="guide-hero-image">
       <img src="/poradnik/ilustracja-01.webp" width="1200" height="800" alt="Akwarelowy widok pałacu w Czemiernikach nad stawem, w ciepłym świetle popołudnia" fetchpriority="high">
@@ -27,6 +28,16 @@
     <a href="#domowy-plan" data-chapter="14">Ułóż domowy plan</a>
     <a href="#wazne-telefony" data-chapter="15">Ważne telefony</a>
   </div>
+
+  <section class="guide-discover" aria-labelledby="discover-title">
+    <div class="discover-heading"><div><p class="guide-eyebrow">Małe kroki. Więcej spokoju.</p><h2 id="discover-title">Zacznij od tego, co blisko Ciebie.</h2></div><p>Nie musisz czytać od początku.<br>Wybierz temat, który przyda Ci się dzisiaj.</p></div>
+    <div class="topic-grid">
+    {{ range slice (dict "i" 2 "title" "Gdy gaśnie światło" "copy" "Pierwsze minuty bez prądu" "image" "03") (dict "i" 3 "title" "Domowe zapasy" "copy" "Przygotowania na co najmniej 3 dni" "image" "04") (dict "i" 6 "title" "Bezpieczna woda" "copy" "Zapas, przechowywanie i komunikaty" "image" "07") (dict "i" 9 "title" "Kiedy nadchodzi burza" "copy" "Dom i bliscy podczas wichury" "image" "10") (dict "i" 13 "title" "Sąsiad obok" "copy" "Pomoc zaczyna się od rozmowy" "image" "14") (dict "i" 14 "title" "Plan dla Waszego domu" "copy" "Ustalcie go wspólnie z bliskimi" "image" "15") }}
+      {{ $p := index hugo.Data.poradnik.pages .i }}
+      <a class="topic-card" href="#{{ $p.slug }}" data-chapter="{{ .i }}"><div class="topic-image"><img src="/poradnik/ilustracja-{{ .image }}.webp" alt="" loading="lazy" width="600" height="360"><span class="topic-page">Strona {{ $p.number }}</span></div><div class="topic-copy"><h3>{{ .title }}</h3><p>{{ .copy }}</p><span class="topic-arrow" aria-hidden="true">↗</span></div></a>
+    {{ end }}
+    </div>
+  </section>
 
   <div class="reader-layout" id="czytelnia">
     <aside class="reader-aside">
@@ -48,6 +59,10 @@
     </aside>
 
     <div class="reader-main">
+      <div class="reader-dock js-control" hidden>
+        <div class="dock-title"><span>Czytelnia</span><strong id="dock-title">Drodzy Sąsiedzi!</strong></div>
+        <div class="dock-actions"><button type="button" id="quick-prev" aria-label="Poprzednia strona">←</button><button type="button" id="quick-next" aria-label="Następna strona">→</button><button type="button" id="focus-reader" aria-pressed="false">Tryb skupienia</button></div>
+      </div>
       <div class="reader-toolbar js-control" hidden>
         <div class="reader-modes" role="group" aria-label="Sposób czytania">
           <button type="button" id="mode-text" aria-pressed="true">Czytaj tekst</button>
@@ -60,9 +75,11 @@
       </div>
       <div class="reader-progress js-control" hidden><div id="read-progress"></div></div>
       <div class="reader-context js-control" hidden>
-        <span id="chapter-status" role="status"></span>
+        <span><span id="chapter-status" role="status"></span><span id="reading-time"></span></span>
         <div class="reader-audio"><button type="button" id="read-aloud" hidden>Posłuchaj rozdziału</button><button type="button" id="stop-audio" hidden>Zatrzymaj</button></div>
       </div>
+      <div class="reader-extras js-control" hidden><button type="button" id="save-page" aria-pressed="false">Zapisz zakładkę</button><button type="button" id="share-page">Kopiuj link do rozdziału</button><span id="reader-feedback" role="status"></span></div>
+      <input id="share-fallback" readonly aria-label="Link do tego rozdziału, skopiuj go" hidden>
       <p id="audio-status" class="audio-status" role="status"></p>
       <div id="text-view">
       {{ range $i, $p := hugo.Data.poradnik.pages }}
@@ -73,8 +90,8 @@
       {{ end }}
       </div>
       <div id="book-view" hidden>
-        <p>Oryginalny układ książeczki. Dotknij strony, aby otworzyć ją w pełnym rozmiarze.</p>
-        <a id="book-zoom" href="/poradnik/strona-01.webp" target="_blank" rel="noopener" aria-label="Otwórz stronę w pełnym rozmiarze, nowa karta"><img id="book-page" src="/poradnik/strona-01.webp" width="1444" height="2048" alt="Strona 1: okładka poradnika" loading="lazy"></a>
+        <p>Jak papierowa książeczka, zawsze pod ręką. Dotknij strony, aby ją powiększyć.</p>
+        <button type="button" id="book-zoom" aria-label="Powiększ stronę książeczki"><img id="book-page" src="/poradnik/strona-01.webp" width="1444" height="2048" alt="Strona 1: okładka poradnika" loading="lazy"></button>
         <p class="book-text-link"><button type="button" id="back-to-text">Czytaj tę stronę jako tekst</button></p>
       </div>
       <nav class="reader-paging js-control" hidden aria-label="Przejdź do innej strony">
@@ -83,8 +100,10 @@
         <button type="button" id="next-chapter">Następna <span aria-hidden="true">→</span></button>
       </nav>
       <p class="reader-edition">Treść wydania z 8 listopada 2026 r. Wersja internetowa opublikowana 13 listopada 2026 r.</p>
+      <p class="keyboard-tip js-control" hidden>Strzałki na klawiaturze zmieniają strony podczas czytania. Esc kończy tryb skupienia.</p>
     </div>
   </div>
+  <dialog id="page-dialog" class="page-dialog" aria-labelledby="zoom-title"><div class="zoom-toolbar"><strong id="zoom-title">Podgląd strony</strong><div><button type="button" id="zoom-toggle" aria-pressed="false">Powiększ</button><button type="button" id="zoom-close">Zamknij</button></div></div><div class="zoom-canvas" id="zoom-canvas" tabindex="0" aria-label="Podgląd strony, po powiększeniu przewijaj obraz"><img id="zoom-image" alt=""></div></dialog>
 
   <section class="guide-downloads" id="pliki" aria-labelledby="download-title">
     <div><p class="guide-eyebrow">Zachowaj na później</p><h2 id="download-title">Dobrze mieć go pod ręką.</h2><p>Pobierz poradnik, zanim będzie potrzebny. Zapisane pliki przeczytasz także bez Internetu.</p></div>

@@ -105,7 +105,7 @@ Jeżeli wniesiesz sprzeciw wobec przetwarzania opartego na naszym prawnie uzasad
 
 ### Ustawienia i odsłuch poradnika
 
-Czytnik poradnika zapamiętuje wybrany rozmiar tekstu i tryb dzienny lub nocny w pamięci lokalnej Twojej przeglądarki (localStorage). Te ustawienia pozostają na urządzeniu, nie wymagają konta i nie są przesyłane do nas. Możesz je usunąć, czyszcząc dane tej strony w przeglądarce.
+Czytnik poradnika zapamiętuje wybrany rozmiar tekstu i tryb dzienny lub nocny w pamięci lokalnej Twojej przeglądarki (localStorage). Po wybraniu "Zapisz zakładkę" zapisuje również wskazany rozdział. Te ustawienia pozostają na urządzeniu, nie wymagają konta i nie są przesyłane do nas. Zakładkę możesz usunąć tym samym przyciskiem, a wszystkie ustawienia wyczyścić w danych tej strony w przeglądarce.
 
 Odsłuch uruchamia się wyłącznie po naciśnięciu przycisku i korzysta z polskiego głosu dostępnego w przeglądarce lub systemie. Czytnik preferuje głos lokalny; jeżeli urządzenie udostępnia tylko głos sieciowy, przetwarzanie tekstu może odbywać się u dostawcy tego głosu. Funkcja nie korzysta z mikrofonu.
 
