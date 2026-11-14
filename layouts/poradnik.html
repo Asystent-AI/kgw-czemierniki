@@ -37,7 +37,7 @@
       <p class="guide-pdf"><a href="/poradnik/poradnik-czemierniki.pdf" download>{{ partial "poradnik/ikona.html" "pobierz" }}<span>Pobierz poradnik w PDF</span><span class="guide-pdf-size">14&nbsp;MB</span></a></p>
       <ul class="guide-meta">
         <li>16 ilustrowanych stron</li>
-        {{- with $lektor }}{{ $m := int (math.Round (div .full.duration 60)) }}<li>Profesjonalny lektor, około {{ $m }}&nbsp;minut</li>{{ end }}
+        {{- with $lektor }}<li>Czyta profesjonalny lektor</li>{{ end }}
         <li>Bezpłatnie dla każdego</li>
         <li>Wydanie: listopad 2026</li>
       </ul>
@@ -55,8 +55,11 @@
 
   <section class="guide-discover" aria-labelledby="discover-title">
     <div class="discover-heading">
-      <div><p class="guide-eyebrow">Małe kroki. Więcej spokoju.</p><h2 id="discover-title">Zacznij od tego, co blisko Ciebie</h2></div>
-      <p>Nie musisz czytać od początku. Wybierz temat, który przyda Ci się dzisiaj. <a class="discover-urgent" href="#wazne-telefony">{{ partial "poradnik/ikona.html" "telefon" }}<span>Pilnie potrzebujesz numeru? Ważne telefony</span></a></p>
+      <div><p class="guide-eyebrow">Tematy poradnika</p><h2 id="discover-title">Wybierz, od&nbsp;czego zaczniesz</h2></div>
+      <div class="discover-aside">
+        <p>Strony możesz czytać w dowolnej kolejności.</p>
+        <a class="discover-urgent" href="#wazne-telefony">{{ partial "poradnik/ikona.html" "telefon" }}<span>Ważne telefony</span></a>
+      </div>
     </div>
     <ul class="topic-grid">
     {{- range slice
@@ -135,7 +138,6 @@
         </details>
       </div>
       <p id="reader-status" class="reader-status" role="status"></p>
-      <p class="reader-context js-control"><span id="reading-time"></span></p>
 
       <div id="text-view">
       {{- range $i, $p := $pages }}
@@ -155,7 +157,6 @@
           {{- $czas := cond (gt $s 59) (cond (eq (mod $s 60) 0) (printf "%d min" (div $s 60)) (printf "%d min %d s" (div $s 60) (mod $s 60))) (printf "%d s" $s) }}
           <div class="listen-card web-extra">
             <button type="button" class="listen-btn js-control" data-listen="{{ $i }}"><span class="listen-ico" aria-hidden="true"></span><span class="listen-label">Posłuchaj tej strony</span></button>
-            <p class="listen-meta js-control">{{ $czas }}, czyta profesjonalny lektor</p>
             <p class="listen-file nojs-only"><a href="{{ .file }}">Posłuchaj nagrania tej strony (MP3, {{ $czas }})</a></p>
           </div>
           {{- end }}

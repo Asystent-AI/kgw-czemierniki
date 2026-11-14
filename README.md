@@ -123,10 +123,20 @@ usunąć z panelu Coolify: pliki i kontener nie są już używane.
     od 1001 px (wielokropek przy braku miejsca), najechanie: liliowe tło i fioletowy tekst.
     Listy rozwijane (strona, tempo lektora, dni w kalkulatorze): pigułki z chevronem SVG;
     w Chromium 135+ `appearance: base-select` stylizuje też rozwiniętą listę, w innych
-    przeglądarkach lista systemowa. Nad pływającym paskiem czytnika maska `::before`
-    w kolorze tła zasłania treść i cień karty w górnych narożnikach (`.reader-layout`
-    ma `overflow-x: clip`, aby maska nie poszerzała strony na telefonie). Bez notki
-    o wydaniu i datach publikacji pod spisem treści (decyzja Bartosza z 14.11.2026).
+    przeglądarkach lista systemowa. Nad pływającym paskiem czytnika szczelinę i narożniki
+    zasłania drugi cień paska w kolorze tła (`0 -12px 0 6px var(--ground)`, leży pod paskiem,
+    więc nie prześwituje przy skalowaniu ekranu 125%), a `::before` po bokach wygasza cień
+    karty strony (`.reader-layout` ma `overflow-x: clip`, aby nie poszerzał strony na telefonie).
+    Od 1001 px pozycje spisu mają 38 px wysokości, żeby panel mieścił się bez przewijania.
+    Bez notki o wydaniu pod spisem treści, bez "Czytanie: około N minut" i bez czasu nagrania
+    przy przycisku "Posłuchaj tej strony" (decyzje Bartosza z 14-15.11.2026). W nagłówku cechy
+    w siatce 2x2 ("Czyta profesjonalny lektor"); sekcja tematów: "Wybierz, od czego zaczniesz"
+    z przyciskiem "Ważne telefony".
+  - Strona 16 (Ważne telefony, 15.11.2026): 112 i 999 jako czerwone karty, pozostałe numery
+    w tabeli z wyrównaną kolumną (subgrid) i przypisem godzin, kod QR w ramce. Cyfry numerów
+    `lining-nums tabular-nums` (krój nagłówków ma domyślnie cyfry nautyczne). Pary numer-opis
+    są w `div.tel`, dlatego selektor bloków lektora to `.telefony .num`; kolejność bloków
+    (20 na stronie 16) zgodna z nagraniem.
   - Lektor: na stronie "Profesjonalny lektor", bez wzmianek o AI i głosie syntetycznym
     (decyzja Bartosza z 14.11.2026; dane techniczne w `data/lektor.json` i w
     `narzedzia/lektor_poradnika/`). Nagrania z 14.11.2026, zmontowane tego samego dnia:

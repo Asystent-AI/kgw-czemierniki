@@ -37,7 +37,6 @@
   const searchable = findTexts.map((t, i) => normal(titles[i] + ' ' + t));
   // Nagłówki i numery telefonów ważą przy wyborze strony otwieranej Enterem.
   const heads = chapters.map(ch => normal(Array.from(ch.querySelectorAll('h3, .num')).map(clean).join(' ')));
-  const minutes = texts.map(t => Math.max(1, Math.round(t.split(/\s+/).length / 170)));
   const pad = n => String(n).padStart(2, '0');
   const toc = Array.from(root.querySelectorAll('[data-toc]'));
   const baseTitle = document.title;
@@ -104,7 +103,6 @@
     if (next) next.title = current < N - 1 ? `Strona ${current + 2}: ${titles[current + 1]}` : '';
     const prev = $('prev-chapter');
     if (prev) prev.title = current > 0 ? `Strona ${current}: ${titles[current - 1]}` : '';
-    $('reading-time').textContent = minutes[current] === 1 ? 'Czytanie: około 1 minuty' : `Czytanie: około ${minutes[current]} minut`;
     const skip = $('reader-skip');
     if (skip) skip.href = '#' + chapters[current].querySelector('h2').id;
     if (!opts.keepTitle) document.title = `${titles[current]} | Poradnik KGW Czemierniki`;
