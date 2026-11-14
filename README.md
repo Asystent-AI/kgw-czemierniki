@@ -52,6 +52,10 @@ a nie u nas.
 Serwer: `<serwer>`. Strona chodzi jako kontener `kgw-www` (`nginx:alpine`,
 `restart unless-stopped`, sieć `coolify`, labele Traefik z `certresolver=letsencrypt`)
 serwujący `/var/www/kgw`. Kontener stoi poza panelem Coolify, jak `pasjonaci-czemierniki`.
+Konfiguracja nginx (od 14.11.2026: strona `404.html` ze statusem 404, typ
+`application/manifest+json` dla `site.webmanifest`) jest w `/opt/kgw-www/nginx-default.conf`
+na serwerze; po odtworzeniu kontenera uruchom `/opt/kgw-www/zastosuj-nginx.sh`
+(szczegóły: `docs/STRONY.md` w repozytorium agenta).
 
 Aktualizacja strony (bez restartu kontenera):
 
