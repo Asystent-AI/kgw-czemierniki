@@ -91,6 +91,7 @@
       <div class="reader-search js-control" role="search">
         <label for="guide-search">Szukaj w poradniku</label>
         <div class="search-field">
+          {{ partial "poradnik/ikona.html" "szukaj" }}
           <input id="guide-search" type="search" placeholder="np. woda, lodówka, gaz" autocomplete="off" enterkeyhint="search" aria-describedby="search-status">
           <button id="clear-search" type="button" aria-label="Wyczyść wyszukiwanie" hidden>{{ partial "poradnik/ikona.html" "zamknij" }}</button>
         </div>
@@ -181,7 +182,6 @@
         </label>
         <button type="button" id="next-chapter"><span>Następna</span>{{ partial "poradnik/ikona.html" "prawo" }}</button>
       </nav>
-      <p class="reader-edition">Treść wydania z 8 listopada 2026 r. W wersji internetowej słowo "książeczka" zastąpiono słowem "poradnik". Wersja internetowa opublikowana 13 listopada 2026 r., nagrania lektora i dodatki multimedialne dodano 14 listopada 2026 r.</p>
     </div>
   </div>
 

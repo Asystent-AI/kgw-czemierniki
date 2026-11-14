@@ -117,6 +117,16 @@ usunąć z panelu Coolify: pliki i kontener nie są już używane.
     (tylko lekkie przyciemnienie). Pasek czytnika: postęp jako linia wzdłuż zaokrąglonej
     dolnej krawędzi. Na stronie 11 informacja "Stan rzek" stoi pod tytułem (`p.pod-tytulem`).
     Tytuły w kafelkach i spisie bez jednoliterowych wyrazów na końcu wiersza.
+    Panel boczny to karta z własnym paskiem przewijania (pseudo-elementy `::-webkit-scrollbar`;
+    `scrollbar-width`/`scrollbar-color` tylko w `@supports not`, bo w Chromium wyłączają
+    stylowanie i pokazują strzałki), wyszukiwarka z ikoną lupy, spis treści w jednej linii
+    od 1001 px (wielokropek przy braku miejsca), najechanie: liliowe tło i fioletowy tekst.
+    Listy rozwijane (strona, tempo lektora, dni w kalkulatorze): pigułki z chevronem SVG;
+    w Chromium 135+ `appearance: base-select` stylizuje też rozwiniętą listę, w innych
+    przeglądarkach lista systemowa. Nad pływającym paskiem czytnika maska `::before`
+    w kolorze tła zasłania treść i cień karty w górnych narożnikach (`.reader-layout`
+    ma `overflow-x: clip`, aby maska nie poszerzała strony na telefonie). Bez notki
+    o wydaniu i datach publikacji pod spisem treści (decyzja Bartosza z 14.11.2026).
   - Lektor: na stronie "Profesjonalny lektor", bez wzmianek o AI i głosie syntetycznym
     (decyzja Bartosza z 14.11.2026; dane techniczne w `data/lektor.json` i w
     `narzedzia/lektor_poradnika/`). Nagrania z 14.11.2026, zmontowane tego samego dnia:
