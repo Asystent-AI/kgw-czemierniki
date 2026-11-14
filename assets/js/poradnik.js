@@ -10,7 +10,7 @@
   const chapters = Array.from(root.querySelectorAll('#text-view > .guide-chapter'));
   const N = chapters.length;
   if (!N) return;
-  const SEL = 'h2, h3, p, li, .litry > div, .telefony > .num';
+  const SEL = 'h2, h3, p, li, .litry > div, .telefony .num';
   const reduced = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
   const store = {
     read(key) {try {return localStorage.getItem('kgw-poradnik-' + key);} catch (_) {return null;}},

@@ -4,7 +4,7 @@
  "provider": "ElevenLabs",
  "generated": "2026-11-14",
  "note": "Na stronie: profesjonalny lektor (decyzja Bartosza Michalskiego z 14.11.2026). Tekst wydania z 8 listopada 2026 r. w wersji internetowej; etykiet działów nad tytułami i opisów ilustracji lektor nie czyta.",
- "selector": "h2, h3, p, li, .litry > div, .telefony > .num",
+ "selector": "h2, h3, p, li, .litry > div, .telefony .num",
  "full": {
   "file": "/poradnik/audio/poradnik-czemierniki-lektor.mp3?v=20261114c",
   "duration": 990.69,

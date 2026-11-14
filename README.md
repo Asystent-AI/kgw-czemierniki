@@ -138,7 +138,7 @@ usunąć z panelu Coolify: pliki i kontener nie są już używane.
     Odtwarzacz na dole ekranu: pauza, suwak, 10 s wstecz/dalej, tempo 0,8-1,5, akapit
     wstecz/dalej, automatyczne przejście do następnej strony (domyślnie wyłączone),
     śledzenie tekstu, podświetlanie czytanego akapitu (segmenty w `data/lektor.json`,
-    bloki wg selektora `h2, h3, p, li, .litry > div, .telefony > .num` bez `.web-extra`),
+    bloki wg selektora `h2, h3, p, li, .litry > div, .telefony .num` bez `.web-extra`),
     kliknięcie akapitu przewija nagranie, Media Session (ekran blokady, grafiki 512 px),
     zapamiętana pozycja i tempo. Po zmianie treści strony trzeba nagrać ją ponownie
     i przeliczyć segmenty; skrypty i scenariusze: `narzedzia/lektor_poradnika/`
