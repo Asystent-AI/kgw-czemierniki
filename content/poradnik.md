@@ -1,7 +1,10 @@
 +++
 title = 'Czemierniki trzymają się razem!'
-description = 'Bezpłatny, ilustrowany poradnik KGW Czemierniki. Przeczytaj, posłuchaj i pobierz: domowe zapasy, brak prądu, wichura, powódź, pierwsza pomoc i pomoc sąsiedzka.'
+tytulSeo = 'Czemierniki trzymają się razem! Poradnik kryzysowy KGW'
+description = 'Bezpłatny, ilustrowany poradnik Koła Gospodyń Wiejskich Czemierniki o domowych zapasach, braku prądu, wichurze, powodzi, pierwszej pomocy i pomocy sąsiedzkiej. Czytaj online, posłuchaj lektora albo pobierz PDF.'
 layout = 'poradnik'
 date = 2026-11-13
-images = ['/poradnik/ilustracja-01.webp']
+lastmod = 2026-11-14
+images = ['/poradnik/og-poradnik.jpg']
+ogAlt = 'Akwarela: pałac w Czemiernikach nad stawem'
 +++

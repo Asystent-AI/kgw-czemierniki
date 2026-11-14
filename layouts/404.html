@@ -1,0 +1,27 @@
+{{ define "main" }}
+
+{{/* Strona błędu 404. Tytuł karty i meta robots "noindex" ustawia baseof.html
+     po rodzaju strony (.Kind "404"), bo ta strona nie ma front matter. */}}
+<section class="strona-glowa">
+  <div class="szeroko">
+    <div>
+      <div class="znaczki">
+        <span class="znaczek znaczek-f">Błąd 404</span>
+      </div>
+      <h1>Nie ma takiej strony</h1>
+      <p class="zajawka">Pod tym adresem nic nie znaleźliśmy. Link mógł się zmienić
+      albo wkradła się w niego literówka. Zajrzyj do poradnika albo wróć na stronę główną Koła.</p>
+      <div class="przyciski">
+        <a class="przycisk przycisk-duzy" href="/poradnik/">Otwórz poradnik kryzysowy</a>
+        <a class="przycisk przycisk-2 przycisk-duzy" href="/">Strona główna</a>
+      </div>
+      <p style="margin:1.4rem 0 0">Szukasz czegoś konkretnego? <a href="/kontakt/">Napisz do nas</a>, chętnie pomożemy.</p>
+    </div>
+    <figure class="figura-znak">
+      {{/* alt pusty celowo: nazwa Koła stoi obok w nagłówku i w stopce */}}
+      <img src="{{ "odznaka.webp" | relURL }}" width="640" height="640" alt="">
+    </figure>
+  </div>
+</section>
+
+{{ end }}

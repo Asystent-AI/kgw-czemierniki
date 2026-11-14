@@ -1,0 +1,16 @@
+/* Baner poradnika na stronie głównej (layouts/home.html). */
+.guide-home-banner { display: grid; grid-template-columns: 1fr 1fr; gap: 35px; align-items: center; background: #f4f0e6; border-radius: 22px; overflow: hidden; margin-block: 35px; }
+/* Karta w szerokości treści, obraz dosunięty do krawędzi karty. */
+.szeroko.guide-home-banner { padding-inline: 0; width: min(1116px, calc(100% - 2 * clamp(1rem, 4vw, 2rem))); }
+.guide-home-banner > div { padding: 35px; }
+.guide-home-banner img { display: block; width: 100%; height: 100%; min-height: 300px; align-self: stretch; object-fit: cover; }
+.guide-home-banner .guide-eyebrow { margin: 0 0 12px; font-size: .875rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #461571; }
+.guide-home-banner h2 { font-size: 2.4rem; line-height: 1.12; margin: 0 0 12px; text-wrap: balance; }
+.guide-home-banner p { font-size: 1rem; text-wrap: pretty; }
+.guide-home-banner .przycisk { margin-top: 8px; }
+@media (max-width: 900px) {
+  .guide-home-banner { grid-template-columns: 1fr; gap: 0; }
+  .guide-home-banner > div { padding: 28px; }
+  .guide-home-banner img { height: 240px; min-height: 0; }
+  .guide-home-banner h2 { font-size: 2rem; }
+}

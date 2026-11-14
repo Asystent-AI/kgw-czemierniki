@@ -3,6 +3,9 @@ locale = 'pl-PL'
 defaultContentLanguage = 'pl'
 title = 'Koło Gospodyń Wiejskich Czemierniki'
 enableRobotsTXT = true
+# Strona nie ma kategorii ani tagów: puste listy /categories/ i /tags/ trafiały do mapy
+# witryny i zwracały 403, czyli wyszukiwarka dostawała adresy-ślepe zaułki.
+disableKinds = ['taxonomy', 'term']
 
 [params]
   opis = 'Koło Gospodyń Wiejskich Czemierniki: tradycja, kuchnia regionalna, warsztaty, wydarzenia dla mieszkańców i Klub Pasjonatów Ogrodnictwa. Działamy dla Czemiernik i okolic.'
@@ -10,6 +13,9 @@ enableRobotsTXT = true
   email = 'kgw.czemierniki@gmail.com'
   facebook = 'https://www.facebook.com/kgw.czemierniki'
   pasjonaci = 'https://pasjonaci.czemierniki.org/'
+  # opis domyślnego obrazka udostępnień (static/og.jpg); strona z własnym `images`
+  # podaje własny `ogAlt` w front matter
+  ogAlt = 'Uczestnicy pleneru Klubu Pasjonatów Ogrodnictwa w ogrodzie, w złotym świetle na tle burzowego nieba, w rogu odznaka Koła Gospodyń Wiejskich Czemierniki'
   # Statystyki: skrypt z własnej domeny (Traefik przepuszcza tylko /statystyki/script.js
   # i /statystyki/api/send do kontenera umami). Panel: https://statystyki.czemierniki.org
   umami = '/statystyki/script.js'

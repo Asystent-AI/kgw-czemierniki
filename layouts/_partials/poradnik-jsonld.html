@@ -1,0 +1,145 @@
+{{- /* Dane strukturalne poradnika (schema.org, JSON-LD). Wywołanie w szablonie
+     poradnika, wewnątrz define "head":  partial "poradnik-jsonld.html" .
+
+     Rozdziały bierze z data/poradnik.json (pages: number, title, slug). Jeśli istnieje
+     data/lektor.json, dokłada nagrania lektora: AudioObject całości i każdego rozdziału
+     (dopasowanie po chapters[].index = indeks w pages, z kontrolą sluga), accessMode
+     "auditory" i synchronizedAudioText. Bez data/lektor.json działa jak dotąd.
+     Lektor to głos syntetyczny, więc bez readBy z osobą. */ -}}
+{{- $strona := .Permalink -}}
+{{- $dom := site.Home.Permalink -}}
+{{- $orgId := printf "%s#organizacja" $dom -}}
+{{- $ksiazkaId := printf "%s#poradnik" $strona -}}
+{{- $obraz := absURL "/poradnik/og-poradnik.jpg" -}}
+{{- with .Params.images }}{{ $obraz = index . 0 | absURL }}{{ end -}}
+{{- $opisGlosu := "Głos syntetyczny (AI, ElevenLabs) czytający tekst poradnika" -}}
+
+{{- /* Nagrania lektora: sekundy zamieniamy na czas ISO 8601 (812.3 s -> PT13M32S) */ -}}
+{{- $lektor := hugo.Data.lektor -}}
+{{- $audioCalosc := false -}}
+{{- $audioRozdzialy := dict -}}
+{{- if $lektor -}}
+  {{- $nagrania := slice -}}
+  {{- with $lektor.full }}{{ $nagrania = $nagrania | append (dict "klucz" "calosc" "plik" .file "sekundy" .duration "slug" "") }}{{ end -}}
+  {{- range $lektor.chapters -}}
+    {{- $nagrania = $nagrania | append (dict "klucz" (string (int .index)) "plik" .file "sekundy" .duration "slug" (.slug | default "")) -}}
+  {{- end -}}
+  {{- range $nagrania -}}
+    {{- if .plik -}}
+      {{- $s := int (math.Round (float (.sekundy | default 0))) -}}
+      {{- $h := div $s 3600 -}}
+      {{- $m := div (mod $s 3600) 60 -}}
+      {{- $sek := mod $s 60 -}}
+      {{- $iso := "PT" -}}
+      {{- if $h }}{{ $iso = printf "%s%dH" $iso $h }}{{ end -}}
+      {{- if $m }}{{ $iso = printf "%s%dM" $iso $m }}{{ end -}}
+      {{- if or $sek (eq $s 0) }}{{ $iso = printf "%s%dS" $iso $sek }}{{ end -}}
+      {{- $audio := dict
+            "@type" "AudioObject"
+            "contentUrl" (absURL .plik)
+            "encodingFormat" "audio/mpeg"
+            "duration" $iso
+            "inLanguage" "pl-PL"
+            "description" $opisGlosu -}}
+      {{- if eq .klucz "calosc" -}}
+        {{- $audioCalosc = merge $audio (dict "name" "Czemierniki trzymają się razem! Cały poradnik czytany głosem syntetycznym") -}}
+      {{- else -}}
+        {{- $audioRozdzialy = merge $audioRozdzialy (dict .klucz (dict "audio" $audio "slug" .slug)) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* Rozdziały: jeden Chapter na stronę poradnika; numer bywa liczbą zmiennoprzecinkową */ -}}
+{{- $rozdzialy := slice -}}
+{{- range $i, $p := hugo.Data.poradnik.pages -}}
+  {{- $nr := int $p.number -}}
+  {{- $rozdzial := dict
+        "@type" "Chapter"
+        "@id" (printf "%s#%s" $strona $p.slug)
+        "name" $p.title
+        "position" $nr
+        "pageStart" $nr
+        "pageEnd" $nr
+        "url" (printf "%s#%s" $strona $p.slug) -}}
+  {{- with index $audioRozdzialy (string $i) -}}
+    {{- if or (not .slug) (eq .slug $p.slug) -}}
+      {{- $rozdzial = merge $rozdzial (dict "audio" (merge .audio (dict "name" (printf "Strona %d: %s" $nr $p.title)))) -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $rozdzialy = $rozdzialy | append $rozdzial -}}
+{{- end -}}
+
+{{- $organizacja := dict
+      "@type" "Organization"
+      "@id" $orgId
+      "name" "Koło Gospodyń Wiejskich Czemierniki"
+      "alternateName" "KGW Czemierniki"
+      "url" $dom
+      "logo" (dict "@type" "ImageObject" "url" (absURL "/odznaka.png") "width" 640 "height" 640)
+      "sameAs" (slice site.Params.facebook)
+      "address" (dict
+        "@type" "PostalAddress"
+        "streetAddress" "ul. Zamkowa 11"
+        "postalCode" "21-306"
+        "addressLocality" "Czemierniki"
+        "addressCountry" "PL") -}}
+
+{{- $okruszki := dict
+      "@type" "BreadcrumbList"
+      "@id" (printf "%s#okruszki" $strona)
+      "itemListElement" (slice
+        (dict "@type" "ListItem" "position" 1 "name" "Strona główna" "item" $dom)
+        (dict "@type" "ListItem" "position" 2 "name" "Poradnik" "item" $strona)) -}}
+
+{{- $stronaWww := dict
+      "@type" "WebPage"
+      "@id" $strona
+      "url" $strona
+      "name" (.Params.tytulSeo | default .Title)
+      "description" .Description
+      "inLanguage" "pl-PL"
+      "isPartOf" (dict "@type" "WebSite" "@id" (printf "%s#witryna" $dom) "name" "KGW Czemierniki" "url" $dom)
+      "breadcrumb" (dict "@id" (printf "%s#okruszki" $strona))
+      "mainEntity" (dict "@id" $ksiazkaId)
+      "primaryImageOfPage" (dict "@type" "ImageObject" "url" $obraz)
+      "publisher" (dict "@id" $orgId)
+      "datePublished" (.Date.Format "2006-01-02")
+      "dateModified" (.Lastmod.Format "2006-01-02") -}}
+
+{{- $dostepnosc := slice "alternativeText" "displayTransformability" "readingOrder" "structuralNavigation" "tableOfContents" -}}
+{{- $trybyDostepu := slice "textual" "visual" -}}
+{{- if $audioCalosc -}}
+  {{- $dostepnosc = $dostepnosc | append "synchronizedAudioText" -}}
+  {{- $trybyDostepu = $trybyDostepu | append "auditory" -}}
+{{- end -}}
+
+{{- $ksiazka := dict
+      "@type" "Book"
+      "@id" $ksiazkaId
+      "name" "Czemierniki trzymają się razem!"
+      "alternativeHeadline" "Twój dom gotowy na kryzys"
+      "description" "Ilustrowany poradnik kryzysowy dla mieszkańców gminy Czemierniki: domowe zapasy, brak prądu, bezpieczna woda, wichura, powódź, syrena i schronienie, pierwsza pomoc, pomoc sąsiedzka i domowy plan na kryzys."
+      "url" $strona
+      "inLanguage" "pl-PL"
+      "bookFormat" "https://schema.org/EBook"
+      "numberOfPages" 16
+      "datePublished" "2026-11-08"
+      "isAccessibleForFree" true
+      "image" $obraz
+      "author" (dict "@id" $orgId)
+      "publisher" (dict "@id" $orgId)
+      "editor" (dict "@type" "Person" "name" "Bartosz Michalski")
+      "funder" (dict "@type" "Organization" "name" "Narodowy Instytut Wolności – Centrum Rozwoju Społeczeństwa Obywatelskiego")
+      "associatedMedia" (slice
+        (dict "@type" "MediaObject" "name" "Poradnik w PDF (16 stron A5, z ilustracjami)" "contentUrl" (absURL "/poradnik/poradnik-czemierniki.pdf") "encodingFormat" "application/pdf" "inLanguage" "pl-PL")
+        (dict "@type" "MediaObject" "name" "Poradnik jako prosty tekst, z opisami ilustracji i wykazem źródeł" "contentUrl" (absURL "/poradnik/poradnik-czemierniki.txt") "encodingFormat" "text/plain" "inLanguage" "pl-PL"))
+      "accessMode" $trybyDostepu
+      "accessibilityFeature" $dostepnosc
+      "hasPart" $rozdzialy -}}
+{{- with $audioCalosc }}{{ $ksiazka = merge $ksiazka (dict "audio" .) }}{{ end -}}
+
+{{- $graf := dict
+      "@context" "https://schema.org"
+      "@graph" (slice $organizacja $stronaWww $okruszki $ksiazka) }}
+<script type="application/ld+json">{{ $graf | jsonify | safeJS }}</script>

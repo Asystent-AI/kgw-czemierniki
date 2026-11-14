@@ -95,6 +95,18 @@ p { margin: 0 0 1em; }
 strong, b { color: var(--atrament); font-weight: 700; }
 ::selection { background: var(--f200); color: var(--f950); }
 :focus-visible { outline: 3px solid var(--f500); outline-offset: 2px; border-radius: 4px; }
+/* link pomijania: pierwszy przystanek klawiatury, schowany nad krawędzią ekranu, dopóki
+   nie dostanie fokusu. Fiolet znaku na bieli (ok. 11:1), cel dotykowy co najmniej 44 px. */
+.skip-link {
+  position: absolute; top: .75rem; left: .75rem; z-index: 100;
+  display: inline-flex; align-items: center; min-height: 44px; padding: .55rem 1.2rem;
+  font-weight: 700; color: var(--f800); background: var(--bialy);
+  border: 2px solid var(--f800); border-radius: 12px; box-shadow: var(--cien-2);
+  text-decoration: underline; transform: translateY(calc(-100% - 1.5rem));
+}
+.skip-link:focus { transform: none; color: var(--f800); outline: 3px solid var(--f800); outline-offset: 2px; }
+/* main dostaje fokus po skoku z linku pomijania: obwódka wokół całej treści tylko by myliła */
+main[tabindex="-1"]:focus { outline: none; }
 
 .szeroko { max-width: 1180px; margin-inline: auto; padding-inline: clamp(1rem, 4vw, 2rem); }
 .waskie { max-width: 720px; }
@@ -478,42 +490,43 @@ ul.lista-ok li::before {
   padding: 0; margin-bottom: .35rem;
 }
 .formularz .legenda-opis { font-size: .95rem; color: var(--tekst-2); margin-bottom: .9rem; }
-.pole { margin-bottom: 1.15rem; }
-.pole label { display: block; font-weight: 700; font-size: .95rem; color: var(--atrament); margin-bottom: .35rem; }
-.pole .podpowiedz { font-size: .85rem; color: var(--tekst-2); margin: .3rem 0 0; }
-.pole input[type="text"], .pole input[type="tel"], .pole input[type="email"], .pole textarea {
+.formularz .pole { margin-bottom: 1.15rem; }
+.formularz .pole label { display: block; font-weight: 700; font-size: .95rem; color: var(--atrament); margin-bottom: .35rem; }
+.formularz .pole .podpowiedz { font-size: .85rem; color: var(--tekst-2); margin: .3rem 0 0; }
+.formularz .pole input[type="text"], .formularz .pole input[type="tel"], .formularz .pole input[type="email"], .formularz .pole textarea {
   width: 100%; font: inherit; color: var(--atrament);
   border: 1.5px solid var(--linia-pola); border-radius: 12px; padding: .7rem .9rem; background: var(--bialy);
   transition: border-color var(--przej), box-shadow var(--przej);
 }
-.pole input:focus, .pole textarea:focus {
+.formularz .pole input:focus, .formularz .pole textarea:focus {
   outline: none; border-color: var(--f600); box-shadow: 0 0 0 3.5px var(--f100);
 }
 /* domyślna szara podpowiedź przeglądarki ma kontrast ok. 2,3:1 */
-.pole ::placeholder { color: var(--tekst-2); opacity: 1; }
-.pole textarea { min-height: 9.5rem; resize: vertical; }
-.pole input[type="file"] {
+.formularz .pole ::placeholder { color: var(--tekst-2); opacity: 1; }
+.formularz .pole textarea { min-height: 9.5rem; resize: vertical; }
+.formularz .pole input[type="file"] {
   width: 100%; font: inherit; font-size: .92rem; color: var(--tekst-2);
   border: 1.5px dashed #D8CFE5; border-radius: 12px; padding: .55rem .65rem;
   background: var(--bialy); cursor: pointer; transition: border-color var(--przej);
 }
-.pole input[type="file"]:hover { border-color: var(--f500); }
-.pole input[type="file"]::file-selector-button {
+.formularz .pole input[type="file"]:hover { border-color: var(--f500); }
+.formularz .pole input[type="file"]::file-selector-button {
   font: inherit; font-weight: 700; font-size: .92rem; color: #fff;
   background: var(--f700); border: none; border-radius: 999px;
   padding: .5rem 1.2rem; margin-right: .9rem; cursor: pointer;
   transition: background var(--przej);
 }
-.pole input[type="file"]:hover::file-selector-button { background: var(--f800); }
+.formularz .pole input[type="file"]:hover::file-selector-button { background: var(--f800); }
 /* Pułapka na roboty. Dawne left: -9999px rozpychało layout w bok na Androidzie
-   (Chrome liczył szerokość razem z elementem po lewej), więc pole chowamy przycięciem. */
-.pulapka {
+   (Chrome liczył szerokość razem z elementem po lewej), więc pole chowamy przycięciem.
+   .sr-only to to samo ukrycie wizualne dla tekstu tylko dla czytników ekranu. */
+.sr-only, .pulapka {
   position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
   overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;
 }
-.pole .blad-pola { display: none; font-size: .87rem; font-weight: 600; color: #A4243B; margin-top: .3rem; }
-.pole.ma-blad input, .pole.ma-blad textarea { border-color: #C4405A; }
-.pole.ma-blad .blad-pola { display: block; }
+.formularz .pole .blad-pola { display: none; font-size: .87rem; font-weight: 600; color: #A4243B; margin-top: .3rem; }
+.formularz .pole.ma-blad input, .formularz .pole.ma-blad textarea { border-color: #C4405A; }
+.formularz .pole.ma-blad .blad-pola { display: block; }
 .pola-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1.2rem; }
 
 .wybor { display: grid; gap: .7rem; }
@@ -838,19 +851,20 @@ ul.lista-ok li::before {
 .panel-akcja .przycisk { margin-bottom: .2rem; }
 .stan-akcji { font-size: .95rem; color: var(--tekst-2); }
 
-/* spis treści: skrót po nagłówkach, żeby „jak usunąć moje dane” dało się znaleźć od razu */
-.spis {
+/* spis treści: skrót po nagłówkach, żeby „jak usunąć moje dane” dało się znaleźć od razu.
+   Tylko nav.spis z page.html: poradnik ma własną listę ul.spis i gołe .spis ją psuło. */
+nav.spis {
   background: var(--z50); border: 1px solid var(--linia);
   border-radius: var(--luk-panel); padding: 1.1rem 1.4rem 1.2rem; margin-bottom: 2rem;
 }
-.spis h2 {
+nav.spis h2 {
   font-size: 1rem; margin: 0 0 .6rem; padding: 0; border: 0;
   text-transform: uppercase; letter-spacing: .06em; color: var(--z800);
 }
-.spis ul { list-style: none; padding: 0; margin: 0; columns: 2; column-gap: 1.6rem; }
-.spis li { margin-bottom: .3rem; break-inside: avoid; }
-.spis a { text-decoration: none; }
-.spis a:hover { text-decoration: underline; }
+nav.spis ul { list-style: none; padding: 0; margin: 0; columns: 2; column-gap: 1.6rem; }
+nav.spis li { margin-bottom: .3rem; break-inside: avoid; }
+nav.spis a { text-decoration: none; }
+nav.spis a:hover { text-decoration: underline; }
 
 /* pary „nazwa i wyjaśnienie” jako lista opisów, nie tabela: dwukolumnowa tabela
    na telefonie albo przewija się w bok, albo ściska tekst do jednej litery na wiersz */
@@ -900,6 +914,10 @@ ul.lista-ok li::before {
     box-shadow: var(--cien-2);
   }
   .menu.otwarte { display: flex; }
+  /* bez JavaScriptu hamburger nie działa: menu widoczne od razu pod nazwą */
+  html:not(.js) .menu { display: flex; position: static; flex-basis: 100%; box-shadow: none; border: 0; padding: 0 0 .6rem; max-height: none; }
+  html:not(.js) .menu-guzik { display: none; }
+  html:not(.js) .gora .szeroko { flex-wrap: wrap; }
   .menu a { padding: .8rem .4rem; border-bottom: 1px solid var(--linia); font-size: 1.05rem; }
   .menu a:last-child { border-bottom: none; }
   .menu .przycisk { margin-top: .6rem; text-align: center; color: #fff; }

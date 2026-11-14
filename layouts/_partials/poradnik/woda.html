@@ -1,0 +1,28 @@
+{{- /* Dodatek wersji internetowej w rozdziale "Zapas na co najmniej 3 dni": kalkulator wody.
+     Liczy według tej samej zasady co tabela w rozdziale: 3 litry na osobę na dobę. */ -}}
+<section class="web-extra water-calc" aria-labelledby="woda-tytul">
+  <p class="extra-label">Dodatek wersji internetowej</p>
+  <h3 id="woda-tytul">Policz zapas wody dla swojego domu</h3>
+  <div class="calc-row js-control">
+    <div class="calc-field">
+      <label for="woda-osoby">Liczba osób</label>
+      <div class="calc-stepper">
+        <button type="button" class="calc-minus" aria-label="Mniej osób">−</button>
+        <input id="woda-osoby" type="number" inputmode="numeric" min="1" max="20" step="1" value="2">
+        <button type="button" class="calc-plus" aria-label="Więcej osób">+</button>
+      </div>
+    </div>
+    <div class="calc-field">
+      <label for="woda-dni">Na ile dni</label>
+      <select id="woda-dni">
+        <option value="3" selected>3 dni</option>
+        <option value="5">5 dni</option>
+        <option value="7">7 dni</option>
+        <option value="14">14 dni</option>
+      </select>
+    </div>
+  </div>
+  <p class="calc-result js-control" role="status"></p>
+  <p class="nojs-only extra-note">Kalkulator działa w przeglądarce z włączonym JavaScriptem. Policz sam: liczba osób × liczba dni × 3 litry.</p>
+  <p class="extra-note">Liczymy 3 litry na osobę na dobę, jak w poradniku. Dolicz wodę do mycia i&nbsp;dla zwierząt.</p>
+</section>

@@ -5,17 +5,55 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 {{/* pasek przegladarki na Androidzie w kolorze znaku: telefon jest tu glownym ekranem */}}
 <meta name="theme-color" content="#461571">
-<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | KGW Czemierniki{{ end }}</title>
-<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.opis }}{{ end }}">
-<meta property="og:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }}{{ end }}">
-<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.opis }}{{ end }}">
+{{- /* Tytuł: domyślnie nazwa Koła (strona główna) albo "Tytuł | KGW Czemierniki".
+     tytulSeo z front matter nadpisuje go w całości, także w og:title. Strona 404
+     nie ma front matter, więc polski tytuł dostaje tutaj. */}}
+{{- $jest404 := eq .Kind "404" }}
+{{- $tytul := printf "%s | KGW Czemierniki" .Title }}
+{{- $ogTytul := .Title }}
+{{- if .IsHome }}{{ $tytul = site.Title }}{{ $ogTytul = site.Title }}{{ end }}
+{{- if $jest404 }}{{ $tytul = "Nie ma takiej strony | KGW Czemierniki" }}{{ $ogTytul = "Nie ma takiej strony" }}{{ end }}
+{{- with .Params.tytulSeo }}{{ $tytul = . }}{{ $ogTytul = . }}{{ end }}
+{{- $opis := default site.Params.opis .Description }}
+{{- /* Obrazek udostępnień: pierwszy z `images` albo domyślny og.jpg. Opis (ogAlt) idzie
+     za obrazkiem: domyślny opis z hugo.toml pasuje tylko do og.jpg. Wymiary i typ
+     czytamy z pliku w static/, więc nie rozjadą się po podmianie grafiki; gdy pliku
+     jeszcze nie ma, te trzy znaczniki po prostu się nie pojawią. */}}
+{{- $obraz := "og.jpg" }}
+{{- $obrazAlt := default site.Params.ogAlt .Params.ogAlt }}
+{{- with .Params.images }}{{ $obraz = index . 0 }}{{ $obrazAlt = $.Params.ogAlt }}{{ end }}
+{{- $obrazWymiary := false }}
+{{- $obrazPlik := path.Join "static" $obraz }}
+{{- if and (not (strings.Contains $obraz "://")) (os.FileExists $obrazPlik) }}{{ $obrazWymiary = images.Config $obrazPlik }}{{ end }}
+{{- $obrazTyp := index (dict ".jpg" "image/jpeg" ".jpeg" "image/jpeg" ".png" "image/png" ".webp" "image/webp") (lower (path.Ext $obraz)) }}
+<title>{{ $tytul }}</title>
+<meta name="description" content="{{ $opis }}">
+{{ if $jest404 }}<meta name="robots" content="noindex">{{ else }}<meta name="robots" content="max-image-preview:large">{{ end }}
+<meta property="og:site_name" content="KGW Czemierniki">
+<meta property="og:title" content="{{ $ogTytul }}">
+<meta property="og:description" content="{{ $opis }}">
 <meta property="og:type" content="website">
-<meta property="og:url" content="{{ .Permalink }}">
-<meta property="og:image" content="{{ with .Params.images }}{{ index . 0 | absURL }}{{ else }}{{ "og.jpg" | absURL }}{{ end }}">
+{{ if not $jest404 }}<meta property="og:url" content="{{ .Permalink }}">
 <link rel="canonical" href="{{ .Permalink }}">
+{{ end -}}
+<meta property="og:image" content="{{ $obraz | absURL }}">
+{{ with $obrazWymiary }}{{ with $obrazTyp }}<meta property="og:image:type" content="{{ . }}">
+{{ end }}<meta property="og:image:width" content="{{ .Width }}">
+<meta property="og:image:height" content="{{ .Height }}">
+{{ end -}}
+{{ with $obrazAlt }}<meta property="og:image:alt" content="{{ . }}">
+{{ end -}}
 <meta property="og:locale" content="pl_PL">
+<meta name="twitter:card" content="summary_large_image">
+{{- /* favicon-32.png i favicon.png zostają w static/ dla starych odnośników. Ikona dla
+     iOS wskazuje teraz apple-touch-icon.png: ma pełne tło, a favicon.png ma przezroczyste
+     rogi, które iOS wypełnia czernią. Nowe ikony to ten sam kadr kwiatu co favicon.png
+     (logo źródłowe, kadr z narzedzia/assety_kgw.py), przeskalowany do każdego rozmiaru. */}}
+<link rel="icon" href="{{ "favicon.ico" | relURL }}" sizes="16x16 32x32 48x48">
 <link rel="icon" sizes="32x32" href="{{ "favicon-32.png" | relURL }}">
-<link rel="apple-touch-icon" href="{{ "favicon.png" | relURL }}">
+<link rel="icon" type="image/png" sizes="96x96" href="{{ "favicon-96.png" | relURL }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ "apple-touch-icon.png" | relURL }}">
+<link rel="manifest" href="{{ "site.webmanifest" | relURL }}">
 <link rel="preload" href="/fonty/bricolage-grotesque-v9-latin_latin-ext-800.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonty/manrope-v20-latin_latin-ext-regular.woff2" as="font" type="font/woff2" crossorigin>
 {{ with resources.Get "css/main.css" }}{{ $c := . | fingerprint }}<link rel="stylesheet" href="{{ $c.RelPermalink }}">{{ end }}
@@ -25,8 +63,11 @@
 {{/* data-do-not-track NIE jest domyslne: bez tego atrybutu Umami ignoruje ustawienie
      "Nie sledz" w przegladarce. To nasza realizacja prawa sprzeciwu, zamiast banera. */}}
 {{ with site.Params.umami }}<script defer src="{{ . }}" data-website-id="{{ site.Params.umamiId }}" data-do-not-track="true"></script>{{ end }}
+{{/* miejsce na dodatki konkretnego szablonu (np. CSS i JSON-LD poradnika): define "head" */}}
+{{ block "head" . }}{{ end }}
 </head>
 <body>
+<a class="skip-link" href="#tresc">Przejdź do treści</a>
 
 <header class="gora">
   <div class="szeroko">
@@ -38,13 +79,15 @@
     <nav class="menu" id="menu" aria-label="Menu główne">
       {{/* pozycja z pageRef ma .Page, pozycja z url (Klub Pasjonatow) nie ma:
            link zewnetrzny idzie w nowej karcie, wewnetrzne zostaja w tej samej */}}
-      {{ range site.Menus.main }}{{ if .Page }}<a href="{{ .Page.RelPermalink }}"{{ if eq $.RelPermalink .Page.RelPermalink }} aria-current="page"{{ end }}>{{ .Name }}</a>{{ else }}<a href="{{ .URL }}" target="_blank" rel="noopener">{{ .Name }}</a>{{ end }}{{ end }}
+      {{ range site.Menus.main }}{{ if .Page }}<a href="{{ .Page.RelPermalink }}"{{ if eq $.RelPermalink .Page.RelPermalink }} aria-current="page"{{ end }}>{{ .Name }}</a>{{ else }}<a href="{{ .URL }}" target="_blank" rel="noopener">{{ .Name }}<span class="sr-only"> (otwiera się w nowej karcie)</span></a>{{ end }}{{ end }}
       <a class="przycisk" href="/#dolacz">Dołącz do nas</a>
     </nav>
   </div>
 </header>
 
-<main>
+{{/* tabindex="-1": po skoku z linku pomijania fokus naprawdę przechodzi do treści,
+     więc następny Tab trafia w pierwszy link w treści, a nie znowu w menu */}}
+<main id="tresc" tabindex="-1">
 {{ block "main" . }}{{ end }}
 </main>
 
@@ -57,7 +100,7 @@
       <p>Działamy na rzecz mieszkańców Czemiernik i okolic: pielęgnujemy tradycje,
       gotujemy, organizujemy warsztaty i wydarzenia. Przy Kole działa otwarty dla
       wszystkich <a href="{{ site.Params.pasjonaci }}" target="_blank" rel="noopener">Klub
-      Pasjonatów Ogrodnictwa</a>.</p>
+      Pasjonatów Ogrodnictwa<span class="sr-only"> (otwiera się w nowej karcie)</span></a>.</p>
     </div>
     <div>
       <h2>Odezwij się do nas</h2>
@@ -70,7 +113,7 @@
           <span><b>{{ site.Params.email }}</b><small>chętnie odpowiemy i pomożemy</small></span></a></li>
         <li><a href="{{ site.Params.facebook }}" target="_blank" rel="noopener">
           <span class="ikona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.8 21v-7.6h2.6l.5-3h-3.1V8.5c0-.9.3-1.5 1.6-1.5h1.6V4.3c-.8-.1-1.7-.2-2.5-.2-2.5 0-4.2 1.5-4.2 4.3v2.4H8.6v3h2.7V21"/></svg></span>
-          <span><b>Nasz profil na Facebooku</b><small>terminy spotkań i relacje z wydarzeń</small></span></a></li>
+          <span><b>Nasz profil na Facebooku</b><small>terminy spotkań i relacje z wydarzeń</small></span><span class="sr-only"> (otwiera się w nowej karcie)</span></a></li>
       </ul>
     </div>
     <div>
@@ -86,10 +129,10 @@
   </div>
   <div class="dol-pasek">
     <div class="szeroko">
-      <span>© {{ now.Year }} Projekt i realizacja <a href="https://www.facebook.com/michalski.bartosz" target="_blank" rel="noopener">Bartosz Michalski</a> dla Koła Gospodyń Wiejskich Czemierniki</span>
+      <span>© {{ now.Year }} Projekt i realizacja <a href="https://www.facebook.com/michalski.bartosz" target="_blank" rel="noopener">Bartosz Michalski<span class="sr-only"> (otwiera się w nowej karcie)</span></a> dla Koła Gospodyń Wiejskich Czemierniki</span>
       <nav class="dol-linki" aria-label="Stopka">
         <a href="/poradnik/">Poradnik</a>
-        <a href="https://pasjonaci.czemierniki.org/" target="_blank" rel="noopener">Klub Pasjonatów</a>
+        <a href="https://pasjonaci.czemierniki.org/" target="_blank" rel="noopener">Klub Pasjonatów<span class="sr-only"> (otwiera się w nowej karcie)</span></a>
         <a href="/wesprzyj/">Wesprzyj nas</a>
         <a href="/kontakt/">Kontakt</a>
         <a href="/prywatnosc/">Prywatność</a>
@@ -99,7 +142,7 @@
 </footer>
 
 {{- $zdjecia := slice -}}
-{{- range site.Data.galeria -}}
+{{- range hugo.Data.galeria -}}
   {{- $zdjecia = $zdjecia | append (dict "duze" (printf "/zdjecia/%s-d.webp" .plik) "alt" .alt) -}}
 {{- end }}
 <script type="application/json" id="zdjecia-klubu">{{ $zdjecia | jsonify | safeJS }}</script>

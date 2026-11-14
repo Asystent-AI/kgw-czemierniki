@@ -1,0 +1,53 @@
+{{- /* Dodatek wersji internetowej w rozdziale "Syrena i schronienie": nagrania sygnałów RCB.
+     Pliki są oryginałami RCB (CC BY-NC-ND 4.0) po zmianie samego formatu WAV na MP3.
+     Licencja nie pozwala ich przerabiać, więc fragment 20 s, wyciszenie na początku i końcu
+     oraz głośność ustawia odtwarzacz w przeglądarce, a pliki zostają nietknięte.
+     Wykres tonu (data/syreny.json) to pomiar częstotliwości z oryginałów, co 0,1 s. */ -}}
+{{- with hugo.Data.syreny -}}
+{{- $d := . -}}
+<section class="web-extra sirens" aria-labelledby="syreny-tytul">
+  <p class="extra-label">Dodatek wersji internetowej</p>
+  <h3 id="syreny-tytul">Posłuchaj, jak brzmią sygnały</h3>
+  <p class="siren-warning"><strong>Uwaga: głośny dźwięk syreny.</strong> Przed odtworzeniem ścisz telefon lub głośnik. Nie odtwarzaj nagrania głośno na dworze ani przy otwartym oknie, bo sąsiedzi mogą uznać je za prawdziwy alarm. Nagranie może przestraszyć dzieci i&nbsp;zwierzęta.</p>
+  <div class="siren-cards">
+  {{- range $d.signals }}
+    {{- $s := int (math.Round .duration) }}
+    {{- $czas := printf "%d min %d s" (div $s 60) (mod $s 60) }}
+    {{- $opis := cond (eq .id "alarm") "Dźwięk falujący: przez 3 minuty ton na przemian narasta i opada." "Dźwięk ciągły: równy ton przez 3 minuty." }}
+    {{- $tytul := cond (eq .id "alarm") "Ogłoszenie alarmu" "Odwołanie alarmu" }}
+    <div class="siren-card siren-{{ .id }}" data-siren="{{ .id }}" data-name="{{ .name }}" data-src="{{ .file }}" data-duration="{{ .duration }}" data-view="sample">
+      <h4>{{ $tytul }}</h4>
+      <p class="siren-desc">{{ $opis }}</p>
+      <svg class="siren-wave" viewBox="0 0 300 62" aria-hidden="true" focusable="false">
+        <line class="wave-axis" x1="0" y1="59" x2="300" y2="59"></line>
+        <g class="wave-sample">
+          <clipPath id="clip-{{ .id }}-sample" class="wave-clip"><rect x="0" y="0" width="0" height="62"></rect></clipPath>
+          <path class="wave-base" d="{{ .sample }}"></path>
+          <path class="wave-done" d="{{ .sample }}" clip-path="url(#clip-{{ .id }}-sample)"></path>
+        </g>
+        <g class="wave-full">
+          <clipPath id="clip-{{ .id }}-full" class="wave-clip"><rect x="0" y="0" width="0" height="62"></rect></clipPath>
+          <path class="wave-base" d="{{ .full }}"></path>
+          <path class="wave-done" d="{{ .full }}" clip-path="url(#clip-{{ .id }}-full)"></path>
+        </g>
+        <line class="siren-head" x1="0" y1="2" x2="0" y2="60"></line>
+      </svg>
+      <p class="siren-axis" aria-hidden="true"><span>0 s</span><span class="axis-sample">20 s</span><span class="axis-full">{{ $czas }}</span></p>
+      <div class="siren-actions js-control">
+        <button type="button" class="siren-play" data-mode="sample"><span class="ico-play" aria-hidden="true"></span><span class="siren-label">Posłuchaj fragmentu (20 s)</span><span class="sr-only">: {{ lower $tytul }}</span></button>
+        <button type="button" class="siren-play siren-play-full" data-mode="full"><span class="siren-label">Całe nagranie ({{ $czas }})</span><span class="sr-only">: {{ lower $tytul }}</span></button>
+      </div>
+      <p class="nojs-only"><a href="{{ .file }}">{{ $tytul }}: nagranie RCB (MP3, {{ $czas }})</a></p>
+    </div>
+  {{- end }}
+  </div>
+  <div class="siren-live" hidden>
+    <p class="siren-live-text"></p>
+    <span class="siren-time" aria-hidden="true">0:00 / 0:20</span>
+    <button type="button" class="siren-stop"><span class="ico-stop" aria-hidden="true"></span>Wycisz syrenę</button>
+  </div>
+  <p class="siren-error" role="alert" hidden></p>
+  <p class="sr-only siren-sr" role="status"></p>
+  <p class="extra-source">Nagrania: {{ $d.author }}, <a href="{{ $d.source }}" target="_blank" rel="noopener">Sygnały alarmowe<span class="sr-only"> (otwiera się w nowej karcie)</span></a>, licencja <a href="{{ $d.license_url }}" target="_blank" rel="noopener">{{ $d.license }}<span class="sr-only"> (otwiera się w nowej karcie)</span></a>. Zmieniono wyłącznie format pliku (z WAV na MP3); fragment i głośność ustawia odtwarzacz. Sygnały opisuje rozporządzenie MSWiA z 14 maja 2025 r. (Dz.&nbsp;U. poz. 645).</p>
+</section>
+{{- end -}}

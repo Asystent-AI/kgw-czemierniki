@@ -85,26 +85,59 @@ usunąć z panelu Coolify: pliki i kontener nie są już używane.
 ## Struktura
 
 - `/poradnik/`: poradnik online MMS, opublikowany 13.11.2026 na podstawie ostatecznego
-  wydania z 8.11.2026. `layouts/poradnik.html`, `assets/css/poradnik.css`,
-  `assets/js/poradnik.js`, `data/poradnik.json`, pliki w `static/poradnik/`.
-  Pełny tekst i ilustracje, 16 oryginalnych stron, wyszukiwanie rozdziałów,
-  rozmiar tekstu, tryb nocny, odsłuch przy dostępnym polskim głosie urządzenia,
-  niezmienione archiwalne pliki PDF/TXT. Skróty rozdziałów w adresach URL. Bez JavaScript
-  wszystkie rozdziały są widoczne; nie zapisujemy danych domowego planu.
-  Ilustrowany wybór tematów, tryb skupienia, przyklejona nawigacja, orientacyjny
-  czas czytania, kopiowanie linku i opcjonalna zakładka. Podgląd oryginalnej strony
-  otwiera natywny dialog z powiększeniem i przewijaniem; Esc zamyka dialog,
-  a poza nim kończy tryb skupienia. Strzałki zmieniają strony tylko przy fokusie
-  w czytniku, poza polami formularza. Animacje respektują reduced-motion.
-  LocalStorage przechowuje rozmiar tekstu, motyw i zakładkę na żądanie. Metryka oraz sumy
-  SHA-256 plików źródłowych: `data/poradnik-source.json`. Informacja o wydaniu
-  nie oznacza aktualizacji danych miejscowych; źródłowy tekst zachowuje daty.
-  Nazewnictwo online: "poradnik" zamiast "książeczka" oraz "Poradnik online"
-  zamiast "Czytelnia" (także w tekście i odsłuchu); archiwalne odwzorowanie
-  wydania drukowanego i pliki do pobrania zachowują oryginalne brzmienie.
-  Kontrola 13.11.2026: wszystkie 16 rozdziałów przy szerokości 320 px i największej
-  czcionce, ciemny motyw, tryb skupienia, dialog 375 px z powiększeniem i Esc,
-  powrót do zakładki po przeładowaniu, kopiowanie linku, nawigacja klawiaturą.
+  wydania z 8.11.2026, wersja multimedialna od 14.11.2026. Pliki: `layouts/poradnik.html`,
+  partiale `layouts/_partials/poradnik/` (`syreny.html`, `metronom.html`, `woda.html`)
+  i `layouts/_partials/poradnik-jsonld.html`, `assets/css/poradnik.css`,
+  `assets/js/poradnik.js` (czytnik) i `assets/js/poradnik-audio.js` (lektor i dodatki),
+  łączone przez Hugo w jeden plik `js/poradnik-czytnik.js`. Dane: `data/poradnik.json`
+  (treść 16 stron), `data/lektor.json` (nagrania i synchronizacja), `data/syreny.json`
+  (nagrania RCB i wykres tonu), `data/poradnik-source.json` (sumy SHA-256 źródeł).
+  Pliki statyczne: `static/poradnik/` (`audio/`, `syreny/`, ilustracje, strony, PDF, TXT).
+  - Czytnik: jedna strona naraz, przyklejony pasek (poprzednia, tytuł z numerem strony,
+    następna, Posłuchaj, Ustawienia), spis treści z wyszukiwarką (wiele słów, bez polskich
+    znaków i interpunkcji, proste odmiany, wycinek z podświetleniem; Enter otwiera
+    najlepiej pasującą stronę: tytuł, potem nagłówki, a sam numer, np. "112", otwiera
+    "Ważne telefony"), adresy z hashem
+    i historia przeglądarki, tytuł karty z nazwą strony, kafelki tematów. Ustawienia:
+    tekst lub kartkowanie oryginalnych stron (srcset 720/1080/1444, przesunięcie palcem,
+    okno powiększenia z przybliżaniem w punkcie kliknięcia), rozmiar tekstu (3 stopnie),
+    tryb nocny (domyślnie wg systemu, bez mignięcia przy ładowaniu), tryb skupienia,
+    zakładka na żądanie, kopiowanie i udostępnianie linku. Strzałki zmieniają strony
+    poza polami formularza, Esc zamyka okna i tryb skupienia.
+  - Lektor: głos syntetyczny AI (ElevenLabs, model Eleven v4, głos Piotr), nagrania
+    z 14.11.2026, oznaczone na stronie jako AI. 16 plików `audio/NN-slug.mp3` (96 kb/s)
+    i całość `poradnik-czemierniki-lektor.mp3` (64 kb/s, rozdziały ID3 "Strona N").
+    Odtwarzacz na dole ekranu: pauza, suwak, 10 s wstecz/dalej, tempo 0,8-1,5, akapit
+    wstecz/dalej, automatyczne przejście do następnej strony (domyślnie wyłączone),
+    śledzenie tekstu, podświetlanie czytanego akapitu (segmenty w `data/lektor.json`,
+    bloki wg selektora `h2, h3, p, li, .litry > div, .telefony > .num` bez `.web-extra`),
+    kliknięcie akapitu przewija nagranie, Media Session (ekran blokady, grafiki 512 px),
+    zapamiętana pozycja i tempo. Po zmianie treści strony trzeba nagrać ją ponownie
+    i przeliczyć segmenty; skrypty i scenariusze: `narzedzia/lektor_poradnika/`
+    w repozytorium agenta.
+  - Dodatki wersji internetowej (oznaczone na stronie): nagrania sygnałów alarmowych RCB
+    na stronie 12 (licencja CC BY-NC-ND 4.0, zmieniony wyłącznie format WAV na MP3;
+    fragment 20 s, wyciszenie i obniżona głośność ustawiane w odtwarzaczu, ostrzeżenie
+    przed głośnym dźwiękiem, przycisk "Wycisz syrenę" i Esc), metronom 110/min do
+    ćwiczenia uciśnięć na stronie 13 (tryb 30:2 i ciągły, dźwięk z Web Audio), kalkulator
+    zapasu wody na stronie 4 (3 l na osobę na dobę, jak w tekście), plan domowy do wydruku
+    (`nasz-domowy-plan.pdf`, strona 15 z oryginału).
+  - Obrazy responsywne generuje `narzedzia/obrazy_poradnika.py` w repozytorium agenta
+    (warianty 480/800 WebP i AVIF, strony 720/1080, kafelki `temat-NN`, grafiki 512 px,
+    `og-poradnik.jpg`); oryginały nie są zmieniane.
+  - Bez JavaScript wszystkie strony są widoczne kolejno, a w miejsce przycisków lektora
+    i syren są linki do plików MP3. Nie zapisujemy danych domowego planu. LocalStorage
+    (klucze `kgw-poradnik-*`) przechowuje rozmiar tekstu, motyw, zakładkę oraz pozycję
+    i ustawienia lektora.
+  - Kontrola 14.11.2026 (po trzech rundach audytu i wdrożeniu): produkcja bez poziomego
+    przewijania przy 320, 360 i 412 px, lektor odtwarza pliki z serwera (HTTP 200,
+    Accept-Ranges), po błędzie wczytania nagranie zatrzymuje się, a "Spróbuj ponownie"
+    wznawia od miejsca przerwania, wyszukiwarka "112" otwiera "Ważne telefony", konsola
+    bez błędów. Pułapka CSS: skrót `text-wrap` resetuje `text-wrap-mode` i przywraca
+    zawijanie elementom z `white-space: nowrap`, dlatego w poradniku jest `text-wrap-style`.
+  - Informacja o wydaniu nie oznacza aktualizacji danych miejscowych; źródłowy tekst
+    zachowuje daty. Nazewnictwo online: "poradnik" zamiast "książeczka"; archiwalne
+    odwzorowanie wydania drukowanego i pliki do pobrania zachowują oryginalne brzmienie.
 
 - `layouts/home.html`: strona główna (hero, kafle, czym żyjemy, pas Dożynek,
   sekcja Klubu, partnerzy, dołącz)

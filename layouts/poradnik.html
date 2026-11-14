@@ -1,137 +1,309 @@
+{{- /* Poradnik "Czemierniki trzymają się razem!": czytnik online, lektor, syreny i dodatki.
+     Treść stron: data/poradnik.json (wydanie z 8.11.2026, bez zmian słów).
+     Nagrania lektora: data/lektor.json (głos syntetyczny ElevenLabs, czasy akapitów).
+     Syreny RCB: data/syreny.json. Bez JavaScriptu wszystkie strony są widoczne jedna pod drugą,
+     a nagrania są zwykłymi linkami do plików MP3. */ -}}
+{{ define "head" }}
+{{ with resources.Get "css/poradnik.css" | minify | fingerprint }}<link rel="stylesheet" href="{{ .RelPermalink }}">{{ end }}
+{{ partial "poradnik-jsonld.html" . }}
+{{ end }}
+
 {{ define "main" }}
-{{ with resources.Get "css/poradnik.css" }}{{ $c := . | fingerprint }}<link rel="stylesheet" href="{{ $c.RelPermalink }}">{{ end }}
+{{- $pages := hugo.Data.poradnik.pages }}
+{{- $N := len $pages }}
+{{- $lektor := hugo.Data.lektor }}
+{{- $tracks := dict }}
+{{- with $lektor }}{{ range .chapters }}{{ $tracks = merge $tracks (dict (string (int .index)) .) }}{{ end }}{{ end }}
+{{- $warianty := fileExists "static/poradnik/ilustracja-01-480.webp" }}
+{{- $stronyWarianty := fileExists "static/poradnik/strona-01-720.webp" }}
 <div class="poradnik" id="poradnik">
-  <a class="reader-skip" href="#czytelnia">Przejdź do treści poradnika</a>
-  <section class="guide-hero">
+<script>(function(){try{var r=document.getElementById('poradnik'),s=localStorage.getItem('kgw-poradnik-theme'),d=s?s==='dark':matchMedia('(prefers-color-scheme: dark)').matches,f=+localStorage.getItem('kgw-poradnik-font')||0;if(d){r.setAttribute('data-theme','dark');document.documentElement.setAttribute('data-reader','dark');var m=document.querySelector('meta[name="theme-color"]');if(m)m.content='#191c21';}if(f>0&&f<3)r.style.setProperty('--reading-size',['','1.375rem','1.625rem'][f]);}catch(e){}})()</script>
+  <a class="reader-skip" id="reader-skip" href="#czytelnia">Przejdź do bieżącej strony poradnika</a>
+
+  <section class="guide-hero" aria-labelledby="poradnik-tytul">
     <div class="guide-hero-copy">
-      <p class="guide-eyebrow">Biblioteczka KGW Czemierniki</p>
-      <h1>Czemierniki<br>trzymają się <em>razem!</em></h1>
+      <p class="guide-eyebrow">Poradnik dla mieszkańców</p>
+      <h1 id="poradnik-tytul">Czemierniki<br>trzymają się <em>razem!</em></h1>
       <p class="guide-subtitle">Twój dom gotowy na kryzys</p>
-      <p class="guide-intro">Spokojnie, krok po kroku. O tym, co mieć pod ręką, jak zadbać o bliskich i kiedy pomóc sąsiadowi.</p>
+      <p class="guide-intro">Spokojnie, krok po kroku: co mieć pod ręką, jak zadbać o&nbsp;bliskich i&nbsp;jak pomóc sąsiadowi.</p>
       <div class="guide-actions">
-        <a class="guide-btn primary" href="#gdy-zgasnie-swiatlo" data-chapter="2">Zacznij czytać <span aria-hidden="true">↗</span></a>
-        <a class="guide-btn" href="/poradnik/poradnik-czemierniki.pdf" download>Pobierz PDF <span aria-hidden="true">↓</span></a>
+        <a class="guide-btn primary" href="#drodzy-sasiedzi">Zacznij czytać <span aria-hidden="true">→</span></a>
+        {{- with $lektor }}
+        <button type="button" class="guide-btn listen-btn js-control" data-listen="all"><span class="listen-ico" aria-hidden="true"></span><span class="listen-label">Posłuchaj całego poradnika</span></button>
+        <a class="guide-btn nojs-only" href="{{ .full.file }}">Posłuchaj w MP3 (głos syntetyczny AI) <span aria-hidden="true">↓</span></a>
+        {{- end }}
+        <a class="guide-btn" href="/poradnik/poradnik-czemierniki.pdf" download>Pobierz PDF (14&nbsp;MB) <span aria-hidden="true">↓</span></a>
       </div>
-      <div class="guide-meta"><span>16 ilustrowanych stron</span><span>Bezpłatnie dla każdego</span><span>Wydanie: listopad 2026</span></div>
-      <a class="resume-reading" id="resume-reading" href="#czytelnia" hidden>Wróć do zapisanej strony</a>
+      <ul class="guide-meta">
+        <li>16 ilustrowanych stron</li>
+        {{- with $lektor }}{{ $m := int (math.Round (div .full.duration 60)) }}<li>Lektor AI: około {{ $m }} minut</li>{{ end }}
+        <li>Bezpłatnie dla każdego</li>
+        <li>Wydanie: listopad 2026</li>
+      </ul>
+      <a class="resume-reading" id="resume-reading" href="#czytelnia" hidden><span class="resume-label">Twoja zakładka:</span> <span id="resume-title"></span></a>
     </div>
     <figure class="guide-hero-image">
-      <img src="/poradnik/ilustracja-01.webp" width="1200" height="800" alt="Akwarelowy widok pałacu w Czemiernikach nad stawem, w ciepłym świetle popołudnia" fetchpriority="high">
-      <figcaption><span>Blisko domu. Blisko ludzi.</span><small>Poradnik naszych sąsiadów</small></figcaption>
+      {{- if $warianty }}
+      <img src="/poradnik/ilustracja-01-800.webp" srcset="/poradnik/ilustracja-01-480.webp 480w, /poradnik/ilustracja-01-800.webp 800w, /poradnik/ilustracja-01.webp 1100w" sizes="(max-width: 900px) calc(100vw - 44px), (max-width: 1340px) 46vw, 610px" width="1100" height="824" alt="Akwarelowy widok pałacu w Czemiernikach nad stawem, w ciepłym świetle popołudnia" fetchpriority="high" decoding="async">
+      {{- else }}
+      <img src="/poradnik/ilustracja-01.webp" width="1100" height="824" alt="Akwarelowy widok pałacu w Czemiernikach nad stawem, w ciepłym świetle popołudnia" fetchpriority="high" decoding="async">
+      {{- end }}
+      <figcaption><span>Blisko domu. Blisko&nbsp;ludzi.</span><small>Poradnik dla naszych sąsiadów</small></figcaption>
     </figure>
   </section>
 
-  <div class="guide-shortcuts" aria-label="Szybki wybór tematu">
-    <span>Od czego zacząć?</span>
-    <a href="#gdy-zgasnie-swiatlo" data-chapter="2">Nie ma prądu</a>
-    <a href="#zapas-na-trzy-dni" data-chapter="3">Przygotuj zapasy</a>
-    <a href="#domowy-plan" data-chapter="14">Ułóż domowy plan</a>
-    <a href="#wazne-telefony" data-chapter="15">Ważne telefony</a>
-  </div>
-
   <section class="guide-discover" aria-labelledby="discover-title">
-    <div class="discover-heading"><div><p class="guide-eyebrow">Małe kroki. Więcej spokoju.</p><h2 id="discover-title">Zacznij od tego, co blisko Ciebie.</h2></div><p>Nie musisz czytać od początku.<br>Wybierz temat, który przyda Ci się dzisiaj.</p></div>
-    <div class="topic-grid">
-    {{ range slice (dict "i" 2 "title" "Gdy gaśnie światło" "copy" "Pierwsze minuty bez prądu" "image" "03") (dict "i" 3 "title" "Domowe zapasy" "copy" "Przygotowania na co najmniej 3 dni" "image" "04") (dict "i" 6 "title" "Bezpieczna woda" "copy" "Zapas, przechowywanie i komunikaty" "image" "07") (dict "i" 9 "title" "Kiedy nadchodzi burza" "copy" "Dom i bliscy podczas wichury" "image" "10") (dict "i" 13 "title" "Sąsiad obok" "copy" "Pomoc zaczyna się od rozmowy" "image" "14") (dict "i" 14 "title" "Plan dla Waszego domu" "copy" "Ustalcie go wspólnie z bliskimi" "image" "15") }}
-      {{ $p := index hugo.Data.poradnik.pages .i }}
-      <a class="topic-card" href="#{{ $p.slug }}" data-chapter="{{ .i }}"><div class="topic-image"><img src="/poradnik/ilustracja-{{ .image }}.webp" alt="" loading="lazy" width="600" height="360"><span class="topic-page">Strona {{ $p.number }}</span></div><div class="topic-copy"><h3>{{ .title }}</h3><p>{{ .copy }}</p><span class="topic-arrow" aria-hidden="true">↗</span></div></a>
-    {{ end }}
+    <div class="discover-heading">
+      <div><p class="guide-eyebrow">Małe kroki. Więcej spokoju.</p><h2 id="discover-title">Zacznij od tego, co blisko Ciebie</h2></div>
+      <p>Nie musisz czytać od początku. Wybierz temat, który przyda Ci się dzisiaj. <a class="discover-urgent" href="#wazne-telefony">Pilnie potrzebujesz numeru? Ważne telefony <span aria-hidden="true">→</span></a></p>
     </div>
+    <ul class="topic-grid">
+    {{- range slice
+        (dict "i" 2 "copy" "Pierwsze minuty bez prądu" "image" "03")
+        (dict "i" 3 "copy" "Kalkulator wody dla Twojego domu" "image" "04" "extra" "Kalkulator")
+        (dict "i" 11 "copy" "Posłuchaj sygnałów alarmowych RCB" "image" "12" "extra" "Nagrania syren")
+        (dict "i" 12 "copy" "Ćwicz rytm uciśnięć z metronomem" "image" "13" "extra" "Metronom")
+        (dict "i" 13 "copy" "Pomoc zaczyna się od rozmowy" "image" "14")
+        (dict "i" 14 "copy" "Ustalcie go wspólnie z&nbsp;bliskimi" "image" "15") }}
+      {{- $p := index $pages .i }}
+      {{- $temat := fileExists (printf "static/poradnik/temat-%s-480.webp" .image) }}
+      <li><a class="topic-card" href="#{{ $p.slug }}">
+        <span class="topic-image">
+          {{- if $temat }}
+          <img src="/poradnik/temat-{{ .image }}-480.webp" srcset="/poradnik/temat-{{ .image }}-480.webp 480w, /poradnik/temat-{{ .image }}-800.webp 800w" sizes="(max-width: 360px) calc(100vw - 40px), (max-width: 900px) calc(50vw - 26px), (max-width: 1240px) calc(33vw - 34px), 390px" alt="" loading="lazy" decoding="async" width="800" height="480">
+          {{- else if $warianty }}
+          <img src="/poradnik/ilustracja-{{ .image }}-480.webp" srcset="/poradnik/ilustracja-{{ .image }}-480.webp 480w, /poradnik/ilustracja-{{ .image }}-800.webp 800w" sizes="(max-width: 360px) calc(100vw - 40px), (max-width: 900px) calc(50vw - 26px), (max-width: 1240px) calc(33vw - 34px), 390px" alt="" loading="lazy" decoding="async" width="800" height="480">
+          {{- else }}
+          <img src="/poradnik/ilustracja-{{ .image }}.webp" alt="" loading="lazy" decoding="async" width="800" height="480">
+          {{- end }}
+          <span class="topic-page">Strona {{ int $p.number }}</span>
+          {{- with .extra }}<span class="topic-extra">{{ . }}</span>{{ end }}
+        </span>
+        <span class="topic-copy"><span class="topic-title">{{ $p.title }}</span><span class="topic-desc">{{ .copy | safeHTML }}</span><span class="topic-arrow" aria-hidden="true">→</span></span>
+      </a></li>
+    {{- end }}
+    </ul>
   </section>
 
   <div class="reader-layout" id="czytelnia">
-    <aside class="reader-aside">
-      <details class="reader-toc" open>
-        <summary>Spis treści <span aria-hidden="true">+</span></summary>
-        <div class="reader-search js-control" hidden>
-          <label for="guide-search">Szukaj w poradniku</label>
-          <div><input id="guide-search" type="search" placeholder="np. woda, lodówka, gaz" autocomplete="off"><button id="clear-search" type="button" aria-label="Wyczyść wyszukiwanie" hidden>×</button></div>
-          <p id="search-status" role="status"></p>
+    <aside class="reader-aside" aria-label="Spis treści i wyszukiwarka">
+      <div class="reader-search js-control" role="search">
+        <label for="guide-search">Szukaj w poradniku</label>
+        <div class="search-field">
+          <input id="guide-search" type="search" placeholder="np. woda, lodówka, gaz" autocomplete="off" enterkeyhint="search" aria-describedby="search-status">
+          <button id="clear-search" type="button" aria-label="Wyczyść wyszukiwanie" hidden>×</button>
         </div>
-        <nav aria-label="Rozdziały poradnika">
-          {{ range $i, $p := hugo.Data.poradnik.pages }}
-          <a href="#{{ .slug }}" data-chapter="{{ $i }}" data-toc><span class="toc-number">{{ printf "%02d" (int .number) }}</span><span>{{ .title }}<small class="search-excerpt"></small></span></a>
-          {{ end }}
+        <p id="search-status" class="search-status" role="status"></p>
+      </div>
+      <details class="reader-toc" id="reader-toc" open>
+        <summary><span>Spis treści</span><span class="toc-chevron" aria-hidden="true"></span></summary>
+        <nav aria-label="Strony poradnika">
+          {{- range $i, $p := $pages }}
+          <a href="#{{ .slug }}" data-toc><span class="toc-number">{{ int .number }}</span><span class="toc-text">{{ .title }}<small class="search-excerpt"></small></span></a>
+          {{- end }}
         </nav>
       </details>
-      <a class="reader-source-link" href="#pliki">Pliki do pobrania</a>
-      <a class="reader-source-link" href="#zrodla">Źródła i autorzy</a>
+      <p class="reader-source-links"><a href="#pliki">Pliki do pobrania</a> <a href="#zrodla">Źródła i autorzy</a></p>
     </aside>
 
     <div class="reader-main">
-      <div class="reader-dock js-control" hidden>
-        <div class="dock-title"><span>Poradnik online</span><strong id="dock-title">Drodzy Sąsiedzi!</strong></div>
-        <div class="dock-actions"><button type="button" id="quick-prev" aria-label="Poprzednia strona">←</button><button type="button" id="quick-next" aria-label="Następna strona">→</button><button type="button" id="focus-reader" aria-pressed="false">Tryb skupienia</button></div>
+      <div class="reader-dock js-control" id="reader-dock">
+        <button type="button" class="dock-btn" id="dock-prev"><span aria-hidden="true">←</span><span class="sr-only">Poprzednia strona</span></button>
+        <div class="dock-title"><strong id="dock-title">Drodzy Sąsiedzi!</strong><span id="dock-meta">Strona 2 z {{ $N }}</span></div>
+        <button type="button" class="dock-btn" id="dock-next"><span aria-hidden="true">→</span><span class="sr-only">Następna strona</span></button>
+        {{- with $lektor }}
+        <button type="button" class="dock-btn dock-listen" id="dock-listen"><span class="listen-ico" aria-hidden="true"></span><span class="sr-only">Posłuchaj tej strony</span></button>
+        {{- end }}
+        <details class="reader-settings" id="reader-settings">
+          <summary class="dock-btn"><svg class="settings-ico" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path fill="currentColor" d="M19.4 13c.04-.33.06-.66.06-1s-.02-.67-.06-1l2.11-1.65a.5.5 0 0 0 .12-.64l-2-3.46a.5.5 0 0 0-.61-.22l-2.49 1a7.3 7.3 0 0 0-1.73-1l-.38-2.65A.49.49 0 0 0 13.93 2h-4a.49.49 0 0 0-.49.42l-.38 2.65c-.62.25-1.2.59-1.73 1l-2.49-1a.5.5 0 0 0-.61.22l-2 3.46a.5.5 0 0 0 .12.64L4.46 11c-.04.33-.07.66-.07 1s.03.67.07 1l-2.11 1.65a.5.5 0 0 0-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.1.74 1.73 1l.38 2.65c.04.24.25.42.49.42h4c.25 0 .45-.18.49-.42l.38-2.65c.63-.26 1.2-.6 1.73-1l2.49 1c.23.08.49 0 .61-.22l2-3.46a.5.5 0 0 0-.12-.64L19.4 13ZM11.93 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Z"/></svg><span class="settings-text">Ustawienia</span></summary>
+          <div class="settings-panel">
+            <div class="reader-modes" role="group" aria-label="Sposób czytania">
+              <button type="button" id="mode-text" aria-pressed="true">Czytaj tekst</button>
+              <button type="button" id="mode-book" aria-pressed="false">Kartkuj poradnik</button>
+            </div>
+            <button type="button" class="settings-btn" id="font-size"><span class="ico-a" aria-hidden="true">A+</span> Tekst: <span id="font-label">zwykły</span></button>
+            <button type="button" class="settings-btn settings-toggle" id="reader-theme" aria-pressed="false">Tryb nocny</button>
+            <button type="button" class="settings-btn settings-toggle" id="focus-reader" aria-pressed="false">Tryb skupienia</button>
+            <button type="button" class="settings-btn" id="save-page">Zapisz zakładkę</button>
+            <button type="button" class="settings-btn" id="share-page">Kopiuj link do tej strony</button>
+            <button type="button" class="settings-btn" id="share-native" hidden>Wyślij bliskim</button>
+            <input id="share-fallback" class="share-fallback" readonly aria-label="Link do tej strony, skopiuj go" hidden>
+            <p class="settings-tip">Strzałki ← → na klawiaturze zmieniają strony. Esc kończy tryb skupienia.</p>
+          </div>
+        </details>
       </div>
-      <div class="reader-toolbar js-control" hidden>
-        <div class="reader-modes" role="group" aria-label="Sposób czytania">
-          <button type="button" id="mode-text" aria-pressed="true">Czytaj tekst</button>
-          <button type="button" id="mode-book" aria-pressed="false">Kartkuj poradnik</button>
-        </div>
-        <div class="reader-options">
-          <button type="button" id="font-size" aria-label="Powiększ tekst" title="Wielkość tekstu">A<span aria-hidden="true">+</span></button>
-          <button type="button" id="reader-theme" aria-pressed="false">Tryb nocny</button>
-        </div>
-      </div>
-      <div class="reader-progress js-control" hidden><div id="read-progress"></div></div>
-      <div class="reader-context js-control" hidden>
-        <span><span id="chapter-status" role="status"></span><span id="reading-time"></span></span>
-        <div class="reader-audio"><button type="button" id="read-aloud" hidden>Posłuchaj rozdziału</button><button type="button" id="stop-audio" hidden>Zatrzymaj</button></div>
-      </div>
-      <div class="reader-extras js-control" hidden><button type="button" id="save-page" aria-pressed="false">Zapisz zakładkę</button><button type="button" id="share-page">Kopiuj link do rozdziału</button><span id="reader-feedback" role="status"></span></div>
-      <input id="share-fallback" readonly aria-label="Link do tego rozdziału, skopiuj go" hidden>
-      <p id="audio-status" class="audio-status" role="status"></p>
+      <p id="reader-status" class="reader-status" role="status"></p>
+      <p class="reader-context js-control"><span id="reading-time"></span></p>
+
       <div id="text-view">
-      {{ range $i, $p := hugo.Data.poradnik.pages }}
-        <article class="guide-chapter" id="{{ .slug }}" data-index="{{ $i }}" aria-labelledby="tytul-{{ .slug }}">
-          {{ .html | safeHTML }}
-          {{ if eq .number 15 }}<p class="plan-download"><a href="/poradnik/poradnik-czemierniki.pdf#page=15">Otwórz stronę 15 w PDF, wydrukuj i uzupełnij z bliskimi</a></p>{{ end }}
+      {{- range $i, $p := $pages }}
+        {{- $h := .html }}
+        {{- if eq .slug "zapas-na-trzy-dni" }}{{ $h = replace $h `<ul class="check">` (printf "%s\n    <ul class=\"check\">" (partial "poradnik/woda.html" .)) 1 }}{{ end }}
+        {{- if eq .slug "syrena-schronienie" }}{{ $h = replace $h `<p>Słuchaj Alertów RCB` (printf "%s\n    <p>Słuchaj Alertów RCB" (partial "poradnik/syreny.html" .)) 1 }}{{ end }}
+        {{- if eq .slug "pierwsza-pomoc" }}{{ $h = replace $h `</ol>` (printf "</ol>\n    %s" (partial "poradnik/metronom.html" .)) 1 }}{{ end }}
+        {{- if and (eq .slug "zapas-na-trzy-dni") (not (strings.Contains $h "water-calc")) }}{{ warnf "poradnik: nie wstawiono kalkulatora wody" }}{{ end }}
+        {{- if and (eq .slug "syrena-schronienie") (not (strings.Contains $h "siren-cards")) }}{{ warnf "poradnik: nie wstawiono syren" }}{{ end }}
+        {{- if and (eq .slug "pierwsza-pomoc") (not (strings.Contains $h "metronome")) }}{{ warnf "poradnik: nie wstawiono metronomu" }}{{ end }}
+        {{- $art := "" }}
+        {{- if eq $i 0 }}{{ if fileExists "static/poradnik/okladka-512.jpg" }}{{ $art = "/poradnik/okladka-512.jpg" }}{{ end }}
+        {{- else }}{{ with findRESubmatch `ilustracja-(\d\d)\.webp` .html 1 }}{{ $nn := index (index . 0) 1 }}{{ if fileExists (printf "static/poradnik/ilustracja-%s-512.jpg" $nn) }}{{ $art = printf "/poradnik/ilustracja-%s-512.jpg" $nn }}{{ end }}{{ end }}{{ end }}
+        <article class="guide-chapter" id="{{ .slug }}" data-index="{{ $i }}"{{ with $art }} data-art="{{ . }}"{{ end }} aria-labelledby="tytul-{{ .slug }}">
+          {{- with index $tracks (string $i) }}
+          {{- $s := int (math.Round .duration) }}
+          {{- $czas := cond (gt $s 59) (cond (eq (mod $s 60) 0) (printf "%d min" (div $s 60)) (printf "%d min %d s" (div $s 60) (mod $s 60))) (printf "%d s" $s) }}
+          <div class="listen-card web-extra">
+            <button type="button" class="listen-btn js-control" data-listen="{{ $i }}"><span class="listen-ico" aria-hidden="true"></span><span class="listen-label">Posłuchaj tej strony</span></button>
+            <p class="listen-meta js-control">{{ $czas }}, czyta lektor <span class="listen-ai">(głos syntetyczny AI)</span></p>
+            <p class="listen-file nojs-only"><a href="{{ .file }}">Posłuchaj nagrania tej strony (MP3, {{ $czas }}, głos syntetyczny AI)</a></p>
+          </div>
+          {{- end }}
+          {{ $h | safeHTML }}
+          {{- if eq (int .number) 15 }}
+          <p class="plan-download">{{ if fileExists "static/poradnik/nasz-domowy-plan.pdf" }}<a href="/poradnik/nasz-domowy-plan.pdf" download>Pobierz plan do wydruku (PDF, 1 strona) <span aria-hidden="true">↓</span></a>{{ else }}<a href="/poradnik/poradnik-czemierniki.pdf#page=15">Otwórz stronę 15 w PDF, wydrukuj i uzupełnij z bliskimi</a>{{ end }}</p>
+          {{- end }}
         </article>
-      {{ end }}
+      {{- end }}
       </div>
-      <div id="book-view" hidden>
-        <p>Jak papierowy poradnik, zawsze pod ręką. Dotknij strony, aby ją powiększyć.</p>
-        <button type="button" id="book-zoom" aria-label="Powiększ stronę poradnika"><img id="book-page" src="/poradnik/strona-01.webp" width="1444" height="2048" alt="Strona 1: okładka poradnika" loading="lazy"></button>
+      <script>(function(){try{var a=document.querySelectorAll('#text-view>.guide-chapter'),h=location.hash.slice(1),t=1,i,e=null;try{h=decodeURIComponent(h)}catch(x){}e=h&&document.getElementById(h);if(e&&e.closest)e=e.closest('.guide-chapter');for(i=0;i<a.length;i++)if(a[i]===e)t=i;for(i=0;i<a.length;i++)a[i].hidden=i!==t;if(matchMedia('(max-width: 900px)').matches){var d=document.getElementById('reader-toc');if(d)d.removeAttribute('open');}window.addEventListener('load',function(){if(window.KGWPoradnik)return;for(var j=0;j<a.length;j++)a[j].hidden=false;var r=document.documentElement;r.className=r.className.replace(/(^|\s)js(\s|$)/,' ');if(d)d.setAttribute('open','');var g=h&&document.getElementById(h);if(g&&g.scrollIntoView)g.scrollIntoView();});}catch(x){}})()</script>
+
+      <div id="book-view" class="book-view" hidden>
+        <p class="book-hint">Jak papierowy poradnik, zawsze pod ręką. Kliknij lub dotknij stronę, aby ją powiększyć. Na telefonie przesuń palcem w bok, aby przewrócić kartkę.</p>
+        <button type="button" id="book-zoom" class="book-zoom" aria-label="Powiększ stronę"><img id="book-page" src="/poradnik/strona-02{{ if $stronyWarianty }}-720{{ end }}.webp" data-variants="{{ if $stronyWarianty }}1{{ else }}0{{ end }}" sizes="(max-width: 900px) calc(100vw - 70px), 620px" width="1444" height="2048" alt="Strona poradnika" loading="lazy" decoding="async"></button>
+        <p class="book-busy" aria-hidden="true">Wczytuję stronę…</p>
         <p class="book-text-link"><button type="button" id="back-to-text">Czytaj tę stronę jako tekst</button></p>
       </div>
-      <nav class="reader-paging js-control" hidden aria-label="Przejdź do innej strony">
+
+      <nav class="reader-paging js-control" aria-label="Przejdź do innej strony">
         <button type="button" id="prev-chapter"><span aria-hidden="true">←</span> Poprzednia</button>
-        <label class="page-select-label" for="page-select">Strona <select id="page-select">{{ range $i, $p := hugo.Data.poradnik.pages }}<option value="{{ $i }}">{{ .number }} / 16</option>{{ end }}</select></label>
+        <label class="page-select-label" for="page-select"><span>Strona</span>
+          <select id="page-select">{{ range $i, $p := $pages }}<option value="{{ $i }}">{{ int .number }} z {{ $N }}</option>{{ end }}</select>
+        </label>
         <button type="button" id="next-chapter">Następna <span aria-hidden="true">→</span></button>
       </nav>
-      <p class="reader-edition">Treść wydania z 8 listopada 2026 r. Wersja internetowa opublikowana 13 listopada 2026 r.</p>
-      <p class="keyboard-tip js-control" hidden>Strzałki na klawiaturze zmieniają strony podczas czytania. Esc kończy tryb skupienia.</p>
+      <p class="reader-edition">Treść wydania z 8 listopada 2026 r. W wersji internetowej słowo "książeczka" zastąpiono słowem "poradnik". Wersja internetowa opublikowana 13 listopada 2026 r., nagrania lektora i dodatki multimedialne dodano 14 listopada 2026 r.</p>
     </div>
   </div>
-  <dialog id="page-dialog" class="page-dialog" aria-labelledby="zoom-title"><div class="zoom-toolbar"><strong id="zoom-title">Podgląd strony</strong><div><button type="button" id="zoom-toggle" aria-pressed="false">Powiększ</button><button type="button" id="zoom-close">Zamknij</button></div></div><div class="zoom-canvas" id="zoom-canvas" tabindex="0" aria-label="Podgląd strony, po powiększeniu przewijaj obraz"><img id="zoom-image" alt=""></div></dialog>
+
+  <dialog id="page-dialog" class="page-dialog" aria-labelledby="zoom-title">
+    <div class="zoom-toolbar">
+      <strong id="zoom-title">Podgląd strony</strong>
+      <div class="zoom-actions">
+        <button type="button" id="zoom-prev"><span aria-hidden="true">‹</span><span class="sr-only">Poprzednia strona</span></button>
+        <button type="button" id="zoom-next"><span aria-hidden="true">›</span><span class="sr-only">Następna strona</span></button>
+        <button type="button" id="zoom-toggle">Powiększ</button>
+        <button type="button" id="zoom-close">Zamknij</button>
+      </div>
+    </div>
+    <div class="zoom-canvas" id="zoom-canvas" tabindex="0" role="region" aria-label="Podgląd strony. Po powiększeniu przewijaj obraz strzałkami."><img id="zoom-image" alt="" decoding="async"></div>
+  </dialog>
+
+  {{- with $lektor }}
+  <div class="audio-bar" id="audio-bar" role="region" aria-label="Odtwarzacz lektora" hidden>
+    <div class="ab-inner">
+      <button type="button" class="ab-play" id="ab-play"><span class="ab-play-ico" aria-hidden="true"></span><span class="sr-only" id="ab-play-label">Odtwórz</span></button>
+      <div class="ab-info">
+        <p class="ab-title"><span class="ab-ai" title="Głos syntetyczny (AI, ElevenLabs)">Lektor AI</span> <span id="ab-title">Lektor</span></p>
+        <div class="ab-progress">
+          <span class="ab-time" id="ab-time">0:00</span>
+          <input type="range" id="ab-seek" min="0" max="100" step="1" value="0" aria-label="Postęp nagrania">
+          <span class="ab-time" id="ab-total">0:00</span>
+        </div>
+      </div>
+      <div class="ab-controls">
+        <button type="button" class="ab-btn" id="ab-back"><span class="ab-skip-ico back" aria-hidden="true"></span><span class="ab-btn-text">10&nbsp;s</span><span class="sr-only"> wstecz</span></button>
+        <button type="button" class="ab-btn" id="ab-fwd"><span class="ab-skip-ico" aria-hidden="true"></span><span class="ab-btn-text">10&nbsp;s</span><span class="sr-only"> do przodu</span></button>
+        <label class="sr-only" for="ab-rate">Tempo czytania</label>
+        <select class="ab-rate" id="ab-rate">
+          <option value="0.8">0,8×</option>
+          <option value="1" selected>1×</option>
+          <option value="1.25">1,25×</option>
+          <option value="1.5">1,5×</option>
+        </select>
+        <button type="button" class="ab-btn" id="ab-more" aria-expanded="false" aria-controls="ab-panel"><span class="ab-btn-text">Więcej</span></button>
+        <button type="button" class="ab-btn ab-close" id="ab-close"><span aria-hidden="true">×</span><span class="sr-only">Zakończ słuchanie</span></button>
+      </div>
+    </div>
+    <div class="ab-panel" id="ab-panel" hidden>
+      <div class="ab-panel-row">
+        <button type="button" class="ab-chip" id="ab-prev-par">Poprzedni akapit</button>
+        <button type="button" class="ab-chip" id="ab-next-par">Następny akapit</button>
+        <button type="button" class="ab-chip" id="ab-show">Pokaż czytany fragment</button>
+      </div>
+      <div class="ab-panel-row">
+        <label class="ab-switch"><input type="checkbox" id="ab-auto" role="switch"> Czytaj kolejne strony</label>
+        <label class="ab-switch"><input type="checkbox" id="ab-follow" role="switch" checked> Przewijaj tekst za lektorem</label>
+      </div>
+      <p class="ab-note"><a id="ab-download" href="{{ .full.file }}" download>Pobierz nagranie tej strony <span></span></a> Głos lektora jest syntetyczny (AI, ElevenLabs).</p>
+    </div>
+    <div class="ab-foot">
+      <p class="ab-status" id="ab-status" role="status"></p>
+      <button type="button" class="ab-chip" id="ab-next" hidden>Dalej: <span id="ab-next-label">następna strona</span> <span aria-hidden="true">→</span></button>
+      <button type="button" class="ab-chip" id="ab-retry" hidden>Spróbuj ponownie</button>
+    </div>
+  </div>
+  {{- end }}
 
   <section class="guide-downloads" id="pliki" aria-labelledby="download-title">
-    <div><p class="guide-eyebrow">Zachowaj na później</p><h2 id="download-title">Dobrze mieć go pod ręką.</h2><p>Pobierz poradnik, zanim będzie potrzebny. Zapisane pliki przeczytasz także bez Internetu.</p></div>
+    <div><p class="guide-eyebrow">Zachowaj na później</p><h2 id="download-title">Dobrze mieć go pod ręką</h2><p>Pobierz poradnik, zanim będzie potrzebny. Zapisane pliki przeczytasz i&nbsp;odsłuchasz także bez internetu.</p></div>
     <div class="download-cards">
-      <a href="/poradnik/poradnik-czemierniki.pdf" download><span class="file-type">PDF</span><strong>Cały poradnik</strong><span>16 stron A5, z ilustracjami. Do zapisania i wydruku.</span><small>Pobierz PDF (14 MB) ↓</small></a>
-      <a href="/poradnik/poradnik-czemierniki.txt" download><span class="file-type">TXT</span><strong>Prosty tekst</strong><span>Pełna treść, opisy ilustracji i wykaz źródeł.</span><small>Pobierz tekst (25 kB) ↓</small></a>
+      <a href="/poradnik/poradnik-czemierniki.pdf" download><span class="file-type">PDF</span><strong>Cały poradnik</strong><span>16 stron A5, z&nbsp;ilustracjami. Do zapisania i&nbsp;wydruku.</span><small>Pobierz PDF (14&nbsp;MB) <span aria-hidden="true">↓</span></small></a>
+      {{- with $lektor }}{{ $m := int (math.Round (div .full.duration 60)) }}
+      <a href="{{ .full.file }}" download><span class="file-type">MP3</span><strong>Poradnik do słuchania</strong><span>Wszystkie strony po kolei, około {{ $m }} minut. Czyta lektor, głos syntetyczny (AI).</span><small>Pobierz MP3 ({{ lang.FormatNumber 1 (div (float .full.bytes) 1048576) }}&nbsp;MB) <span aria-hidden="true">↓</span></small></a>
+      {{- end }}
+      {{- if fileExists "static/poradnik/nasz-domowy-plan.pdf" }}
+      <a href="/poradnik/nasz-domowy-plan.pdf" download><span class="file-type">PDF</span><strong>Nasz domowy plan</strong><span>Strona 15 osobno, do wydruku i&nbsp;uzupełnienia z bliskimi.</span><small>Pobierz plan (0,8&nbsp;MB) <span aria-hidden="true">↓</span></small></a>
+      {{- end }}
+      <a href="/poradnik/poradnik-czemierniki.txt" download><span class="file-type">TXT</span><strong>Prosty tekst</strong><span>Pełna treść, opisy ilustracji i&nbsp;wykaz źródeł.</span><small>Pobierz tekst (25&nbsp;kB) <span aria-hidden="true">↓</span></small></a>
     </div>
   </section>
 
-  <section class="guide-sources" id="zrodla">
-    <p class="guide-eyebrow">Skąd czerpaliśmy wiedzę</p><h2>Źródła i autorzy</h2>
+  <section class="guide-sources" id="zrodla" aria-labelledby="zrodla-tytul">
+    <p class="guide-eyebrow">Skąd czerpaliśmy wiedzę</p><h2 id="zrodla-tytul">Źródła i autorzy</h2>
     <p>Opracował i przygotował do wydania: <strong>Bartosz Michalski, koordynator projektu.</strong><br>Wydawca: Koło Gospodyń Wiejskich Czemierniki.</p>
-    <details><summary>Źródła wykorzystane w poradniku ({{ len hugo.Data.poradnik.sources }})</summary><ol>{{ range hugo.Data.poradnik.sources }}<li><a href="{{ .url }}" target="_blank" rel="noopener">{{ .title }}</a></li>{{ end }}</ol></details>
-    <details><summary>Ilustracje i licencje</summary><p>Akwarele wygenerowane na zamówienie KGW. Widoki zespołu zamkowego i strażnicy OSP powstały na podstawie zdjęć z Wikimedia Commons, z wprowadzonymi zmianami.</p><ul>
+    <h3>Data kontroli źródeł</h3>
+    <p>Źródła sprawdzono 17-18.10.2026, zalecenia poprawione w listopadzie ponownie 7.11.2026, a strony o wichurze i powodzi oraz pozostałe poprawki 8.11.2026. Wskazania mapy nie potwierdzają bieżącego otwarcia obiektów. Poradnik bezpieczeństwa (gov.pl) przygotowały MON, MSWiA i RCB.</p>
+    <details><summary>Źródła wykorzystane w poradniku ({{ len hugo.Data.poradnik.sources }})</summary><ol>{{ range hugo.Data.poradnik.sources }}<li><a href="{{ .url }}" target="_blank" rel="noopener">{{ .title }}<span class="sr-only"> (otwiera się w nowej karcie)</span></a></li>{{ end }}</ol></details>
+    <details><summary>Ilustracje i licencje</summary><p>Akwarele wygenerowane przez AI (GPT Image 2.6, listopad 2026) na zamówienie KGW. Widoki zespołu zamkowego i strażnicy OSP oparto na zdjęciach z Wikimedia Commons, z wprowadzonymi zmianami.</p><ul>
       <li>H. Śmietanka, <a href="https://commons.wikimedia.org/wiki/File:POL_Czemierniki-Castle.jpg">POL Czemierniki-Castle.jpg</a>, CC BY-SA 2.5.</li>
       <li>T. Zugaj, <a href="https://commons.wikimedia.org/wiki/File:Pa%C5%82ac_w_Czemiernikach.jpg">Pałac w Czemiernikach.jpg</a>, CC BY-SA 4.0.</li>
       <li>J. Karczmarz, <a href="https://commons.wikimedia.org/wiki/File:Czemierniki_brama_palacowa.jpg">Czemierniki brama palacowa.jpg</a>, CC BY-SA 4.0.</li>
       <li>J. Karczmarz, <a href="https://commons.wikimedia.org/wiki/File:Czemierniki_OSP.jpg">Czemierniki OSP.jpg</a>, CC BY-SA 3.0.</li>
     </ul><p>Ilustracje oparte na tych zdjęciach: <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.pl">CC BY-SA 4.0</a>.</p></details>
+    {{- with $lektor }}
+    <details id="o-nagraniach"><summary>Nagrania: lektor i sygnały alarmowe (dodatek wersji internetowej)</summary>
+      <p>Nagrania lektora przygotowało Koło Gospodyń Wiejskich Czemierniki z pomocą syntezy mowy ElevenLabs (model {{ .model }}). To głos wygenerowany komputerowo, a nie nagranie prawdziwej osoby. Lektor czyta tekst wersji internetowej słowo w słowo; liczby, skróty i adresy czyta w pełnym brzmieniu, a opisów ilustracji nie czyta. Każde nagranie sprawdziliśmy automatycznym rozpoznawaniem mowy. Jeśli usłyszysz błąd, napisz do nas: <a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a>.</p>
+      {{- with hugo.Data.syreny }}
+      <p>Sygnały alarmowe: {{ .author }}, <a href="{{ .source }}" target="_blank" rel="noopener">Sygnały alarmowe<span class="sr-only"> (otwiera się w nowej karcie)</span></a>, licencja <a href="{{ .license_url }}" target="_blank" rel="noopener">{{ .license }}<span class="sr-only"> (otwiera się w nowej karcie)</span></a>, pobrano 14.11.2026. Zmieniono wyłącznie format pliku (z WAV na MP3). Fragment 20 s i głośność ustawia odtwarzacz na stronie, bez zmiany nagrania.</p>
+      {{- end }}
+      <p>Metronom i kalkulator wody działają w przeglądarce; nie zapisujemy wpisanych liczb. Statystyki strony (bez plików cookie, zob. <a href="/prywatnosc/">politykę prywatności</a>) liczą odwiedziny oraz to, ile razy włączono lektora, syreny lub metronom.</p>
+    </details>
+    {{- end }}
   </section>
 
-  <section class="guide-funding" aria-label="Dofinansowanie poradnika">
-    <div class="funding-logos"><img src="/poradnik/komitet.png" alt="Komitet do spraw Pożytku Publicznego" loading="lazy"><img src="/poradnik/niw.png" alt="Narodowy Instytut Wolności" loading="lazy"><img src="/poradnik/mms.png" alt="Moc Małych Społeczności" loading="lazy"></div>
-    <p>Sfinansowano ze środków Narodowego Instytutu Wolności - Centrum Rozwoju Społeczeństwa Obywatelskiego w ramach Rządowego Programu Wsparcia Organizacji Pozarządowych Moc Małych Społeczności.</p>
-    <p>Projekt "Gdy gaśnie światło, zostają ludzie. Czemierniki gotowe na kryzys".</p>
-    <div class="funding-logos partners"><img src="/poradnik/lgd.png" alt="Lokalna Grupa Działania Zielony Pierścień" loading="lazy"><img src="/poradnik/zhp.png" alt="Chorągiew Lubelska ZHP" loading="lazy"><img src="/poradnik/frdl.png" alt="Fundacja Rozwoju Demokracji Lokalnej im. Jerzego Regulskiego" loading="lazy"><img src="/poradnik/mmslub.png" alt="Moc Małych Społeczności - Lubelskie" loading="lazy"></div>
-    <p class="funding-note">Treść odzwierciedla wyłącznie opinię autora, a NIW-CRSO nie odpowiada za sposób wykorzystania zawartych w niej informacji.</p>
+  <section class="guide-funding" aria-labelledby="finansowanie-tytul">
+    <h2 class="sr-only" id="finansowanie-tytul">Finansowanie poradnika</h2>
+    <div class="funding-card">
+      <div class="funding-logos">
+        <img src="/poradnik/komitet.png" width="613" height="203" alt="Komitet do spraw Pożytku Publicznego" loading="lazy" decoding="async">
+        <img src="/poradnik/niw.png" width="280" height="210" alt="Narodowy Instytut Wolności – Centrum Rozwoju Społeczeństwa Obywatelskiego" loading="lazy" decoding="async">
+        <img src="/poradnik/mms.png" width="427" height="210" alt="Rządowy Program Wsparcia Organizacji Pozarządowych Moc Małych Społeczności" loading="lazy" decoding="async">
+      </div>
+      <p>Sfinansowano ze środków Narodowego Instytutu Wolności – Centrum Rozwoju Społeczeństwa Obywatelskiego w&nbsp;ramach Rządowego Programu Wsparcia Organizacji Pozarządowych Moc Małych Społeczności.</p>
+      <p>Projekt "Gdy gaśnie światło, zostają ludzie. Czemierniki gotowe na kryzys".</p>
+      <p class="funding-partners-title">Operatorzy programu Moc Małych Społeczności – Lubelskie</p>
+      <div class="funding-logos partners">
+        <img src="/poradnik/lgd.png" width="187" height="189" alt="Lokalna Grupa Działania Zielony Pierścień" loading="lazy" decoding="async">
+        <img src="/poradnik/zhp.png" width="352" height="144" alt="Chorągiew Lubelska ZHP" loading="lazy" decoding="async">
+        <img src="/poradnik/frdl.png" width="358" height="142" alt="Fundacja Rozwoju Demokracji Lokalnej im. Jerzego Regulskiego" loading="lazy" decoding="async">
+        <img src="/poradnik/mmslub.png" width="1104" height="200" alt="Moc Małych Społeczności – Lubelskie" loading="lazy" decoding="async">
+      </div>
+      <p class="funding-note">Treść odzwierciedla wyłącznie opinię autora, a NIW-CRSO nie odpowiada za sposób wykorzystania zawartych w niej informacji.</p>
+    </div>
   </section>
 </div>
-{{ with resources.Get "js/poradnik.js" }}{{ $j := . | fingerprint }}<script src="{{ $j.RelPermalink }}" defer></script>{{ end }}
+{{- with $lektor }}
+<script type="application/json" id="poradnik-audio-data">{{ dict "full" .full "chapters" .chapters | jsonify | safeJS }}</script>
+{{- end }}
+{{- $js := slice (resources.Get "js/poradnik.js") (resources.Get "js/poradnik-audio.js") | resources.Concat "js/poradnik-czytnik.js" | minify | fingerprint }}
+<script src="{{ $js.RelPermalink }}" defer></script>
 {{ end }}
