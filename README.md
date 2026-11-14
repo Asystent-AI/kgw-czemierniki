@@ -120,10 +120,11 @@ usunąć z panelu Coolify: pliki i kontener nie są już używane.
   - Lektor: na stronie "Profesjonalny lektor", bez wzmianek o AI i głosie syntetycznym
     (decyzja Bartosza z 14.11.2026; dane techniczne w `data/lektor.json` i w
     `narzedzia/lektor_poradnika/`). Nagrania z 14.11.2026, zmontowane tego samego dnia:
-    lektor czyta tytuł i treść, bez etykiet działów nad tytułami i opisów ilustracji.
+    lektor czyta tytuł i treść, bez etykiet działów nad tytułami i opisów ilustracji;
+    ze stopki strony 16 wycięto zdanie o ilustracjach tworzonych z użyciem AI.
     16 plików `audio/NN-slug.mp3` (96 kb/s) i całość `poradnik-czemierniki-lektor.mp3`
-    (64 kb/s, około 16,7 min, rozdziały ID3 "Strona N: tytuł"). Adresy w `data/lektor.json`
-    mają `?v=WERSJA` (obecnie `20261114b`): po podmianie nagrań zmień wersję.
+    (64 kb/s, około 16,5 min, rozdziały ID3 "Strona N: tytuł"). Adresy w `data/lektor.json`
+    mają `?v=WERSJA` (obecnie `20261114c`): po podmianie nagrań zmień wersję.
     Odtwarzacz na dole ekranu: pauza, suwak, 10 s wstecz/dalej, tempo 0,8-1,5, akapit
     wstecz/dalej, automatyczne przejście do następnej strony (domyślnie wyłączone),
     śledzenie tekstu, podświetlanie czytanego akapitu (segmenty w `data/lektor.json`,
@@ -154,8 +155,14 @@ usunąć z panelu Coolify: pliki i kontener nie są już używane.
     zawijanie elementom z `white-space: nowrap`, dlatego w poradniku jest `text-wrap-style`.
   - Kontrola po poprawkach wyglądu i lektora (14.11.2026, wieczór): produkcja w jasnym
     i nocnym motywie bez poziomego przewijania przy 320, 360 i 412 px, nowe nagrania
-    (`?v=20261114b`) zwracają HTTP 200, w HTML nie ma wzmianek o AI przy lektorze
+    (`?v=20261114b`, potem `c`) zwracają HTTP 200, w HTML nie ma wzmianek o AI przy lektorze
     ani strzałek tekstowych, konsola bez błędów.
+  - Bez wzmianek o AI przy ilustracjach w wersji online (decyzja Bartosza z 14.11.2026):
+    sekcja "Ilustracje i licencje" ("Ilustracje w stylu akwareli przygotowane dla KGW"),
+    stopka strony 16 ("Ilustracje dla KGW") w tekście, w TXT, w PDF i w obrazach `strona-16*.webp`.
+    W PDF podmieniono tylko ten wiersz (Noto Sans, pozostałe strony identyczne pikselowo);
+    sumy plików wydania i wersji online są w `data/poradnik-source.json`. Atrybucje
+    Wikimedia Commons (autorzy, licencje CC BY-SA, informacja o zmianach) zostają bez zmian.
   - Informacja o wydaniu nie oznacza aktualizacji danych miejscowych; źródłowy tekst
     zachowuje daty. Nazewnictwo online: "poradnik" zamiast "książeczka"; archiwalne
     odwzorowanie wydania drukowanego i pliki do pobrania zachowują oryginalne brzmienie.

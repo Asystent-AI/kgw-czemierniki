@@ -233,7 +233,7 @@ Sprzęt KGW dla mieszkańców
 Stacja zasilania, kociołek i lampy: zapytaj osobiście lub na facebook.com/kgw.czemierniki. Dostęp po uzgodnieniu z KGW, pod nadzorem przeszkolonej osoby, bez stałego dyżuru.
 Opracował i przygotował do wydania
 Bartosz Michalski, koordynator projektu
-Wydawca: Koło Gospodyń Wiejskich Czemierniki, listopad 2026. Egzemplarz bezpłatny. Ilustracje AI dla KGW, częściowo według zdjęć z Wikimedia Commons (zmienione): H. Śmietanka, T. Zugaj, J. Karczmarz; licencje CC BY-SA 2.5, 3.0 i 4.0. Źródła: rządowy Poradnik bezpieczeństwa, GIS, sanepid, Wytyczne resuscytacji 2025; wykaz w wersji elektronicznej na facebook.com/kgw.czemierniki. Treść odzwierciedla wyłącznie opinię autora, a NIW-CRSO nie odpowiada za sposób wykorzystania zawartych w niej informacji.
+Wydawca: Koło Gospodyń Wiejskich Czemierniki, listopad 2026. Egzemplarz bezpłatny. Ilustracje dla KGW, częściowo według zdjęć z Wikimedia Commons (zmienione): H. Śmietanka, T. Zugaj, J. Karczmarz; licencje CC BY-SA 2.5, 3.0 i 4.0. Źródła: rządowy Poradnik bezpieczeństwa, GIS, sanepid, Wytyczne resuscytacji 2025; wykaz w wersji elektronicznej na facebook.com/kgw.czemierniki. Treść odzwierciedla wyłącznie opinię autora, a NIW-CRSO nie odpowiada za sposób wykorzystania zawartych w niej informacji.
 
 ŹRÓDŁA I DATA KONTROLI
 Źródła sprawdzono 17-18.10.2026, zalecenia poprawione w listopadzie ponownie 7.11.2026, a strony o wichurze i powodzi oraz pozostałe poprawki 8.11.2026. Wskazania mapy nie potwierdzają bieżącego otwarcia obiektów. Poradnik bezpieczeństwa (gov.pl) przygotowały MON, MSWiA i RCB.
@@ -330,7 +330,7 @@ https://www.gov.pl/web/gis/bezpieczenstwo-zywnosci-podczas-powodzi
 Mazowiecki Państwowy Wojewódzki Inspektor Sanitarny: woda w studniach po powodzi
 https://www.gov.pl/attachment/6203f9ed-f94c-4de4-80b0-7e75c115d728
 
-Ilustracje: akwarele wygenerowane na zamówienie KGW (GPT Image 2.6, listopad 2026). Widoki zespołu zamkowego i strażnicy OSP oparto na zdjęciach z Wikimedia Commons:
+Ilustracje w stylu akwareli przygotowane dla KGW (listopad 2026). Widoki zespołu zamkowego i strażnicy OSP oparto na zdjęciach z Wikimedia Commons:
 H. Śmietanka, POL Czemierniki-Castle.jpg, CC BY-SA 2.5: https://commons.wikimedia.org/wiki/File:POL_Czemierniki-Castle.jpg
 T. Zugaj, Pałac w Czemiernikach.jpg, CC BY-SA 4.0: https://commons.wikimedia.org/wiki/File:Pa%C5%82ac_w_Czemiernikach.jpg
 J. Karczmarz, Czemierniki brama palacowa.jpg, CC BY-SA 4.0: https://commons.wikimedia.org/wiki/File:Czemierniki_brama_palacowa.jpg

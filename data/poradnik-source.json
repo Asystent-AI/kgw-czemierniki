@@ -4,5 +4,10 @@
   "source_pdf_sha256": "5e1a052a9c8c953c5f6ebcba9367e718864cdfb0adca4e43b66ca20afe214b0c",
   "source_text_sha256": "9822c0a0c902846ec9c4d931a98374831182408a183d20d3ee632ace81a3d9de",
   "pages": 16,
-  "sources": 46
+  "sources": 46,
+  "online_text_sha256": "b9c7834a18309332cf64d2980b06a62528389362a2e569c10a130472aced3cc2",
+  "online_changes": [
+    "2026-11-14: bez wzmianek o AI przy ilustracjach w tekście do pobrania, w PDF i w obrazach strony 16 (stopka \"Ilustracje dla KGW\", decyzja Bartosza Michalskiego); source_*_sha256 dotyczą plików wydania"
+  ],
+  "online_pdf_sha256": "71432fa3d334c5e3e00ce46de3f2e99cea2aa6127f7da52cd6cbbd1310d56e8a"
 }

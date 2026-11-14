@@ -6,15 +6,15 @@
  "note": "Na stronie: profesjonalny lektor (decyzja Bartosza Michalskiego z 14.11.2026). Tekst wydania z 8 listopada 2026 r. w wersji internetowej; etykiet działów nad tytułami i opisów ilustracji lektor nie czyta.",
  "selector": "h2, h3, p, li, .litry > div, .telefony > .num",
  "full": {
-  "file": "/poradnik/audio/poradnik-czemierniki-lektor.mp3?v=20261114b",
-  "duration": 999.82,
-  "bytes": 8001336
+  "file": "/poradnik/audio/poradnik-czemierniki-lektor.mp3?v=20261114c",
+  "duration": 990.69,
+  "bytes": 7928194
  },
  "chapters": [
   {
    "index": 0,
    "slug": "okladka",
-   "file": "/poradnik/audio/00-okladka.mp3?v=20261114b",
+   "file": "/poradnik/audio/00-okladka.mp3?v=20261114c",
    "duration": 9.61,
    "bytes": 116484,
    "blocks": 3,
@@ -45,7 +45,7 @@
   {
    "index": 1,
    "slug": "drodzy-sasiedzi",
-   "file": "/poradnik/audio/01-drodzy-sasiedzi.mp3?v=20261114b",
+   "file": "/poradnik/audio/01-drodzy-sasiedzi.mp3?v=20261114c",
    "duration": 64.08,
    "bytes": 770351,
    "blocks": 22,
@@ -209,7 +209,7 @@
   {
    "index": 2,
    "slug": "gdy-zgasnie-swiatlo",
-   "file": "/poradnik/audio/02-gdy-zgasnie-swiatlo.mp3?v=20261114b",
+   "file": "/poradnik/audio/02-gdy-zgasnie-swiatlo.mp3?v=20261114c",
    "duration": 47.79,
    "bytes": 574752,
    "blocks": 8,
@@ -282,7 +282,7 @@
   {
    "index": 3,
    "slug": "zapas-na-trzy-dni",
-   "file": "/poradnik/audio/03-zapas-na-trzy-dni.mp3?v=20261114b",
+   "file": "/poradnik/audio/03-zapas-na-trzy-dni.mp3?v=20261114c",
    "duration": 58.29,
    "bytes": 700742,
    "blocks": 15,
@@ -404,7 +404,7 @@
   {
    "index": 4,
    "slug": "spizarnia",
-   "file": "/poradnik/audio/04-spizarnia.mp3?v=20261114b",
+   "file": "/poradnik/audio/04-spizarnia.mp3?v=20261114c",
    "duration": 49.53,
    "bytes": 595777,
    "blocks": 9,
@@ -484,7 +484,7 @@
   {
    "index": 5,
    "slug": "lodowka",
-   "file": "/poradnik/audio/05-lodowka.mp3?v=20261114b",
+   "file": "/poradnik/audio/05-lodowka.mp3?v=20261114c",
    "duration": 60.44,
    "bytes": 726460,
    "blocks": 10,
@@ -571,7 +571,7 @@
   {
    "index": 6,
    "slug": "woda",
-   "file": "/poradnik/audio/06-woda.mp3?v=20261114b",
+   "file": "/poradnik/audio/06-woda.mp3?v=20261114c",
    "duration": 58.47,
    "bytes": 702925,
    "blocks": 8,
@@ -644,7 +644,7 @@
   {
    "index": 7,
    "slug": "swiatlo-radio-agregat",
-   "file": "/poradnik/audio/07-swiatlo-radio-agregat.mp3?v=20261114b",
+   "file": "/poradnik/audio/07-swiatlo-radio-agregat.mp3?v=20261114c",
    "duration": 58.34,
    "bytes": 701404,
    "blocks": 8,
@@ -717,7 +717,7 @@
   {
    "index": 8,
    "slug": "cieplo-telefon-gotowka",
-   "file": "/poradnik/audio/08-cieplo-telefon-gotowka.mp3?v=20261114b",
+   "file": "/poradnik/audio/08-cieplo-telefon-gotowka.mp3?v=20261114c",
    "duration": 42.01,
    "bytes": 505488,
    "blocks": 10,
@@ -797,7 +797,7 @@
   {
    "index": 9,
    "slug": "wichura-burza",
-   "file": "/poradnik/audio/09-wichura-burza.mp3?v=20261114b",
+   "file": "/poradnik/audio/09-wichura-burza.mp3?v=20261114c",
    "duration": 50.7,
    "bytes": 609513,
    "blocks": 12,
@@ -891,7 +891,7 @@
   {
    "index": 10,
    "slug": "powodz",
-   "file": "/poradnik/audio/10-powodz.mp3?v=20261114b",
+   "file": "/poradnik/audio/10-powodz.mp3?v=20261114c",
    "duration": 52.85,
    "bytes": 635542,
    "blocks": 12,
@@ -992,7 +992,7 @@
   {
    "index": 11,
    "slug": "syrena-schronienie",
-   "file": "/poradnik/audio/11-syrena-schronienie.mp3?v=20261114b",
+   "file": "/poradnik/audio/11-syrena-schronienie.mp3?v=20261114c",
    "duration": 74.26,
    "bytes": 892267,
    "blocks": 13,
@@ -1103,7 +1103,7 @@
   {
    "index": 12,
    "slug": "pierwsza-pomoc",
-   "file": "/poradnik/audio/12-pierwsza-pomoc.mp3?v=20261114b",
+   "file": "/poradnik/audio/12-pierwsza-pomoc.mp3?v=20261114c",
    "duration": 85.59,
    "bytes": 1028355,
    "blocks": 9,
@@ -1211,7 +1211,7 @@
   {
    "index": 13,
    "slug": "sasiad-obok",
-   "file": "/poradnik/audio/13-sasiad-obok.mp3?v=20261114b",
+   "file": "/poradnik/audio/13-sasiad-obok.mp3?v=20261114c",
    "duration": 72.16,
    "bytes": 867205,
    "blocks": 12,
@@ -1326,7 +1326,7 @@
   {
    "index": 14,
    "slug": "domowy-plan",
-   "file": "/poradnik/audio/14-domowy-plan.mp3?v=20261114b",
+   "file": "/poradnik/audio/14-domowy-plan.mp3?v=20261114c",
    "duration": 47.51,
    "bytes": 571270,
    "blocks": 11,
@@ -1413,75 +1413,75 @@
   {
    "index": 15,
    "slug": "wazne-telefony",
-   "file": "/poradnik/audio/15-wazne-telefony.mp3?v=20261114b",
-   "duration": 145.71,
-   "bytes": 1749941,
+   "file": "/poradnik/audio/15-wazne-telefony.mp3?v=20261114c",
+   "duration": 136.57,
+   "bytes": 1640227,
    "blocks": 20,
    "segments": [
     [
      0.0,
-     1.02,
+     1.12,
      [
       0
      ]
     ],
     [
-     1.02,
-     4.76,
+     1.12,
+     4.91,
      [
       1,
       2
      ]
     ],
     [
-     4.76,
-     8.24,
+     4.91,
+     8.51,
      [
       3,
       4
      ]
     ],
     [
-     8.24,
-     11.82,
+     8.51,
+     12.0,
      [
       5,
       6
      ]
     ],
     [
-     11.82,
-     18.82,
+     12.0,
+     18.96,
      [
       7,
       8
      ]
     ],
     [
-     18.82,
-     25.26,
+     18.96,
+     25.38,
      [
       9,
       10
      ]
     ],
     [
-     25.26,
-     32.38,
+     25.38,
+     32.48,
      [
       11,
       12
      ]
     ],
     [
-     32.38,
-     47.23,
+     32.48,
+     46.92,
      [
       13
      ]
     ],
     [
-     47.23,
+     46.92,
      54.16,
      [
       14
@@ -1489,13 +1489,13 @@
     ],
     [
      54.16,
-     61.84,
+     61.86,
      [
       14
      ]
     ],
     [
-     61.84,
+     61.86,
      65.16,
      [
       15
@@ -1510,50 +1510,43 @@
     ],
     [
      73.88,
-     79.5,
+     79.75,
      [
       16
      ]
     ],
     [
-     79.5,
-     84.74,
+     79.75,
+     84.86,
      [
       17,
       18
      ]
     ],
     [
-     84.74,
-     92.3,
+     84.86,
+     92.32,
      [
       19
      ]
     ],
     [
-     92.3,
-     101.37,
+     92.32,
+     107.77,
      [
       19
      ]
     ],
     [
-     101.37,
-     116.9,
+     107.77,
+     118.58,
      [
       19
      ]
     ],
     [
-     116.9,
-     127.92,
-     [
-      19
-     ]
-    ],
-    [
-     127.92,
-     145.71,
+     118.58,
+     136.57,
      []
     ]
    ]
