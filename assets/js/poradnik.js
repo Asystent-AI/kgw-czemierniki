@@ -96,7 +96,7 @@
     toc.forEach((link, i) => {if (i === current) link.setAttribute('aria-current', 'page'); else link.removeAttribute('aria-current');});
     $('dock-title').textContent = titles[current];
     $('dock-meta').textContent = `Strona ${current + 1} z ${N}`;
-    if (dock) dock.style.setProperty('--progress', ((current + 1) / N * 100).toFixed(2) + '%');
+    if (dock) dock.style.setProperty('--progress', ((current + 1) / N).toFixed(4));
     $('page-select').value = String(current);
     ['dock-prev', 'prev-chapter'].forEach(id => setDisabled(id, current === 0));
     ['dock-next', 'next-chapter'].forEach(id => setDisabled(id, current === N - 1));
@@ -196,7 +196,8 @@
   }
   $('font-size').addEventListener('click', () => {font = (font + 1) % SIZES.length;applyFont();store.write('font', String(font));});
 
-  // Tryb nocny: stała etykieta, stan w aria-pressed. Bez wyboru użytkownika obowiązuje ustawienie systemu.
+  // Tryb nocny: stała etykieta, stan w aria-pressed. Domyślnie jasna kolorystyka strony Koła,
+  // nocna tylko z wyboru użytkownika (klucz 'motyw'; dawny 'theme' z ustawieniem systemu pomijamy).
   const themeMeta = document.querySelector('meta[name="theme-color"]');
   // Kolor Koła na sztywno: skrypt w nagłówku mógł już podmienić meta na kolor nocny.
   const lightThemeColor = '#461571';
@@ -204,11 +205,10 @@
     root.dataset.theme = dark ? 'dark' : 'light';
     if (dark) html.dataset.reader = 'dark'; else delete html.dataset.reader;
     $('reader-theme').setAttribute('aria-pressed', String(dark));
-    if (themeMeta) themeMeta.content = dark ? '#191c21' : lightThemeColor;
+    if (themeMeta) themeMeta.content = dark ? '#150f1c' : lightThemeColor;
   }
-  const savedTheme = store.read('theme');
-  setTheme(savedTheme ? savedTheme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches);
-  $('reader-theme').addEventListener('click', () => {const dark = root.dataset.theme !== 'dark';setTheme(dark);store.write('theme', dark ? 'dark' : 'light');});
+  setTheme(store.read('motyw') === 'dark');
+  $('reader-theme').addEventListener('click', () => {const dark = root.dataset.theme !== 'dark';setTheme(dark);store.write('motyw', dark ? 'dark' : 'light');});
 
   // Tryb skupienia: stała etykieta i aria-pressed; czytany akapit zostaje w tym samym miejscu ekranu.
   function setFocusMode(active) {

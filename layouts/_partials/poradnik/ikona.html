@@ -1,0 +1,17 @@
+{{- /* Ikony liniowe poradnika (SVG 24 px, kolor z currentColor).
+     Zasada stron Koła: żadnych strzałek ze znaków tekstowych (←, →, ↓ itp.), tylko te ikony.
+     Użycie: {{ partial "poradnik/ikona.html" "prawo" }} */ -}}
+{{- $sciezki := dict
+  "lewo" `<path d="m14.5 6-6 6 6 6"/>`
+  "prawo" `<path d="m9.5 6 6 6-6 6"/>`
+  "pobierz" `<path d="M12 4.5v10"/><path d="m7.5 10.5 4.5 4.5 4.5-4.5"/><path d="M5 19.5h14"/>`
+  "ksiazka" `<path d="M12 7.5v12.5"/><path d="M3.5 5.5c2.9-.9 5.8-.6 8.5 2 2.7-2.6 5.6-2.9 8.5-2v12.5c-2.9-.9-5.8-.6-8.5 2-2.7-2.6-5.6-2.9-8.5-2z"/>`
+  "telefon" `<path d="M8.2 3.5H6A2.5 2.5 0 0 0 3.5 6.2c.4 7.6 6.7 13.9 14.3 14.3a2.5 2.5 0 0 0 2.7-2.5v-2.2a1 1 0 0 0-.8-1l-3.4-.8a1 1 0 0 0-1 .3l-1.4 1.5a12 12 0 0 1-5.8-5.8l1.5-1.4a1 1 0 0 0 .3-1l-.8-3.4a1 1 0 0 0-1-.8z"/>`
+  "zamknij" `<path d="M6.5 6.5l11 11"/><path d="M17.5 6.5l-11 11"/>`
+  "wstecz" `<path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3L4.5 9"/><path d="M4.5 4.5V9H9"/>`
+  "naprzod" `<path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3L19.5 9"/><path d="M19.5 4.5V9H15"/>`
+  "plik" `<path d="M14 3.5H7A1.5 1.5 0 0 0 5.5 5v14A1.5 1.5 0 0 0 7 20.5h10a1.5 1.5 0 0 0 1.5-1.5V8z"/><path d="M14 3.5V8h4.5"/><path d="M9 13h6"/><path d="M9 16.5h4"/>`
+-}}
+{{- with index $sciezki . -}}
+<svg class="ico ico-{{ $ }}" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">{{ . | safeHTML }}</svg>
+{{- else }}{{ errorf "poradnik/ikona: nieznana ikona %q" . }}{{ end -}}

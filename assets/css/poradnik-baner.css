@@ -1,5 +1,5 @@
 /* Baner poradnika na stronie głównej (layouts/home.html). */
-.guide-home-banner { display: grid; grid-template-columns: 1fr 1fr; gap: 35px; align-items: center; background: #f4f0e6; border-radius: 22px; overflow: hidden; margin-block: 35px; }
+.guide-home-banner { display: grid; grid-template-columns: 1fr 1fr; gap: 35px; align-items: center; background: linear-gradient(135deg, var(--f50), var(--f100)); border: 1px solid var(--linia); border-radius: 22px; overflow: hidden; margin-block: 35px; }
 /* Karta w szerokości treści, obraz dosunięty do krawędzi karty. */
 .szeroko.guide-home-banner { padding-inline: 0; width: min(1116px, calc(100% - 2 * clamp(1rem, 4vw, 2rem))); }
 .guide-home-banner > div { padding: 35px; }

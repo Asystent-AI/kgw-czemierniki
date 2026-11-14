@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-  // Lektor (nagrania ElevenLabs z podświetlaniem czytanego fragmentu), syreny RCB, metronom
+  // Lektor (nagrania z podświetlaniem czytanego fragmentu), syreny RCB, metronom
   // uciśnięć i kalkulator wody. Czytnik (poradnik.js) udostępnia window.KGWPoradnik.
   // Zasada: dźwięk startuje wyłącznie po kliknięciu i gra tylko jedno źródło naraz.
   const root = document.getElementById('poradnik');
@@ -200,7 +200,7 @@
       dl.querySelector('span').textContent = `(MP3, ${(t.bytes / 1048576).toFixed(1).replace('.', ',')} MB)`;
       $('ab-next').hidden = true;
       if ('mediaSession' in navigator && window.MediaMetadata) {
-        try {navigator.mediaSession.metadata = new MediaMetadata({title: titleOf(i), artist: 'Lektor AI, KGW Czemierniki', album: 'Czemierniki trzymają się razem!', artwork: artworkFor(i)});} catch (_) { /* bez metadanych */ }
+        try {navigator.mediaSession.metadata = new MediaMetadata({title: titleOf(i), artist: 'Koło Gospodyń Wiejskich Czemierniki', album: 'Czemierniki trzymają się razem!', artwork: artworkFor(i)});} catch (_) { /* bez metadanych */ }
       }
       return true;
     }

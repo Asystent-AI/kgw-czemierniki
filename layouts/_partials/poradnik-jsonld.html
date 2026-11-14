@@ -5,14 +5,14 @@
      data/lektor.json, dokłada nagrania lektora: AudioObject całości i każdego rozdziału
      (dopasowanie po chapters[].index = indeks w pages, z kontrolą sluga), accessMode
      "auditory" i synchronizedAudioText. Bez data/lektor.json działa jak dotąd.
-     Lektor to głos syntetyczny, więc bez readBy z osobą. */ -}}
+     Bez readBy: lektor nie jest wskazany z nazwiska. */ -}}
 {{- $strona := .Permalink -}}
 {{- $dom := site.Home.Permalink -}}
 {{- $orgId := printf "%s#organizacja" $dom -}}
 {{- $ksiazkaId := printf "%s#poradnik" $strona -}}
 {{- $obraz := absURL "/poradnik/og-poradnik.jpg" -}}
 {{- with .Params.images }}{{ $obraz = index . 0 | absURL }}{{ end -}}
-{{- $opisGlosu := "Głos syntetyczny (AI, ElevenLabs) czytający tekst poradnika" -}}
+{{- $opisGlosu := "Profesjonalny lektor czyta tekst poradnika" -}}
 
 {{- /* Nagrania lektora: sekundy zamieniamy na czas ISO 8601 (812.3 s -> PT13M32S) */ -}}
 {{- $lektor := hugo.Data.lektor -}}
@@ -42,7 +42,7 @@
             "inLanguage" "pl-PL"
             "description" $opisGlosu -}}
       {{- if eq .klucz "calosc" -}}
-        {{- $audioCalosc = merge $audio (dict "name" "Czemierniki trzymają się razem! Cały poradnik czytany głosem syntetycznym") -}}
+        {{- $audioCalosc = merge $audio (dict "name" "Czemierniki trzymają się razem! Cały poradnik czytany przez lektora") -}}
       {{- else -}}
         {{- $audioRozdzialy = merge $audioRozdzialy (dict .klucz (dict "audio" $audio "slug" .slug)) -}}
       {{- end -}}
